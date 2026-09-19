@@ -1,0 +1,42 @@
+{
+  "tutorials": [
+    {
+      "title": "PulseHMIS video tutorial 1",
+      "video": "https://youtu.be/ql-2STHf8xc",
+      "product": "PulseHMIS",
+      "description": "Watch PulseHMIS in action."
+    },
+    {
+      "title": "PulseHMIS video tutorial 2",
+      "video": "https://youtu.be/N5Jh59oMvws",
+      "product": "PulseHMIS",
+      "description": "Watch PulseHMIS in action."
+    }
+  ],
+  "downloads": [
+    {
+      "app": "PulseHMIS",
+      "platform": "Android",
+      "size": "72 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk"
+    },
+    {
+      "app": "PulseHMIS",
+      "platform": "Windows",
+      "size": "17 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe"
+    },
+    {
+      "app": "Lwasa Ludo",
+      "platform": "Android",
+      "size": "68 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk"
+    },
+    {
+      "app": "Lwasa Ludo",
+      "platform": "Windows",
+      "size": "24 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe"
+    }
+  ]
+}
