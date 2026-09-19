@@ -13,6 +13,12 @@
       "description": "Watch PulseHMIS in action."
     }
   ],
+  {
+      "title": "PulseHMIS download install and workflow tutorial",
+      "video": "https://youtu.be/XXXXXXXXXXX",
+      "product": "PulseHMIS",
+      "description": "One short sentence."
+    },
   "downloads": [
     {
       "app": "PulseHMIS",
