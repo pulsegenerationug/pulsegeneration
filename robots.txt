@@ -1,4 +1,6 @@
-User-agent: *
+User-Agent: *
 Allow: /
+Disallow: /account/
+Disallow: /reset-password/
 
-Sitemap: https://pulsegenerationug.github.io/pulsegeneration/sitemap.xml
+Sitemap: https://pulsegenerationug.com/sitemap.xml
