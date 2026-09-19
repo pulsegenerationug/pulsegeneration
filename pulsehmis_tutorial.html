@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulseHMIS — Getting Started</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #eef0f4;
+    --page-ink: #1c2333;
+    --chrome-surface: #ffffff;
+    --chrome-border: rgba(20,30,60,0.10);
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page-bg: #0d1017;
+      --page-ink: #e7ebf5;
+      --chrome-surface: #171b26;
+      --chrome-border: rgba(255,255,255,0.10);
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0d1017;
+    --page-ink: #e7ebf5;
+    --chrome-surface: #171b26;
+    --chrome-border: rgba(255,255,255,0.10);
+  }
+
+  /* Fixed brand tokens for the video frame itself -- this is meant to
+     look identical wherever it's watched, like an actual video does,
+     so it doesn't follow the viewer's OS theme the way the outer page
+     chrome (background, controls) does above. */
+  :root {
+    --navy-950: #070b16;
+    --navy-900: #0b1220;
+    --navy-800: #101a30;
+    --navy-700: #16213e;
+    --blue-700: #1b3b8c;
+    --blue-500: #2e63e7;
+    --blue-300: #7fa4f2;
+    --gold-500: #c89b3c;
+    --gold-300: #e8c468;
+    --off-white: #f4f5f7;
+    --ink: #16213e;
+    --ink-soft: #4a5578;
+    --good: #33c48a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--page-bg);
+    color: var(--page-ink);
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  .wrap {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 16px 28px;
+  }
+
+  h1.brandline {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    margin: 0 0 2px;
+    color: var(--page-ink);
+    opacity: 0.82;
+  }
+
+  /* ---------- The stage: fixed 16:9 "video" frame ---------- */
+  .stage-shell {
+    width: 100%;
+    max-width: 980px;
+  }
+  .stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--navy-900);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -25px rgba(6,10,25,0.55);
+    isolation: isolate;
+  }
+  .stage::before {
+    /* faint scanline / clinical-monitor texture, very subtle */
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      to bottom, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px,
+      transparent 1px, transparent 3px
+    );
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .progress-track {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: rgba(255,255,255,0.08);
+    z-index: 20;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--blue-500), var(--gold-300));
+  }
+
+  .scene {
+    position: absolute; inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 3vw, 28px);
+    padding: clamp(16px, 5vw, 56px) clamp(16px, 6vw, 72px);
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.55s ease, transform 0.6s ease;
+    pointer-events: none;
+  }
+  .scene.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .visual {
+    flex: 1 1 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .caption {
+    text-align: center;
+    max-width: 640px;
+  }
+  .caption .title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: clamp(15px, 2.6vw, 24px);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .caption .sub {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    color: #aab4d4;
+    font-size: clamp(10.5px, 1.6vw, 14.5px);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .caption .sub b { color: var(--gold-300); font-weight: 600; }
+
+  /* ---------- Logo mark (reused in scene 1, transitions, outro) ---------- */
+  .logomark { position: relative; width: clamp(90px,18vw,150px); height: clamp(90px,18vw,150px); }
+  .logomark svg { width: 100%; height: 100%; }
+  .ring { fill: none; stroke-linecap: round; }
+  .pulse-dot {
+    animation: pulseGrow 2.2s ease-in-out infinite;
+    transform-origin: center;
+  }
+  @keyframes pulseGrow {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.6; }
+  }
+  .wordmark {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(20px, 4vw, 34px);
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .wordmark span { color: var(--gold-300); }
+
+  /* ---------- Generic mockup building blocks ---------- */
+  .mockup-window {
+    background: var(--off-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+    width: min(560px, 88%);
+  }
+  .mockup-topbar {
+    background: #e3e6ee;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot3 { display:flex; gap:5px; }
+  .dot3 span { width:8px; height:8px; border-radius:50%; background:#c3c8d6; display:block; }
+  .addr {
+    flex: 1;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-left: 8px;
+    font-family: 'IBM Plex Sans', monospace;
+  }
+  .mockup-body { padding: 18px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--blue-500);
+    color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px -6px rgba(46,99,231,0.7);
+  }
+  .btn.gold { background: linear-gradient(135deg, var(--gold-500), var(--gold-300)); color:#382a05; box-shadow:0 6px 16px -6px rgba(200,155,60,0.6);}
+
+  .chip {
+    display:inline-flex; align-items:center; gap:5px;
+    font-size: 10.5px; font-weight:600; padding: 4px 10px; border-radius: 999px;
+    background: rgba(51,196,138,0.15); color:#1c8f63;
+  }
+  .chip.blue { background: rgba(46,99,231,0.12); color: var(--blue-700); }
+  .chip.wait { background: rgba(200,155,60,0.16); color:#8a6413; }
+
+  /* click-pulse ring used to indicate "tap here" moments */
+  .tap-ring {
+    position:absolute; width:34px; height:34px; border-radius:50%;
+    border:2px solid var(--gold-300);
+    animation: tapPulse 1.4s ease-out infinite;
+  }
+  @keyframes tapPulse {
+    0% { transform: scale(0.5); opacity: 0.9; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* device icons for platform / network scenes */
+  .device { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .device .icon-box {
+    width: 74px; height: 54px; border-radius: 8px; background: var(--navy-700);
+    border: 2px solid rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .device.phone .icon-box { width: 34px; height: 60px; border-radius: 10px; }
+  .device .icon-box.on { border-color: var(--gold-300); box-shadow: 0 0 0 4px rgba(232,196,104,0.15); }
+  .device label { font-size: 11px; color:#c7cfe6; font-weight:600; }
+
+  .flowline { position:relative; }
+  .flow-node {
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .flow-node .avatar {
+    width: 46px; height:46px; border-radius:50%;
+    background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-family:'Manrope',sans-serif; font-weight:800; font-size:15px;
+  }
+  .flow-node span { font-size: 11px; color:#c7cfe6; font-weight:600; }
+  .flow-track {
+    width: clamp(90px,18vw,180px); height:2px; background: rgba(255,255,255,0.15);
+    position:relative; overflow:visible;
+  }
+  .flow-track .runner {
+    position:absolute; top:-4px; width:10px; height:10px; border-radius:50%;
+    background: var(--gold-300); box-shadow: 0 0 10px 2px rgba(232,196,104,0.8);
+    animation: runFlow 1.6s ease-in-out infinite;
+  }
+  @keyframes runFlow {
+    0% { left: 0%; opacity:0; }
+    10% { opacity:1; }
+    90% { opacity:1; }
+    100% { left: 96%; opacity:0; }
+  }
+
+  /* sidebar + kpi mockup for dashboard scene */
+  .app-shell { display:flex; width:min(600px,90%); border-radius:12px; overflow:hidden; box-shadow:0 20px 40px -18px rgba(0,0,0,0.55);}
+  .app-side { width: 56px; background: var(--navy-800); display:flex; flex-direction:column; align-items:center; gap:14px; padding:14px 0; }
+  .app-side .ic { width:22px; height:22px; border-radius:6px; background: rgba(255,255,255,0.12); }
+  .app-side .ic.on { background: var(--gold-300); }
+  .app-main { flex:1; background: var(--off-white); padding:14px; }
+  .kpi-row { display:flex; gap:8px; margin-bottom:10px; }
+  .kpi-card { flex:1; background:#fff; border-radius:8px; padding:8px 10px; box-shadow: 0 4px 10px -6px rgba(20,30,60,0.25); }
+  .kpi-card .n { font-family:'Manrope',sans-serif; font-weight:800; font-size:16px; color:var(--ink); }
+  .kpi-card .l { font-size:8.5px; color:var(--ink-soft); }
+  .chart-box { background:#fff; border-radius:8px; padding:10px; height:64px; display:flex; align-items:flex-end; gap:4px; }
+  .chart-box i { display:block; width:9%; background: linear-gradient(180deg, var(--blue-300), var(--blue-500)); border-radius:3px 3px 0 0; }
+
+  .field {
+    background:#fff; border:1px solid #d7dbe6; border-radius:7px;
+    padding:7px 10px; font-size:11px; color: var(--ink); min-width: 120px;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .field.typing::after {
+    content:'|'; animation: caret 1s steps(1) infinite; color: var(--blue-500);
+  }
+  @keyframes caret { 50% { opacity:0; } }
+
+  .row { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+  .col { display:flex; flex-direction:column; gap:6px; }
+  .label-sm { font-size:9px; color: var(--ink-soft); font-weight:600; text-transform:none; }
+
+  .checkmark {
+    width:20px;height:20px;border-radius:50%;background:var(--good);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;
+    opacity:0; transform:scale(0.4);
+  }
+  .checkmark.show { animation: popIn 0.4s ease forwards; }
+  @keyframes popIn { to { opacity:1; transform:scale(1); } }
+
+  /* ---------- Controls (outside the frame) ---------- */
+  .controls {
+    display:flex; align-items:center; gap:10px;
+    background: var(--chrome-surface);
+    border: 1px solid var(--chrome-border);
+    padding: 8px 14px;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px -16px rgba(20,30,60,0.35);
+    font-size: 12.5px;
+  }
+  .ctrl-btn {
+    width: 30px; height:30px; border-radius:50%; border:none; cursor:pointer;
+    background: var(--blue-500); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:13px;
+  }
+  .ctrl-btn.ghost { background: transparent; color: var(--page-ink); opacity:0.7; }
+  .ctrl-btn.ghost.active-toggle { opacity:1; color: var(--blue-500); }
+  .scene-counter { color: var(--page-ink); opacity:0.65; font-variant-numeric: tabular-nums; min-width: 70px; text-align:center; }
+  .controls a { color: var(--page-ink); opacity:0.55; text-decoration:none; font-size:11.5px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot, .tap-ring, .runner { animation: none !important; }
+    .scene { transition: opacity 0.2s linear; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="brandline">PulseHMIS — Getting Started</h1>
+
+  <div class="stage-shell">
+    <div class="stage" id="stage">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+      <!-- 1: Intro -->
+      <section class="scene" data-duration="10000">
+        <div class="visual">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <div class="logomark">
+              <svg viewBox="0 0 100 100">
+                <circle class="ring" cx="50" cy="50" r="42" stroke="#2e63e7" stroke-width="4" stroke-dasharray="180 100"/>
+                <circle class="ring" cx="50" cy="50" r="30" stroke="#e8c468" stroke-width="4" stroke-dasharray="130 80"/>
+                <circle class="pulse-dot" cx="50" cy="50" r="9" fill="#e8c468"/>
+              </svg>
+            </div>
+            <div class="wordmark">Pulse<span>HMIS</span></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Hospital management, built to work offline</p>
+          <p class="sub">A quick walkthrough — from downloading PulseHMIS to your first patient visit.</p>
+        </div>
+      </section>
+
+      <!-- 2: what is it -->
+      <section class="scene" data-duration="10000">
+        <div class="visual">
+          <div class="row" style="gap:22px;">
+            <div class="col" style="align-items:center;">
+              <div class="device"><div class="icon-box on"></div><label>Works offline</label></div>
+            </div>
+            <div class="col" style="align-items:center;">
+              <div class="device"><div class="icon-box on"></div><label>Syncs on your network</label></div>
+            </div>
+            <div class="col" style="align-items:center;">
+              <div class="device"><div class="icon-box on"></div><label>Every department, connected</label></div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Reception, Doctor, Lab, Pharmacy, Cashier — one system</p>
+          <p class="sub">No internet required day-to-day. Devices on the same network stay in sync automatically.</p>
+        </div>
+      </section>
+
+      <!-- 3: download -->
+      <section class="scene" data-duration="16000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar">
+              <div class="dot3"><span></span><span></span><span></span></div>
+              <div class="addr">www.pulsegenerationug.com</div>
+            </div>
+            <div class="mockup-body" style="position:relative;">
+              <div class="col" style="gap:10px;">
+                <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:var(--ink);">Pulse Generation UG</div>
+                <div style="font-size:10.5px;color:var(--ink-soft);">Download PulseHMIS for your clinic</div>
+                <div style="position:relative;width:fit-content;">
+                  <span class="btn gold">Download for Windows</span>
+                  <span class="tap-ring" style="top:-6px;left:-6px;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Step 1 — Download</p>
+          <p class="sub">Go to <b>pulsegenerationug.com</b> and choose the download for your device — Windows or Android.</p>
+        </div>
+      </section>
+
+      <!-- 4: choose platform -->
+      <section class="scene" data-duration="10000">
+        <div class="visual">
+          <div class="row" style="gap:36px;">
+            <div class="device"><div class="icon-box on"></div><label>Windows — front desk &amp; admin</label></div>
+            <div class="device phone"><div class="icon-box"></div><label>Android — mobile use</label></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">One app, two platforms</p>
+          <p class="sub">Most facilities run Windows at reception and administration desks, and Android for staff on the move.</p>
+        </div>
+      </section>
+
+      <!-- 5: installing windows -->
+      <section class="scene" data-duration="16000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body">
+              <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:13px;color:var(--ink);margin-bottom:10px;">Installing PulseHMIS</div>
+              <div style="background:#e3e6ee;border-radius:6px;height:10px;overflow:hidden;">
+                <div id="installBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--blue-500),var(--gold-300));"></div>
+              </div>
+              <div style="font-size:9.5px;color:var(--ink-soft);margin-top:8px;">Follow the on-screen steps — takes under a minute.</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Step 2 — Install</p>
+          <p class="sub">Open the installer and click Next through the setup wizard. Nothing to configure yet.</p>
+        </div>
+      </section>
+
+      <!-- 6: host/client concept -->
+      <section class="scene" data-duration="16000">
+        <div class="visual">
+          <div style="position:relative;width:260px;height:170px;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+              <div class="device"><div class="icon-box on"></div><label>Host</label></div>
+            </div>
+            <div style="position:absolute;top:0;left:0;"><div class="device phone"><div class="icon-box"></div><label>Client</label></div></div>
+            <div style="position:absolute;top:0;right:0;"><div class="device phone"><div class="icon-box"></div><label>Client</label></div></div>
+            <div style="position:absolute;bottom:0;left:30%;"><div class="device"><div class="icon-box"></div><label>Client</label></div></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">One Host, many Clients</p>
+          <p class="sub">One computer is the <b>Host</b> — it holds the facility's data. Every other device connects as a <b>Client</b> over your Wi-Fi.</p>
+        </div>
+      </section>
+
+      <!-- 7: host setup -->
+      <section class="scene" data-duration="12000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body">
+              <div class="chip blue" style="margin-bottom:10px;">Host mode</div>
+              <div class="label-sm">Give Client devices this address</div>
+              <div class="field" style="margin-top:5px;font-family:'IBM Plex Sans',monospace;">192.168.1.42</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Step 3 — Set up the Host</p>
+          <p class="sub">On your main computer, choose Host. It shows an address — that's what every other device will connect to.</p>
+        </div>
+      </section>
+
+      <!-- 8: client connects -->
+      <section class="scene" data-duration="12000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body">
+              <div class="chip wait" style="margin-bottom:10px;">Client mode</div>
+              <div class="row" style="align-items:center;gap:8px;">
+                <div class="field typing" style="font-family:'IBM Plex Sans',monospace;">192.168.1.42</div>
+                <div class="checkmark show">✓</div>
+              </div>
+              <div style="font-size:9.5px;color:var(--ink-soft);margin-top:8px;">Connected to Host</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Step 4 — Connect every other device</p>
+          <p class="sub">Choose Client, type in that same address, and you're linked to the facility's data.</p>
+        </div>
+      </section>
+
+      <!-- 9: login -->
+      <section class="scene" data-duration="10000">
+        <div class="visual">
+          <div class="mockup-window" style="width:min(360px,80%);">
+            <div class="mockup-body col" style="gap:8px;align-items:center;">
+              <div class="logomark" style="width:40px;height:40px;">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#2e63e7" stroke-width="8"/><circle cx="50" cy="50" r="14" fill="#e8c468"/></svg>
+              </div>
+              <div class="field" style="width:100%;text-align:center;">Admin</div>
+              <div class="field" style="width:100%;text-align:center;letter-spacing:3px;">••••••••</div>
+              <div class="btn" style="margin-top:4px;">Sign in</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Step 5 — Sign in</p>
+          <p class="sub">Default login is <b>Admin / Admin1234</b> — change the password right after your first sign-in.</p>
+        </div>
+      </section>
+
+      <!-- 10: dashboard -->
+      <section class="scene" data-duration="16000">
+        <div class="visual">
+          <div class="app-shell">
+            <div class="app-side">
+              <div class="ic on"></div><div class="ic"></div><div class="ic"></div><div class="ic"></div><div class="ic"></div>
+            </div>
+            <div class="app-main">
+              <div class="kpi-row">
+                <div class="kpi-card"><div class="n">24</div><div class="l">Registered today</div></div>
+                <div class="kpi-card"><div class="n">9</div><div class="l">Active in facility</div></div>
+                <div class="kpi-card"><div class="n">3</div><div class="l">Admitted</div></div>
+              </div>
+              <div class="chart-box">
+                <i style="height:40%"></i><i style="height:65%"></i><i style="height:35%"></i><i style="height:80%"></i>
+                <i style="height:55%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i>
+                <i style="height:60%"></i><i style="height:50%"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Your facility, at a glance</p>
+          <p class="sub">The Dashboard shows today's patients, department load, and activity the moment you sign in.</p>
+        </div>
+      </section>
+
+      <!-- 11: reception -->
+      <section class="scene" data-duration="18000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body col" style="gap:8px;">
+              <div class="field typing" style="width:100%;">Nakato Sarah</div>
+              <div class="row">
+                <div class="field" style="flex:1;">Phone</div>
+                <div class="field" style="flex:1;">Date of birth</div>
+              </div>
+              <div style="position:relative;width:fit-content;margin-top:4px;">
+                <span class="btn">Start visit</span>
+                <span class="tap-ring" style="top:-6px;left:-6px;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Reception — register a patient</p>
+          <p class="sub">Search first in case they've visited before, otherwise register them in seconds and route them onward.</p>
+        </div>
+      </section>
+
+      <!-- 12: route to doctor -->
+      <section class="scene" data-duration="8000">
+        <div class="visual">
+          <div class="row flowline" style="align-items:center;gap:0;">
+            <div class="flow-node"><div class="avatar">R</div><span>Reception</span></div>
+            <div class="flow-track"><div class="runner"></div></div>
+            <div class="flow-node"><div class="avatar">D</div><span>Doctor</span></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Sent straight to the Doctor's queue</p>
+          <p class="sub">One tap routes the patient on — no paper, no waiting at a window.</p>
+        </div>
+      </section>
+
+      <!-- 13: doctor's office -->
+      <section class="scene" data-duration="20000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body col" style="gap:10px;">
+              <div class="row">
+                <div class="field" style="flex:1;">Temp 38.2°C</div>
+                <div class="field" style="flex:1;">BP 118/76</div>
+              </div>
+              <div class="chip blue" style="width:fit-content;">Diagnosis: Malaria</div>
+              <div style="background:#fff;border-radius:8px;padding:8px 10px;font-size:10px;color:var(--ink);">
+                Artesunate · IV · OD · 4 days <span class="checkmark show" style="width:14px;height:14px;font-size:9px;vertical-align:middle;margin-left:4px;">✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Doctor's Office — consultation &amp; prescriptions</p>
+          <p class="sub">Vitals, diagnosis, and structured prescriptions — legible, and impossible to misread later.</p>
+        </div>
+      </section>
+
+      <!-- 14: route to lab -->
+      <section class="scene" data-duration="8000">
+        <div class="visual">
+          <div class="row flowline" style="align-items:center;gap:0;">
+            <div class="flow-node"><div class="avatar">D</div><span>Doctor</span></div>
+            <div class="flow-track"><div class="runner"></div></div>
+            <div class="flow-node"><div class="avatar">L</div><span>Laboratory</span></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">On to the Lab</p>
+          <p class="sub">Ordered tests travel with the patient automatically.</p>
+        </div>
+      </section>
+
+      <!-- 15: laboratory -->
+      <section class="scene" data-duration="14000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body col" style="gap:8px;">
+              <div class="row" style="justify-content:space-between;">
+                <span style="font-size:11px;color:var(--ink);">Malaria RDT</span>
+                <span class="chip">Resulted</span>
+              </div>
+              <div class="row" style="justify-content:space-between;">
+                <span style="font-size:11px;color:var(--ink);">Blood Slide</span>
+                <span class="chip wait">Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Laboratory — enter results</p>
+          <p class="sub">Results post back to the Doctor and the patient's record the moment they're saved.</p>
+        </div>
+      </section>
+
+      <!-- 16: route to injection room -->
+      <section class="scene" data-duration="8000">
+        <div class="visual">
+          <div class="row flowline" style="align-items:center;gap:0;">
+            <div class="flow-node"><div class="avatar">L</div><span>Laboratory</span></div>
+            <div class="flow-track"><div class="runner"></div></div>
+            <div class="flow-node"><div class="avatar">IR</div><span>Injection Room</span></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Treatment continues in the Injection Room</p>
+          <p class="sub">Nurses see exactly what's due, and when.</p>
+        </div>
+      </section>
+
+      <!-- 17: injection room -->
+      <section class="scene" data-duration="14000">
+        <div class="visual">
+          <div class="mockup-window">
+            <div class="mockup-topbar"><div class="dot3"><span></span><span></span><span></span></div></div>
+            <div class="mockup-body col" style="gap:8px;">
+              <div style="font-size:11px;color:var(--ink);">Artesunate IV — dose 2 of 3</div>
+              <div class="row" style="align-items:center;">
+                <span class="btn gold">Mark dose given</span>
+                <div class="checkmark show">✓</div>
+              </div>
+              <div style="font-size:9px;color:var(--ink-soft);">Logged with time and staff name automatically.</div>
+            </div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Injection Room — administer &amp; log</p>
+          <p class="sub">One tap records the dose, the time, and who gave it — searchable if the queue ever runs long.</p>
+        </div>
+      </section>
+
+      <!-- 18: outro -->
+      <section class="scene" data-duration="12000">
+        <div class="visual">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <div class="logomark">
+              <svg viewBox="0 0 100 100">
+                <circle class="ring" cx="50" cy="50" r="42" stroke="#2e63e7" stroke-width="4" stroke-dasharray="180 100"/>
+                <circle class="ring" cx="50" cy="50" r="30" stroke="#e8c468" stroke-width="4" stroke-dasharray="130 80"/>
+                <circle class="pulse-dot" cx="50" cy="50" r="9" fill="#e8c468"/>
+              </svg>
+            </div>
+            <div class="wordmark">Pulse<span>HMIS</span></div>
+          </div>
+        </div>
+        <div class="caption">
+          <p class="title">Get PulseHMIS today</p>
+          <p class="sub"><b>www.pulsegenerationug.com</b> — by Pulse Generation UG</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="playBtn" title="Play/Pause">⏸</button>
+    <button class="ctrl-btn ghost" id="prevBtn" title="Previous">⟲</button>
+    <span class="scene-counter" id="sceneCounter">1 / 18</span>
+    <button class="ctrl-btn ghost" id="nextBtn" title="Next">⟳</button>
+    <button class="ctrl-btn ghost" id="narrateBtn" title="Read captions aloud">🔊</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var fill = document.getElementById('progressFill');
+  var playBtn = document.getElementById('playBtn');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var narrateBtn = document.getElementById('narrateBtn');
+  var counter = document.getElementById('sceneCounter');
+  var installBar = document.getElementById('installBar');
+
+  var total = scenes.reduce(function (sum, s) { return sum + parseInt(s.dataset.duration, 10); }, 0);
+  var elapsedBefore = [];
+  var acc = 0;
+  scenes.forEach(function (s) { elapsedBefore.push(acc); acc += parseInt(s.dataset.duration, 10); });
+
+  var current = 0;
+  var playing = true;
+  var narrate = false;
+  var sceneStart = performance.now();
+  var pausedAt = 0;
+  var raf = null;
+
+  function speak(text) {
+    if (!narrate) return;
+    try {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.rate = 0.98;
+      window.speechSynthesis.speak(u);
+    } catch (e) { /* speech synthesis unavailable -- silently skip */ }
+  }
+
+  function showScene(i) {
+    scenes.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+    counter.textContent = (i + 1) + ' / ' + scenes.length;
+    var title = scenes[i].querySelector('.title');
+    var sub = scenes[i].querySelector('.sub');
+    speak((title ? title.textContent + '. ' : '') + (sub ? sub.textContent : ''));
+    if (i === 4 && installBar) {
+      installBar.style.width = '0%';
+      requestAnimationFrame(function () {
+        installBar.style.transition = 'width 3.4s ease';
+        installBar.style.width = '100%';
+      });
+    }
+  }
+
+  function tick(now) {
+    if (!playing) return;
+    var elapsed = elapsedBefore[current] + (now - sceneStart);
+    fill.style.width = Math.min(100, (elapsed / total) * 100) + '%';
+    var dur = parseInt(scenes[current].dataset.duration, 10);
+    if (now - sceneStart >= dur) {
+      if (current < scenes.length - 1) {
+        current++;
+        sceneStart = now;
+        showScene(current);
+      } else {
+        current = 0;
+        sceneStart = now;
+        showScene(current);
+      }
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(scenes.length - 1, i));
+    sceneStart = performance.now();
+    showScene(current);
+  }
+
+  playBtn.addEventListener('click', function () {
+    playing = !playing;
+    playBtn.textContent = playing ? '⏸' : '▶';
+    if (playing) {
+      sceneStart = performance.now() - pausedAt;
+      raf = requestAnimationFrame(tick);
+    } else {
+      pausedAt = performance.now() - sceneStart;
+      if (raf) cancelAnimationFrame(raf);
+      try { window.speechSynthesis && window.speechSynthesis.pause(); } catch (e) {}
+    }
+  });
+  prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  nextBtn.addEventListener('click', function () { goTo(current + 1); });
+  narrateBtn.addEventListener('click', function () {
+    narrate = !narrate;
+    narrateBtn.classList.toggle('active-toggle', narrate);
+    if (!narrate) { try { window.speechSynthesis.cancel(); } catch (e) {} }
+    else { var t = scenes[current].querySelector('.title'), s = scenes[current].querySelector('.sub'); speak((t?t.textContent+'. ':'')+(s?s.textContent:'')); }
+  });
+
+  showScene(0);
+  raf = requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
