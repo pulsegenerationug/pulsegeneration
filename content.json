@@ -29,37 +29,43 @@
     {
       "app": "PulseHMIS",
       "platform": "Android",
-      "size": "72 MB",
+      "version": "1.0.0",
+      "size": "74 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk"
     },
     {
       "app": "PulseHMIS",
       "platform": "Windows",
-      "size": "17 MB",
+      "version": "1.0.0",
+      "size": "16 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe"
     },
     {
       "app": "EduPulse",
       "platform": "Android",
+      "version": "1.4.0",
       "size": "80 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.4.0.apk"
     },
     {
       "app": "EduPulse",
       "platform": "Windows",
+      "version": "1.4.0",
       "size": "18 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe"
     },
     {
       "app": "Lwasa Ludo",
       "platform": "Android",
-      "size": "68 MB",
+      "version": "1.0.0",
+      "size": "62 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk"
     },
     {
       "app": "Lwasa Ludo",
       "platform": "Windows",
-      "size": "24 MB",
+      "version": "1.0.0",
+      "size": "13 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe"
     }
   ]
