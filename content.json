@@ -1,28 +1,28 @@
 {
   "tutorials": [
     {
+      "title": "PulseHMIS full tutorial",
+      "video": "https://youtu.be/0zYYHmW_cd0",
+      "product": "PulseHMIS",
+      "description": "A complete walkthrough of hospital software that works with no internet, from reception to pharmacy."
+    },
+    {
       "title": "PulseHMIS video tutorial 1",
       "video": "https://youtu.be/ql-2STHf8xc",
       "product": "PulseHMIS",
       "description": "Watch PulseHMIS in action."
     },
     {
-      "title": "Lwasa Ludo Privacy Policy",
-      "video": "https://pulsegenerationug.github.io/pulsegeneration/lwasa-ludo/privacy-policy.html",
-      "product": "PulseHMIS",
-      "description": "One short sentence."
-    },
-     {
-      "title": "Lwasa Ludo",
-      "video": "https://youtu.be/qHFgzQnEiSc?si=15VkLfEn5Yqtj9AZ",
-      "product": "PulseHMIS",
-      "description": "One short sentence."
-    },
-    {
       "title": "PulseHMIS video tutorial 2",
       "video": "https://youtu.be/N5Jh59oMvws",
       "product": "PulseHMIS",
       "description": "Watch PulseHMIS in action."
+    },
+    {
+      "title": "Lwasa Ludo",
+      "video": "https://youtu.be/qHFgzQnEiSc",
+      "product": "Lwasa Ludo",
+      "description": "The classic board game in 3D, with Luganda commentary."
     }
   ],
   "downloads": [
@@ -37,6 +37,18 @@
       "platform": "Windows",
       "size": "17 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe"
+    },
+    {
+      "app": "EduPulse",
+      "platform": "Android",
+      "size": "80 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.4.0.apk"
+    },
+    {
+      "app": "EduPulse",
+      "platform": "Windows",
+      "size": "18 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe"
     },
     {
       "app": "Lwasa Ludo",
