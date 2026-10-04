@@ -197,7 +197,7 @@ if __name__ == "__main__":
          "/edupulse/", (P / "edupulse.html").read_text(encoding="utf-8"), active="EduPulse", tab="apps",
          jsonld=app_ld("EduPulse", "EducationalApplication", "Offline-first school, college and university administration system.", "/edupulse/"))
     page("lwasa-ludo/index.html", "Lwasa Ludo · The classic board game in 3D, in Luganda",
-         "Play Ludo in 3D against the computer, with friends on one device, or online. Luganda commentary, for Android and Windows.",
+         "Play Ludo in 3D against the computer or with friends on one device, fully offline. Blitz mode, trophies, unlockable dice and boards and Luganda commentary. Android and Windows.",
          "/lwasa-ludo/", (P / "ludo.html").read_text(encoding="utf-8"), active="Lwasa Ludo", tab="apps", body_class="ludo-page", force_dark=True,
          jsonld=app_ld("Lwasa Ludo", "GameApplication", "3D Ludo board game with Luganda commentary.", "/lwasa-ludo/"))
     page("404.html", "Page not found · Pulse Generation UG", "This page doesn't exist.", "/404",

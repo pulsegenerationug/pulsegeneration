@@ -57,15 +57,15 @@
     {
       "app": "Lwasa Ludo",
       "platform": "Android",
-      "version": "1.0.0",
-      "size": "62 MB",
+      "version": "2.0.0",
+      "size": "60 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk"
     },
     {
       "app": "Lwasa Ludo",
       "platform": "Windows",
-      "version": "1.0.0",
-      "size": "13 MB",
+      "version": "2.0.0",
+      "size": "12.5 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe"
     }
   ]
