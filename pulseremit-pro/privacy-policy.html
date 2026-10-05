@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulseRemit Pro - Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a2e; }
+  h1 { color: #0B1F4D; }
+  h2 { color: #0A5BD3; margin-top: 2em; }
+  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #555; }
+  a { color: #0A5BD3; }
+</style>
+</head>
+<body>
+<h1>PulseRemit Pro - Privacy Policy</h1>
+<p><em>Last updated: 4 October 2026 (version 1.1)</em></p>
+
+<p>PulseRemit Pro is business software developed by <strong>Pulse Generation UG</strong> ("we", "us") for banks,
+money-transfer operators, microfinance institutions, SACCOs and similar organisations ("the institution"). It is used
+by the institution's staff, not by the general public.</p>
+
+<h2>1. Who controls the data</h2>
+<p>All information recorded in PulseRemit Pro is entered by the institution's staff and belongs to the institution.
+The institution is the data controller and is responsible for its lawful use under the laws of its country.
+Pulse Generation UG operates the "Pulse cloud" only as a processor that connects the institution's own computers
+(section 3). <strong>We never sell this data or use it for advertising.</strong></p>
+
+<h2>2. Information the app stores</h2>
+<p>To run branch operations the app stores, on the institution's own devices:</p>
+<ul>
+  <li>customer details entered by staff: names, phone numbers, addresses, date of birth, nationality, next of kin,
+      identification document details, photographs and specimen signatures;</li>
+  <li>financial records: transfer instructions, payouts, savings/deposit account transactions, cash sessions,
+      expenses and fees;</li>
+  <li>staff user accounts (passwords are stored only as salted one-way hashes), device registrations and an audit log
+      of actions.</li>
+</ul>
+
+<h2>3. Where it is stored and sent</h2>
+<ul>
+  <li>Data is stored in a database on the institution's Branch Host computer or standalone device.</li>
+  <li>Counter PCs and tablets connect to the Branch Host over the institution's local network with the Host's PIN; each
+      device gets its own key, every request is encrypted (AES-256-GCM), and managers can block any device.</li>
+  <li>When a computer is online, the Pulse cloud (a Supabase database operated by Pulse Generation UG) connects the
+      institution's head office and branches. It receives, over HTTPS: transfers sent between branches (sender and
+      receiver names and phone numbers, amounts, status), the branch list, daily totals and the institution's settings
+      (fees, exchange rates, products, logo).</li>
+  <li>For banking and SACCO services the cloud also receives, so that any branch of the same institution can serve its
+      customers: a balance snapshot of each savings/deposit account (account number, holder name and number, product,
+      currency, balance, status and only the last 4 digits of the phone number), a loan snapshot (loan number, borrower
+      name, amounts outstanding and in arrears, days late, next due date) and a register of transaction receipts
+      (receipt number, type, amount, account or loan number, branch, date) used to check that a printed receipt is genuine.</li>
+  <li>If the institution chooses <em>Back up to cloud</em>, a full backup is uploaded <strong>after</strong> it has been
+      encrypted on the institution's computer (AES-256-GCM with a key derived from a password only the institution knows).
+      Pulse Generation UG and Supabase cannot read it. The newest 3 backups per computer are kept.</li>
+  <li>Customer photos, signatures and identity documents are <strong>not</strong> sent to the cloud except inside such an
+      encrypted backup; they stay on the branch computer.</li>
+  <li>Each institution's computers hold their own secret keys and the cloud only returns that institution's own records —
+      one institution can never see another's data. Pulse Generation UG staff do not browse institution records.</li>
+  <li>For licensing and support we also receive: the institution's name and contacts, its computers' Device IDs, app
+      versions, licence status and any licence/renewal request it sends.</li>
+  <li>The institution can switch cloud sync off in Settings › Head office &amp; cloud. The app contains no advertising,
+      analytics or tracking SDKs.</li>
+</ul>
+
+<h2>4. Permissions</h2>
+<ul>
+  <li><strong>Camera</strong> - to photograph customers and receivers for identity verification, only when staff tap
+      "Take photo".</li>
+  <li><strong>Network access</strong> - to connect to the Branch Host on the local network and to the Pulse cloud.</li>
+</ul>
+
+<h2>5. Security</h2>
+<p>Role-based permissions, manager approval of devices, dual approval of large transactions, automatic sign-out,
+lock-out after failed sign-ins, and a tamper-evident audit log protect the data. Financial records are never deleted;
+corrections are recorded as new entries.</p>
+
+<h2>6. Retention and deletion</h2>
+<p>The institution decides how long records are kept, subject to the financial-record rules of its country. Staff
+accounts are disabled by the institution's administrator. Customers who want to access or correct their information
+should contact the institution that serves them.</p>
+
+<h2>7. Children</h2>
+<p>PulseRemit Pro is a business tool for adult staff and is not directed at children.</p>
+
+<h2>8. Contact</h2>
+<p>Questions about this policy: Pulse Generation UG, Kampala, Uganda ·
+<a href="mailto:lwasapulse11@gmail.com">lwasapulse11@gmail.com</a> · +256 700 677555 ·
+<a href="https://www.pulsegenerationug.com">www.pulsegenerationug.com</a></p>
+
+<footer>&copy; 2026 Pulse Generation UG. INNOVATE. BUILD. TRANSFORM.</footer>
+</body>
+</html>

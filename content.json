@@ -55,6 +55,20 @@
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe"
     },
     {
+      "app": "PulseRemit Pro",
+      "platform": "Android",
+      "version": "1.2.0",
+      "size": "87 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk"
+    },
+    {
+      "app": "PulseRemit Pro",
+      "platform": "Windows",
+      "version": "1.2.0",
+      "size": "15 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.2.0.exe"
+    },
+    {
       "app": "Lwasa Ludo",
       "platform": "Android",
       "version": "2.0.0",

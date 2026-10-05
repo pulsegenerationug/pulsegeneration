@@ -74,13 +74,13 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=1">
+<link rel="stylesheet" href="/site/site.css?v=2">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
 
 def nav(active=""):
-    links = [("PulseHMIS", "/pulsehmis/"), ("EduPulse", "/edupulse/"), ("Lwasa Ludo", "/lwasa-ludo/"),
+    links = [("PulseHMIS", "/pulsehmis/"), ("EduPulse", "/edupulse/"), ("PulseRemit Pro", "/pulseremit-pro/"), ("Lwasa Ludo", "/lwasa-ludo/"),
              ("Downloads", "/#downloads"), ("Tutorials", "/#tutorials"), ("Contact", "/#contact")]
     li = "".join(f'<a href="{u}"{" aria-current=\"page\" data-keep-active" if n == active else ""}>{n}</a>' for n, u in links)
     return f'''<a class="skip" href="#main">Skip to content</a>
@@ -116,7 +116,7 @@ def footer():
     <div class="footer-grid">
       <div>
         <a class="brand" href="/"><img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34"><span>Pulse Generation UG</span></a>
-        <p class="about">Offline-first software for hospitals, schools and play. Designed and built in Uganda, for the real conditions of East Africa.</p>
+        <p class="about">Offline-first software for hospitals, schools, banks and play. Designed and built in Uganda, for the real conditions of East Africa.</p>
         <div class="socials">{socials()}</div>
       </div>
       <div>
@@ -124,6 +124,7 @@ def footer():
         <ul>
           <li><a href="/pulsehmis/">PulseHMIS</a></li>
           <li><a href="/edupulse/">EduPulse</a></li>
+          <li><a href="/pulseremit-pro/">PulseRemit Pro</a></li>
           <li><a href="/lwasa-ludo/">Lwasa Ludo</a></li>
           <li><a href="/#downloads">All downloads</a></li>
           <li><a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">Release notes</a></li>
@@ -161,7 +162,7 @@ def footer():
 def page(out, title, desc, path, body, active="", tab="home", body_class="", force_dark=False, image="/og-image.png", jsonld=""):
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=1" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=2" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
@@ -185,8 +186,8 @@ if __name__ == "__main__":
             "publisher": {"@type": "Organization", "name": "Pulse Generation UG"}}) + "</script>\n"
 
     P = HERE / "pages"
-    page("index.html", "Pulse Generation UG · Offline-first apps for hospitals, schools and play",
-         "PulseHMIS, EduPulse and Lwasa Ludo: offline-first apps for Android and Windows, built in Uganda for East Africa. Download free.",
+    page("index.html", "Pulse Generation UG · Offline-first apps for hospitals, schools, banks and play",
+         "PulseHMIS, EduPulse, PulseRemit Pro and Lwasa Ludo: offline-first apps for Android and Windows, built in Uganda for East Africa. Download free.",
          "/", (P / "home.html").read_text(encoding="utf-8"), tab="home", jsonld=org)
     page("pulsehmis/index.html", "PulseHMIS · Hospital management that works with no internet",
          "PulseHMIS runs your whole clinic, from reception to the injection room, over your own local network. Offline-first, for Android and Windows.",
@@ -196,6 +197,10 @@ if __name__ == "__main__":
          "EduPulse manages students, attendance, fees, payroll, exams and automatic report cards for schools, colleges and universities. Offline-first, for Android and Windows.",
          "/edupulse/", (P / "edupulse.html").read_text(encoding="utf-8"), active="EduPulse", tab="apps",
          jsonld=app_ld("EduPulse", "EducationalApplication", "Offline-first school, college and university administration system.", "/edupulse/"))
+    page("pulseremit-pro/index.html", "PulseRemit Pro · Branch banking, SACCO & money transfer",
+         "Savings accounts, deposits, withdrawals, balance enquiries, loans, money transfers and cash control for banks, MFIs and SACCOs. Works on the branch network without internet. Android and Windows.",
+         "/pulseremit-pro/", (P / "pulseremit.html").read_text(encoding="utf-8"), active="PulseRemit Pro", tab="apps",
+         jsonld=app_ld("PulseRemit Pro", "FinanceApplication", "Branch banking, SACCO and money-transfer system for financial institutions.", "/pulseremit-pro/"))
     page("lwasa-ludo/index.html", "Lwasa Ludo · The classic board game in 3D, in Luganda",
          "Play Ludo in 3D against the computer or with friends on one device, fully offline. Blitz mode, trophies, unlockable dice and boards and Luganda commentary. Android and Windows.",
          "/lwasa-ludo/", (P / "ludo.html").read_text(encoding="utf-8"), active="Lwasa Ludo", tab="apps", body_class="ludo-page", force_dark=True,

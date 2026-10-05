@@ -54,6 +54,11 @@
       subtitle: "School, college & university administration, offline-first",
       category: "Education", color: "ico-indigo"
     },
+    "PulseRemit Pro": {
+      slug: "pulseremit-pro", icon: "/site/img/pulseremit-icon-192.webp",
+      subtitle: "Branch banking, SACCO & money transfer",
+      category: "Finance", color: "ico-teal"
+    },
     "Lwasa Ludo": {
       slug: "lwasa-ludo", icon: "/site/img/ludo-icon-192.webp",
       subtitle: "The classic board game in 3D, with Luganda commentary",
@@ -75,6 +80,8 @@
       { app: "PulseHMIS", platform: "Windows", version: "1.0.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe" },
       { app: "EduPulse", platform: "Android", version: "1.4.0", size: "80 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.4.0.apk" },
       { app: "EduPulse", platform: "Windows", version: "1.4.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe" },
+      { app: "PulseRemit Pro", platform: "Android", version: "1.2.0", size: "87 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
+      { app: "PulseRemit Pro", platform: "Windows", version: "1.2.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.2.0.exe" },
       { app: "Lwasa Ludo", platform: "Android", version: "1.0.0", size: "62 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
       { app: "Lwasa Ludo", platform: "Windows", version: "1.0.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
     ]
@@ -504,6 +511,9 @@
     { t: "EduPulse", s: "School administration system", u: "/edupulse/", k: "school college university students teachers fees report card attendance exams payroll education", img: APPS.EduPulse.icon },
     { t: "EduPulse report cards", s: "Automatic grading & report cards", u: "/edupulse/#academics", k: "marks grades report card exam results" },
     { t: "EduPulse fees & finance", s: "Fees, receipts, expenses, payroll", u: "/edupulse/#finance", k: "fees receipts payments salary payroll expenses money" },
+    { t: "PulseRemit Pro", s: "Branch banking, SACCO & money transfer", u: "/pulseremit-pro/", k: "bank banking sacco microfinance savings deposit withdraw loan balance account money transfer remittance payout branch", img: APPS["PulseRemit Pro"].icon },
+    { t: "PulseRemit Pro loans", s: "Loan products, schedules, repayments", u: "/pulseremit-pro/#loans", k: "loan credit repayment schedule interest guarantor sacco" },
+    { t: "PulseRemit Pro pricing", s: "One licence per bank", u: "/pulseremit-pro/#pricing", k: "price subscription licence trial cost" },
     { t: "Lwasa Ludo", s: "3D board game in Luganda", u: "/lwasa-ludo/", k: "game ludo board dice play multiplayer luganda", img: APPS["Lwasa Ludo"].icon },
     { t: "Lwasa Ludo privacy policy", s: "What the game collects", u: "/lwasa-ludo/privacy-policy.html", k: "privacy data policy" },
     { t: "All downloads", s: "Android APK & Windows installers", u: "/#downloads", k: "download apk exe install windows android get" },

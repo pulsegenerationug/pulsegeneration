@@ -446,7 +446,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ---------- Product showcase ---------- */
-.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1240px) { .products { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 980px) { .products { grid-template-columns: 1fr; } }
 .product {
   position: relative; display: flex; flex-direction: column; min-height: 560px; padding: 28px;
@@ -458,6 +459,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .product::before { content: ""; position: absolute; inset: 0; z-index: -2; }
 .product.hmis::before { background: radial-gradient(120% 80% at 100% 0%, #1fd1b9 0%, transparent 55%), linear-gradient(160deg, #0c5c52 0%, #06201d 100%); }
 .product.edu::before { background: radial-gradient(120% 80% at 100% 0%, #8b89ff 0%, transparent 55%), linear-gradient(160deg, #3b3ab8 0%, #0d0f3a 100%); }
+.product.remit::before { background: radial-gradient(120% 80% at 100% 0%, #22d3ee 0%, transparent 55%), linear-gradient(160deg, #0e7490 0%, #04202a 100%); }
 .product.ludo::before { background: radial-gradient(120% 80% at 100% 0%, #2a4bff 0%, transparent 55%), linear-gradient(160deg, #101a44 0%, #050816 100%); }
 .product .p-top { display: flex; align-items: center; gap: 14px; }
 .product .app-icon { width: 64px; height: 64px; }
