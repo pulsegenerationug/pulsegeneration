@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PulseHMIS - Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a2e; }
+  h1 { color: #0B1F4D; }
+  h2 { color: #0D9488; margin-top: 2em; }
+  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #555; }
+  a { color: #0D9488; }
+</style>
+</head>
+<body>
+<h1>PulseHMIS - Privacy Policy</h1>
+<p><em>Last updated: 5 October 2026 (version 2.2)</em></p>
+
+<p>PulseHMIS is hospital management software developed by Pulse Generation UG ("we", "us") for hospitals, clinics
+and health centres ("the facility"). It is used by the institution's staff, not by the general public.</p>
+
+<h2>1. Who controls the data</h2>
+<p>Everything recorded in PulseHMIS is entered by the institution's staff and belongs to the institution, which is the
+data controller and is responsible for its lawful use. Pulse Generation UG operates the "Pulse cloud" only as a
+processor that connects the institution's own computers (section 3). We never sell this data or use it for advertising.</p>
+
+<h2>2. Information the app stores</h2>
+<p>On the facility's own devices (Host computer, standalone device and the LAN client devices it synchronises with):
+patients, visits, vitals, consultations, laboratory orders and results, prescriptions, dispensing, injections, ward
+admissions, appointments, billing and payments, users and an audit log. Staff passwords are stored only as salted
+one-way hashes.</p>
+
+<h2>3. Where it is stored and what the Pulse cloud receives</h2>
+<ul>
+  <li>All patient and clinical records stay on the facility's own devices. Patient names, diagnoses, results,
+      prescriptions and bills are <strong>never</strong> sent to the cloud.</li>
+  <li>When the Host is online it connects to the Pulse cloud (a Supabase database operated by Pulse Generation UG) over
+      HTTPS. The cloud receives: the facility's name and contact details, its computers' Device IDs, app version and
+      licence status, the list of user accounts (username, full name, role, active, last sign-in &mdash; no passwords),
+      and a few daily totals per site (numbers of patients, visits today, active visits and admissions, amount collected
+      today and outstanding).</li>
+  <li>If the hospital has sites in other places, the head office and each branch computer exchange those daily totals
+      and internal messages through the cloud. Internal messages addressed to the head office or another branch
+      (sender name and role, recipient, subject, text, time) pass through the cloud so they can be delivered; messages
+      inside one site stay on its own network. Pulse Generation UG sees only how many messages were sent, never their content.</li>
+  <li>Licence requests and support messages the facility sends to Pulse Generation UG are stored in the cloud so we can respond.</li>
+  <li>Each facility's computers hold their own secret keys and the cloud only returns that facility's own records &mdash; one
+      facility can never see another's data, and the data of other Pulse products is kept separate.</li>
+  <li>The administrator can switch the cloud connection off in <em>Head office &amp; branches</em>. PulseHMIS then works
+      fully offline; only automatic licence delivery and branch messaging stop.</li>
+  <li>The app contains no advertising, analytics or tracking SDKs.</li>
+</ul>
+
+<h2>4. Security</h2>
+<p>Connections are encrypted (HTTPS). Every cloud request is checked against the computer's own key, and access to
+the database is closed to the public: only purpose-built functions run, and each one is limited to the calling facility.</p>
+
+<h2>5. Retention and deletion</h2>
+<p>The facility keeps its records for as long as it needs them. To have the cloud copy of the facility profile,
+user list, totals and messages deleted, contact us; the records on the facility's own devices are not affected.</p>
+
+<h2>6. Contact us</h2>
+<p>Pulse Generation UG<br>
+Email: <a href="mailto:lwasapulse11@gmail.com">lwasapulse11@gmail.com</a> &middot; WhatsApp: +256 700 677 555<br>
+Website: <a href="https://pulsegenerationug.com">www.pulsegenerationug.com</a></p>
+
+<footer>&copy; 2026 Pulse Generation UG.</footer>
+</body>
+</html>

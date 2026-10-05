@@ -29,57 +29,57 @@
     {
       "app": "PulseHMIS",
       "platform": "Android",
-      "version": "1.0.0",
-      "size": "74 MB",
+      "version": "2.2.0",
+      "size": "78 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk"
     },
     {
       "app": "PulseHMIS",
       "platform": "Windows",
-      "version": "1.0.0",
+      "version": "2.2.0",
       "size": "16 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe"
     },
     {
       "app": "EduPulse",
       "platform": "Android",
-      "version": "1.4.0",
-      "size": "80 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.4.0.apk"
+      "version": "1.5.0",
+      "size": "85 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.5.0.apk"
     },
     {
       "app": "EduPulse",
       "platform": "Windows",
-      "version": "1.4.0",
+      "version": "1.5.0",
       "size": "18 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.5.0.exe"
     },
     {
       "app": "PulseRemit Pro",
       "platform": "Android",
-      "version": "1.2.0",
-      "size": "87 MB",
+      "version": "1.3.0",
+      "size": "92 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk"
     },
     {
       "app": "PulseRemit Pro",
       "platform": "Windows",
-      "version": "1.2.0",
-      "size": "15 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.2.0.exe"
+      "version": "1.3.0",
+      "size": "16 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe"
     },
     {
       "app": "Lwasa Ludo",
       "platform": "Android",
-      "version": "2.0.0",
-      "size": "60 MB",
+      "version": "2.1.0",
+      "size": "66 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk"
     },
     {
       "app": "Lwasa Ludo",
       "platform": "Windows",
-      "version": "2.0.0",
-      "size": "12.5 MB",
+      "version": "2.1.0",
+      "size": "13 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe"
     }
   ]

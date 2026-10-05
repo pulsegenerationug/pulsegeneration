@@ -76,14 +76,14 @@
       { title: "Lwasa Ludo", video: "https://youtu.be/qHFgzQnEiSc", product: "Lwasa Ludo", description: "The classic board game in 3D, with Luganda commentary." }
     ],
     downloads: [
-      { app: "PulseHMIS", platform: "Android", version: "1.0.0", size: "74 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk" },
-      { app: "PulseHMIS", platform: "Windows", version: "1.0.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe" },
-      { app: "EduPulse", platform: "Android", version: "1.4.0", size: "80 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.4.0.apk" },
-      { app: "EduPulse", platform: "Windows", version: "1.4.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.4.0.exe" },
-      { app: "PulseRemit Pro", platform: "Android", version: "1.2.0", size: "87 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
-      { app: "PulseRemit Pro", platform: "Windows", version: "1.2.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.2.0.exe" },
-      { app: "Lwasa Ludo", platform: "Android", version: "1.0.0", size: "62 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
-      { app: "Lwasa Ludo", platform: "Windows", version: "1.0.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
+      { app: "PulseHMIS", platform: "Android", version: "2.2.0", size: "78 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk" },
+      { app: "PulseHMIS", platform: "Windows", version: "2.2.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe" },
+      { app: "EduPulse", platform: "Android", version: "1.5.0", size: "85 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.5.0.apk" },
+      { app: "EduPulse", platform: "Windows", version: "1.5.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.5.0.exe" },
+      { app: "PulseRemit Pro", platform: "Android", version: "1.3.0", size: "92 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
+      { app: "PulseRemit Pro", platform: "Windows", version: "1.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe" },
+      { app: "Lwasa Ludo", platform: "Android", version: "2.1.0", size: "66 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
+      { app: "Lwasa Ludo", platform: "Windows", version: "2.1.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
     ]
   };
 
@@ -357,6 +357,12 @@
   }
   function onDownloadClick(d) {
     toast("Downloading " + d.app + " for " + d.platform + "…");
+    var ua = navigator.userAgent || "";
+    track("web_track_download", {
+      p_app: d.app, p_platform: d.platform, p_version: d.version || null, p_page: location.pathname,
+      p_referrer: document.referrer || null, p_lang: navigator.language || null,
+      p_device: /android/i.test(ua) ? "android" : /iphone|ipad/i.test(ua) ? "ios" : /windows/i.test(ua) ? "windows" : /mac os/i.test(ua) ? "mac" : /linux/i.test(ua) ? "linux" : "other"
+    });
     var app = APPS[d.app] || {};
     openSheet({
       title: "Installing " + d.app,
@@ -672,19 +678,44 @@
     }
   });
 
-  /* ================= CONTACT FORM ================= */
-  var SB_URL = "https://gmfrgbrdpfdalydnxwdb.supabase.co";
-  var SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtZnJnYnJkcGZkYWx5ZG54d2RiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NDYzODIsImV4cCI6MjEwNTMyMjM4Mn0.SRmeSVwGMLpr6l9OExNaPQ_i6FYg3nO_-o8TRD66_k4";
-  function insertMessage(row) {
-    return fetch(SB_URL + "/rest/v1/contact_messages", {
+  /* ================= PULSE HUB (contact, support tickets, stats) ================= */
+  // One Supabase project for every Pulse product. The public key can only call
+  // the web_* functions: send a message, read YOUR OWN conversation with its
+  // private link, and count downloads / page views. Nobody can list messages.
+  var HUB_URL = "https://nouvrneiwiwamcxmvizj.supabase.co";
+  var HUB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5vdXZybmVpd2l3YW1jeG12aXpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExMzAzMTEsImV4cCI6MjEwNjcwNjMxMX0.oCKDzxWhPdWhvFaZHz-DSdJKKlKt8YMpytPg87CN1g0";
+  function hub(fn, args, keepalive) {
+    return fetch(HUB_URL + "/rest/v1/rpc/" + fn, {
       method: "POST",
-      headers: { "Content-Type": "application/json", apikey: SB_KEY, Authorization: "Bearer " + SB_KEY, Prefer: "return=minimal" },
-      body: JSON.stringify(row)
+      keepalive: !!keepalive,
+      headers: { "Content-Type": "application/json", apikey: HUB_KEY, Authorization: "Bearer " + HUB_KEY },
+      body: JSON.stringify(args || {})
     }).then(function (r) {
-      if (r.ok) return true;
-      return r.text().then(function (t) { var err = new Error(t || ("HTTP " + r.status)); err.status = r.status; throw err; });
+      return r.text().then(function (t) {
+        var j = null; try { j = t ? JSON.parse(t) : null; } catch (e) {}
+        if (!r.ok) {
+          var m = (j && (j.message || j.hint)) || t || ("HTTP " + r.status);
+          if (/Could not find the function|schema cache/i.test(m)) m = "This service is being set up. Please try again soon, or reach us on WhatsApp.";
+          throw new Error(String(m).replace(/^[A-Z_]{4,}:\s*/, ""));
+        }
+        return j;
+      });
     });
   }
+  function track(fn, args) { try { if (navigator.doNotTrack === "1") return; hub(fn, args, true).catch(function () {}); } catch (e) {} }
+  var TICKETS_KEY = "pg_tickets";
+  function myTickets() { try { return JSON.parse(localStorage.getItem(TICKETS_KEY) || "[]"); } catch (e) { return []; } }
+  function saveTicket(t) {
+    try {
+      var list = myTickets().filter(function (x) { return x.t !== t.t; });
+      list.unshift(t);
+      localStorage.setItem(TICKETS_KEY, JSON.stringify(list.slice(0, 20)));
+    } catch (e) {}
+  }
+  function ticketUrl(t) { return location.origin + "/support/?t=" + encodeURIComponent(t); }
+  // page views (counted per page per day, no cookies, no personal data)
+  track("web_track_view", { p_page: location.pathname });
+
   $$("[data-contact-form]").forEach(function (form) {
     var status = $(".form-status", form);
     var kind = "message";
@@ -717,15 +748,13 @@
         product: product || null, kind: kind, consent: true,
         details: kind === "demo" ? { preferred_contact: f.preferred_contact ? f.preferred_contact.value : null, deployment_size: f.deployment_size ? f.deployment_size.value : null } : {}
       };
-      insertMessage(row).catch(function (err) {
-        if (/too many/i.test(err.message)) throw err;
-        // Older table versions only accept the original product names; keep the app in the subject instead.
-        var retry = Object.assign({}, row);
-        delete retry.product;
-        retry.subject = "[" + (product || "General") + "] " + (row.subject || "Message");
-        return insertMessage(retry);
-      }).then(function () {
-        status.textContent = "Thank you, " + name.split(" ")[0] + ". Your message is in. We’ll reply soon.";
+      row.page = location.pathname;
+      row.lang = navigator.language || null;
+      hub("web_contact_submit", { p: row }).then(function (res) {
+        var link = res && res.ticket ? ticketUrl(res.ticket) : null;
+        if (res && res.ticket) saveTicket({ t: res.ticket, subject: row.subject || (product ? product : "Message"), at: new Date().toISOString() });
+        status.innerHTML = "Thank you, " + esc(name.split(" ")[0]) + ". Your message is in. We’ll reply soon." +
+          (link ? ' <a href="' + esc(link) + '">Follow the conversation and see our reply here</a> (keep this link; it is private to you).' : "");
         status.classList.add("ok");
         toast(kind === "demo" ? "Demo request sent" : "Message sent");
         f.reset(); if (pre && f.product) f.product.value = pre;
@@ -736,6 +765,54 @@
         status.classList.add("err");
       }).then(function () { btn.disabled = false; btn.style.opacity = ""; });
     });
+  });
+
+  /* ================= SUPPORT: your private conversation ================= */
+  $$("[data-support]").forEach(function (box) {
+    var t = new URLSearchParams(location.search).get("t");
+    function fmt(iso) { try { return new Date(iso).toLocaleString(); } catch (e) { return iso || ""; } }
+    function bubble(mine, who, text, at) {
+      return '<div class="sup-msg' + (mine ? " mine" : "") + '"><div class="sup-meta">' + esc(who) + " · " + esc(fmt(at)) + "</div><div>" +
+        esc(text).replace(/\n/g, "<br>") + "</div></div>";
+    }
+    function list() {
+      var mine = myTickets();
+      box.innerHTML = mine.length
+        ? '<h3>Your conversations on this device</h3><div class="sup-list">' + mine.map(function (x) {
+            return '<a class="sup-item" href="/support/?t=' + encodeURIComponent(x.t) + '"><b>' + esc(x.subject || "Message") + "</b><span>" + esc(fmt(x.at)) + "</span></a>";
+          }).join("") + "</div>"
+        : '<p class="muted">You have no conversations on this device yet. <a href="/#contact">Send us a message</a> and your private conversation link appears here.</p>';
+    }
+    function show() {
+      box.innerHTML = '<p class="muted">Loading your conversation…</p>';
+      hub("web_ticket_view", { p_ticket: t }).then(function (v) {
+        saveTicket({ t: t, subject: v.subject || v.product || "Message", at: v.created_at });
+        var html = '<div class="sup-head"><h3>' + esc(v.subject || v.product || "Your message") + '</h3><span class="pill ' +
+          (v.status === "REPLIED" ? "green" : v.status === "CLOSED" ? "" : "blue") + '">' +
+          esc(v.status === "REPLIED" ? "We replied" : v.status === "CLOSED" ? "Closed" : "Waiting for our reply") + "</span></div>" +
+          '<div class="sup-thread">' + bubble(true, v.name, v.message, v.created_at) +
+          (v.replies || []).map(function (r) { return bubble(r.author === "VISITOR", r.author === "VISITOR" ? v.name : "Pulse Generation UG", r.body, r.created_at); }).join("") + "</div>";
+        if (v.status !== "CLOSED") {
+          html += '<form class="sup-reply" data-sup-reply><textarea name="body" rows="3" maxlength="5000" placeholder="Write a reply…" required></textarea>' +
+            '<button class="btn btn-filled" type="submit">' + I.chat + "Send reply</button></form>";
+        }
+        html += '<p class="muted mt-16">Keep this page\u2019s link private: anyone with it can read this conversation.</p>';
+        box.innerHTML = html;
+        var f = $("[data-sup-reply]", box);
+        if (f) f.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var body = f.body.value.trim();
+          if (!body) return;
+          var b = $("button", f); b.disabled = true;
+          hub("web_ticket_reply", { p_ticket: t, p_body: body }).then(function () { toast("Reply sent"); show(); })
+            .catch(function (err) { toast(err.message); b.disabled = false; });
+        });
+      }).catch(function (err) {
+        box.innerHTML = '<div class="callout">' + I.warn + "<span>" + esc(err.message) + '</span></div><div class="mt-24"></div>';
+        var keep = box.innerHTML; list(); box.innerHTML = keep + box.innerHTML;
+      });
+    }
+    if (t) show(); else list();
   });
 
   /* ================= PULSEHMIS: patient journey ================= */
