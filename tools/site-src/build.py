@@ -31,6 +31,8 @@ ICON = {
  "phone": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>',
  "mail": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16a2 2 0 0 1 2 2v.4l-10 6.2L2 6.4V6a2 2 0 0 1 2-2zm-2 4.8V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.8l-9.5 5.9a1 1 0 0 1-1 0z"/></svg>',
  "globe": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
+ "person": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>',
+ "wa": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>',
  "share": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>',
 }
 SOCIAL = {
@@ -83,7 +85,7 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=3">
+<link rel="stylesheet" href="/site/site.css?v=4">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
@@ -103,6 +105,7 @@ def nav(active=""):
     <div class="nav-actions">
       <button class="search-pill" type="button" data-search-open aria-label="Search">{ICON["search"]}<span>Search</span><kbd data-kbd>Ctrl K</kbd></button>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">{ICON["moon"]}{ICON["sun"]}</button>
+      <a class="icon-btn acct-btn" href="/account/" data-account-link aria-label="My account" title="My account">{ICON["person"]}</a>
       <a class="btn btn-sm nav-cta" href="/#downloads">{ICON["download"]}Download</a>
     </div>
   </div>
@@ -146,6 +149,10 @@ def footer():
           <li><a href="/tutorial.html">PulseHMIS interactive guide</a></li>
           <li><a href="/#faq">Help &amp; FAQ</a></li>
           <li><a href="/#about">About us</a></li>
+          <li><a href="/edupulse/privacy-policy.html">EduPulse privacy</a></li>
+          <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS privacy</a></li>
+          <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro privacy</a></li>
+          <li><a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo privacy</a></li>
         </ul>
       </div>
       <div>
@@ -159,22 +166,53 @@ def footer():
         </ul>
       </div>
     </div>
+    <form class="newsletter" data-newsletter novalidate>
+      <div><h4>Release news &amp; tips</h4><p>New versions, features and training videos. No spam; leave any time.</p></div>
+      <div class="nl-row"><input type="email" name="email" placeholder="Your email address" aria-label="Your email address" autocomplete="email" required>
+        <button class="btn" type="submit">Subscribe</button></div>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Pulse Generation UG. All rights reserved.</span>
       <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
-      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo privacy</a></span>
+      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/account/">My account</a> · <a href="/support/">Support</a></span>
     </div>
   </div>
 </footer>
 '''
 
+PRICES = {  # UGX, as shipped in each app (lib/.../license*.dart)
+    "edupulse": ("EduPulse", "one school (all its campuses)", [50000, 200000, 400000, 1500000]),
+    "pulsehmis": ("PulseHMIS", "one facility (all its branches)", [50000, 200000, 400000, 1500000]),
+    "pulseremit": ("PulseRemit Pro", "one institution (all its branches)", [150000, 750000, 1300000, 5000000]),
+}
+
+def pricing(key):
+    name, scope, p = PRICES[key]
+    plans = [("1 Month", p[0], "Great for getting started", False), ("6 Months", p[1], "Save vs paying monthly", False),
+             ("1 Year", p[2], "Best value for most", True), ("Lifetime", p[3], "One payment, permanent licence", False)]
+    cards = "".join(
+        f'<div class="price-card{" best" if best else ""}">{"<span class=\"price-tag\">Best value</span>" if best else ""}'
+        f'<h3>{n}</h3><p class="price">UGX {v:,}</p><p class="muted">{blurb}</p></div>' for n, v, blurb, best in plans)
+    return f'''<section class="section section-alt" id="pricing">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Pricing</p><h2 class="title-1">Simple plans. 30 days free.</h2>
+      <p class="lead">One licence covers {scope}. Every computer and phone on your network is included. Pay by MTN or Airtel Mobile Money; the key activates by itself.</p></div>
+    <div class="price-grid">{cards}</div>
+    <div class="hero-cta center mt-24"><a class="btn btn-lg" href="/#downloads">{ICON["download"]}Start the free trial</a>
+      <a class="btn btn-lg btn-glass" href="/?product={name.replace(" ", "+")}#contact">{ICON["chat-fill"]}Book a free demo</a></div>
+  </div>
+</section>'''
+
 def page(out, title, desc, path, body, active="", tab="home", body_class="", force_dark=False, image="/og-image.png", jsonld=""):
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=3" defer></script>\n</body>\n</html>\n')
+            f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=4" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
+    html = re.sub(r"\{\{pricing:([\w-]+)\}\}", lambda m: pricing(m.group(1)), html)
     target = SITE / out
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(html, encoding="utf-8", newline="\n")
@@ -216,5 +254,7 @@ if __name__ == "__main__":
          jsonld=app_ld("Lwasa Ludo", "GameApplication", "3D Ludo board game with Luganda commentary.", "/lwasa-ludo/"))
     page("support/index.html", "Support · Pulse Generation UG", "Read our reply to your message and answer back.", "/support/",
          (P / "support.html").read_text(encoding="utf-8"), tab="home")
+    page("account/index.html", "My account · Pulse Generation UG", "Your Pulse account: conversations with us, your details and release news.", "/account/",
+         (P / "account.html").read_text(encoding="utf-8"), tab="home")
     page("404.html", "Page not found · Pulse Generation UG", "This page doesn't exist.", "/404",
          (P / "404.html").read_text(encoding="utf-8"), tab="home")

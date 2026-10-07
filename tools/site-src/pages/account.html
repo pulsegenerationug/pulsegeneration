@@ -1,0 +1,105 @@
+<section class="section acct-section">
+  <div class="wrap" style="max-width:820px">
+    <p class="eyebrow">Your account</p>
+    <h1 class="title-1" data-acct-title>My account</h1>
+    <p class="lead" data-acct-lead>One Pulse account for our website and Lwasa Ludo: follow your conversations with us, keep your details, and get release news.</p>
+
+    <!-- signed out -->
+    <div class="tile acct-card mt-24" data-acct-out hidden>
+      <div class="segmented acct-tabs" role="tablist" data-acct-tabs>
+        <button type="button" role="tab" data-tab="login" class="active">Log in</button>
+        <button type="button" role="tab" data-tab="signup">Create account</button>
+        <button type="button" role="tab" data-tab="forgot">Forgot password</button>
+      </div>
+
+      <form class="acct-form" data-form="login" novalidate>
+        <label class="field"><span>Email address</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="field pw"><span>Password</span><input type="password" name="password" autocomplete="current-password" required>
+          <button type="button" class="pw-eye" data-pw-eye aria-label="Show password">👁</button></label>
+        <p class="form-status" data-status></p>
+        <button class="btn btn-lg acct-submit" type="submit">Log in</button>
+      </form>
+
+      <form class="acct-form" data-form="signup" novalidate hidden>
+        <label class="field"><span>Full name</span><input name="full_name" autocomplete="name" required maxlength="120"></label>
+        <label class="field"><span>Email address</span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="field pw"><span>Password (at least 8 characters)</span><input type="password" name="password" autocomplete="new-password" required minlength="8">
+          <button type="button" class="pw-eye" data-pw-eye aria-label="Show password">👁</button></label>
+        <div class="pw-meter" data-pw-meter><i></i><i></i><i></i><i></i><b></b></div>
+        <label class="field"><span>School, hospital, bank or business (optional)</span><input name="organization" autocomplete="organization" maxlength="160"></label>
+        <label class="check"><input type="checkbox" name="news" checked> Send me release news and tips (you can stop any time)</label>
+        <label class="check"><input type="checkbox" name="terms" required> I accept the <a href="/terms/" target="_blank">Terms</a> and <a href="/privacy/" target="_blank">Privacy Policy</a>.</label>
+        <p class="form-status" data-status></p>
+        <button class="btn btn-lg acct-submit" type="submit">Create account</button>
+      </form>
+
+      <form class="acct-form" data-form="forgot" novalidate hidden>
+        <p class="muted">Enter your email and we will send you a link to choose a new password.</p>
+        <label class="field"><span>Email address</span><input type="email" name="email" autocomplete="email" required></label>
+        <p class="form-status" data-status></p>
+        <button class="btn btn-lg acct-submit" type="submit">Send reset link</button>
+      </form>
+    </div>
+
+    <!-- signed in -->
+    <div data-acct-in hidden>
+      <div class="tile acct-card mt-24 acct-hello">
+        <div class="acct-avatar" data-acct-avatar>?</div>
+        <div class="grow"><h3 data-acct-name>…</h3><p class="muted" data-acct-email></p></div>
+        <button class="btn btn-gray btn-sm" type="button" data-acct-signout>Sign out</button>
+      </div>
+
+      <div class="tile acct-card mt-16">
+        <div class="acct-head"><h3>My conversations</h3><a class="btn btn-tinted btn-sm" href="/#contact">New message</a></div>
+        <div data-acct-convos><p class="muted">Loading…</p></div>
+      </div>
+
+      <form class="tile acct-card mt-16 acct-form" data-form="profile" novalidate>
+        <h3>My details</h3>
+        <div class="acct-grid">
+          <label class="field"><span>Full name</span><input name="full_name" maxlength="120"></label>
+          <label class="field"><span>Organization</span><input name="organization" maxlength="160"></label>
+          <label class="field"><span>Phone / WhatsApp</span><input name="phone" type="tel" maxlength="40"></label>
+          <label class="field"><span>Country</span><input name="country" maxlength="80"></label>
+        </div>
+        <p class="muted mt-16">I'm interested in</p>
+        <div class="chips-row" data-interests>
+          <label class="chip-check"><input type="checkbox" value="EduPulse"> EduPulse</label>
+          <label class="chip-check"><input type="checkbox" value="PulseHMIS"> PulseHMIS</label>
+          <label class="chip-check"><input type="checkbox" value="PulseRemit Pro"> PulseRemit Pro</label>
+          <label class="chip-check"><input type="checkbox" value="Lwasa Ludo"> Lwasa Ludo</label>
+        </div>
+        <label class="check mt-16"><input type="checkbox" name="news_opt_in"> Send me release news and tips</label>
+        <p class="form-status" data-status></p>
+        <button class="btn acct-submit" type="submit">Save details</button>
+      </form>
+
+      <form class="tile acct-card mt-16 acct-form" data-form="password" novalidate>
+        <h3>Change password</h3>
+        <label class="field pw"><span>New password (at least 8 characters)</span><input type="password" name="password" autocomplete="new-password" minlength="8" required>
+          <button type="button" class="pw-eye" data-pw-eye aria-label="Show password">👁</button></label>
+        <p class="form-status" data-status></p>
+        <button class="btn btn-gray acct-submit" type="submit">Update password</button>
+      </form>
+
+      <div class="tile acct-card mt-16">
+        <h3>Delete account</h3>
+        <p class="muted">Removes your website account and details. Your past conversations stay with us so we can keep supporting you. If you also play Lwasa Ludo online, your game account is kept (delete it from inside the game).</p>
+        <button class="btn btn-sm acct-danger" type="button" data-acct-delete>Delete my account</button>
+      </div>
+    </div>
+
+    <!-- password reset (after the e-mail link) -->
+    <form class="tile acct-card mt-24 acct-form" data-form="reset" novalidate hidden>
+      <h3>Choose a new password</h3>
+      <label class="field pw"><span>New password (at least 8 characters)</span><input type="password" name="password" autocomplete="new-password" minlength="8" required>
+        <button type="button" class="pw-eye" data-pw-eye aria-label="Show password">👁</button></label>
+      <p class="form-status" data-status></p>
+      <button class="btn btn-lg acct-submit" type="submit">Save new password</button>
+    </form>
+
+    <p class="muted mt-24 center" data-acct-offline hidden>Accounts are temporarily unavailable. You can still <a href="/#contact">send us a message</a> or <a href="https://wa.me/256700677555">WhatsApp us</a>.</p>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js" defer></script>
+<script src="/site/account.js?v=1" defer></script>

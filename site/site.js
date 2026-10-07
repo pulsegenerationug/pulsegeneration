@@ -684,11 +684,20 @@
   // private link, and count downloads / page views. Nobody can list messages.
   var HUB_URL = "https://nouvrneiwiwamcxmvizj.supabase.co";
   var HUB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5vdXZybmVpd2l3YW1jeG12aXpqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExMzAzMTEsImV4cCI6MjEwNjcwNjMxMX0.oCKDzxWhPdWhvFaZHz-DSdJKKlKt8YMpytPg87CN1g0";
+  // Signed-in visitor (Pulse account, see /account/): Supabase keeps the session here.
+  function hubSession() {
+    try {
+      var s = JSON.parse(localStorage.getItem("sb-nouvrneiwiwamcxmvizj-auth-token") || "null");
+      if (s && s.access_token && (!s.expires_at || s.expires_at * 1000 > Date.now() + 30000)) return s;
+    } catch (e) {}
+    return null;
+  }
   function hub(fn, args, keepalive) {
+    var ses = hubSession();
     return fetch(HUB_URL + "/rest/v1/rpc/" + fn, {
       method: "POST",
       keepalive: !!keepalive,
-      headers: { "Content-Type": "application/json", apikey: HUB_KEY, Authorization: "Bearer " + HUB_KEY },
+      headers: { "Content-Type": "application/json", apikey: HUB_KEY, Authorization: "Bearer " + (ses ? ses.access_token : HUB_KEY) },
       body: JSON.stringify(args || {})
     }).then(function (r) {
       return r.text().then(function (t) {
@@ -716,6 +725,35 @@
   // page views (counted per page per day, no cookies, no personal data)
   track("web_track_view", { p_page: location.pathname });
 
+  // account button in the menu: shows the signed-in visitor's initial
+  (function () {
+    var ses = hubSession();
+    $$("[data-account-link]").forEach(function (a) {
+      if (!ses || !ses.user) return;
+      var meta = ses.user.user_metadata || {};
+      var letter = ((meta.full_name || ses.user.email || "?").trim()[0] || "?").toUpperCase();
+      a.classList.add("signed-in");
+      a.setAttribute("aria-label", "My account (" + (ses.user.email || "") + ")");
+      a.innerHTML = '<span class="acct-dot">' + esc(letter) + "</span>";
+    });
+  })();
+
+  // newsletter (footer)
+  $$("[data-newsletter]").forEach(function (form) {
+    var st = $(".form-status", form);
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = form.email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.textContent = "Please enter a valid email."; st.className = "form-status err"; return; }
+      var b = $("button", form); b.disabled = true;
+      hub("web_subscribe", { p_email: email, p_name: null, p_interests: [], p_source: location.pathname }).then(function () {
+        st.textContent = "Thank you! You'll get our release news and tips."; st.className = "form-status ok";
+        form.email.value = "";
+      }).catch(function (err) { st.textContent = err.message; st.className = "form-status err"; })
+        .then(function () { b.disabled = false; });
+    });
+  });
+
   $$("[data-contact-form]").forEach(function (form) {
     var status = $(".form-status", form);
     var kind = "message";
@@ -726,6 +764,13 @@
     syncKind();
     var pre = new URLSearchParams(location.search).get("product");
     if (pre && form.product) form.product.value = pre;
+    var ses = hubSession();
+    if (ses && ses.user) {
+      var meta = ses.user.user_metadata || {};
+      if (form.name && !form.name.value) form.name.value = meta.full_name || "";
+      if (form.email && !form.email.value) form.email.value = ses.user.email || "";
+      if (form.organization && !form.organization.value) form.organization.value = meta.organization || "";
+    }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
