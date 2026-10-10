@@ -63,6 +63,16 @@
       slug: "lwasa-ludo", icon: "/site/img/ludo-icon-192.webp",
       subtitle: "The classic board game in 3D, with Luganda commentary",
       category: "Board game", color: "ico-blue"
+    },
+    "PulseProperty Pro": {
+      slug: "pulseproperty", icon: "/site/img/pulseproperty-icon-192.webp",
+      subtitle: "Property, rent & estate management, offline-first",
+      category: "Business", color: "ico-teal"
+    },
+    "PulseStock": {
+      slug: "pulsestock", icon: "/site/img/pulsestock-icon-192.webp",
+      subtitle: "Pharmacy, supermarket & inventory, offline-first",
+      category: "Business", color: "ico-blue"
     }
   };
   var RELEASES_URL = "https://github.com/pulsegenerationug/pulsegeneration/releases/latest";
@@ -76,12 +86,16 @@
       { title: "Lwasa Ludo", video: "https://youtu.be/qHFgzQnEiSc", product: "Lwasa Ludo", description: "The classic board game in 3D, with Luganda commentary." }
     ],
     downloads: [
-      { app: "PulseHMIS", platform: "Android", version: "2.2.0", size: "78 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk" },
-      { app: "PulseHMIS", platform: "Windows", version: "2.2.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe" },
+      { app: "PulseHMIS", platform: "Android", version: "2.3.0", size: "74 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-2.3.0.apk" },
+      { app: "PulseHMIS", platform: "Windows", version: "2.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-Setup-2.3.0.exe" },
       { app: "EduPulse", platform: "Android", version: "1.5.0", size: "85 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.5.0.apk" },
       { app: "EduPulse", platform: "Windows", version: "1.5.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.5.0.exe" },
       { app: "PulseRemit Pro", platform: "Android", version: "1.3.0", size: "92 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
       { app: "PulseRemit Pro", platform: "Windows", version: "1.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe" },
+      { app: "PulseProperty Pro", platform: "Android", version: "1.0.0", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.0.apk" },
+      { app: "PulseProperty Pro", platform: "Windows", version: "1.0.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.0.exe" },
+      { app: "PulseStock", platform: "Android", version: "1.0.0", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.0.apk" },
+      { app: "PulseStock", platform: "Windows", version: "1.0.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.0.exe" },
       { app: "Lwasa Ludo", platform: "Android", version: "2.1.0", size: "66 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
       { app: "Lwasa Ludo", platform: "Windows", version: "2.1.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
     ]
@@ -477,7 +491,8 @@
       "</div></button>";
   }
   function renderVideos(box, filter) {
-    var list = CONTENT.tutorials.filter(function (t) { return !filter || filter === "all" || t.product === filter; });
+    var list = CONTENT.tutorials.filter(function (t) { return !filter || filter === "all" || t.product === filter || t.product === "Pulse Generation"; });
+    if (filter && filter !== "all") list.sort(function (x, y) { return (x.product === filter ? 0 : 1) - (y.product === filter ? 0 : 1); });
     var max = parseInt(box.getAttribute("data-max") || "0", 10);
     if (max) list = list.slice(0, max);
     if (!list.length) {
@@ -521,6 +536,8 @@
     { t: "PulseRemit Pro loans", s: "Loan products, schedules, repayments", u: "/pulseremit-pro/#loans", k: "loan credit repayment schedule interest guarantor sacco" },
     { t: "PulseRemit Pro pricing", s: "One licence per bank", u: "/pulseremit-pro/#pricing", k: "price subscription licence trial cost" },
     { t: "Lwasa Ludo", s: "3D board game in Luganda", u: "/lwasa-ludo/", k: "game ludo board dice play multiplayer luganda", img: APPS["Lwasa Ludo"].icon },
+    { t: "PulseProperty Pro", s: "Property & rent management", u: "/pulseproperty/", k: "property rent landlord tenant lease estate agent real estate apartments", img: APPS["PulseProperty Pro"].icon },
+    { t: "PulseStock", s: "Pharmacy, supermarket & inventory", u: "/pulsestock/", k: "pharmacy shop supermarket pos till stock inventory expiry drugs medicine wholesale", img: APPS["PulseStock"].icon },
     { t: "Lwasa Ludo privacy policy", s: "What the game collects", u: "/lwasa-ludo/privacy-policy.html", k: "privacy data policy" },
     { t: "All downloads", s: "Android APK & Windows installers", u: "/#downloads", k: "download apk exe install windows android get" },
     { t: "Video tutorials", s: "Learn by watching", u: "/#tutorials", k: "video youtube tutorial watch learn" },

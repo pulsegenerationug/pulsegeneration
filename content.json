@@ -1,6 +1,12 @@
 {
   "tutorials": [
     {
+      "title": "Meet Pulse Generation UG",
+      "video": "https://youtu.be/BL5p3M6Q5lc",
+      "product": "Pulse Generation",
+      "description": "Offline-first apps for schools, hospitals, banks, property, pharmacies and shops, plus Lwasa Ludo."
+    },
+    {
       "title": "PulseHMIS full tutorial",
       "video": "https://youtu.be/0zYYHmW_cd0",
       "product": "PulseHMIS",
@@ -29,16 +35,16 @@
     {
       "app": "PulseHMIS",
       "platform": "Android",
-      "version": "2.2.0",
-      "size": "78 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS.apk"
+      "version": "2.3.0",
+      "size": "74 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-2.3.0.apk"
     },
     {
       "app": "PulseHMIS",
       "platform": "Windows",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "size": "16 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseHMIS-Setup-1.0.0.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-Setup-2.3.0.exe"
     },
     {
       "app": "EduPulse",
@@ -67,6 +73,34 @@
       "version": "1.3.0",
       "size": "16 MB",
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe"
+    },
+    {
+      "app": "PulseProperty Pro",
+      "platform": "Android",
+      "version": "1.0.0",
+      "size": "117 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.0.apk"
+    },
+    {
+      "app": "PulseProperty Pro",
+      "platform": "Windows",
+      "version": "1.0.0",
+      "size": "15 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.0.exe"
+    },
+    {
+      "app": "PulseStock",
+      "platform": "Android",
+      "version": "1.0.0",
+      "size": "117 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.0.apk"
+    },
+    {
+      "app": "PulseStock",
+      "platform": "Windows",
+      "version": "1.0.0",
+      "size": "15 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.0.exe"
     },
     {
       "app": "Lwasa Ludo",
