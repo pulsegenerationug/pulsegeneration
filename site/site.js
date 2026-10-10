@@ -92,10 +92,10 @@
       { app: "EduPulse", platform: "Windows", version: "1.5.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.5.0.exe" },
       { app: "PulseRemit Pro", platform: "Android", version: "1.3.0", size: "92 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
       { app: "PulseRemit Pro", platform: "Windows", version: "1.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe" },
-      { app: "PulseProperty Pro", platform: "Android", version: "1.0.0", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.0.apk" },
-      { app: "PulseProperty Pro", platform: "Windows", version: "1.0.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.0.exe" },
-      { app: "PulseStock", platform: "Android", version: "1.0.0", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.0.apk" },
-      { app: "PulseStock", platform: "Windows", version: "1.0.0", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.0.exe" },
+      { app: "PulseProperty Pro", platform: "Android", version: "1.0.1", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.1.apk" },
+      { app: "PulseProperty Pro", platform: "Windows", version: "1.0.1", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.1.exe" },
+      { app: "PulseStock", platform: "Android", version: "1.0.1", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.1.apk" },
+      { app: "PulseStock", platform: "Windows", version: "1.0.1", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.1.exe" },
       { app: "Lwasa Ludo", platform: "Android", version: "2.1.0", size: "66 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
       { app: "Lwasa Ludo", platform: "Windows", version: "2.1.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
     ]

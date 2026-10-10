@@ -77,30 +77,30 @@
     {
       "app": "PulseProperty Pro",
       "platform": "Android",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": "117 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.0.apk"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.1.apk"
     },
     {
       "app": "PulseProperty Pro",
       "platform": "Windows",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": "15 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.0.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.1.exe"
     },
     {
       "app": "PulseStock",
       "platform": "Android",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": "117 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.0.apk"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.1.apk"
     },
     {
       "app": "PulseStock",
       "platform": "Windows",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "size": "15 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.0.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.1.exe"
     },
     {
       "app": "Lwasa Ludo",
