@@ -155,6 +155,8 @@ def footer():
           <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS privacy</a></li>
           <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro privacy</a></li>
           <li><a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo privacy</a></li>
+          <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro privacy</a></li>
+          <li><a href="/pulsestock/privacy-policy.html">PulseStock privacy</a></li>
         </ul>
       </div>
       <div>
