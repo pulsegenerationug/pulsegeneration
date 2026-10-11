@@ -85,7 +85,7 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=5">
+<link rel="stylesheet" href="/site/site.css?v=6">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
@@ -213,7 +213,7 @@ def page(out, title, desc, path, body, active="", tab="home", body_class="", for
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
             f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=5" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=6" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
@@ -239,30 +239,30 @@ if __name__ == "__main__":
 
     P = HERE / "pages"
     page("index.html", "Pulse Generation UG · Offline-first apps for hospitals, schools, banks and play",
-         "PulseHMIS, EduPulse, PulseRemit Pro and Lwasa Ludo: offline-first apps for Android and Windows, built in Uganda for East Africa. Download free.",
+         "PulseHMIS, EduPulse, PulseRemit Pro and Lwasa Ludo: offline-first apps for Android, Windows and Mac, built in Uganda for East Africa. Download free.",
          "/", (P / "home.html").read_text(encoding="utf-8"), tab="home", jsonld=org)
     page("pulsehmis/index.html", "PulseHMIS · Hospital management that works with no internet",
-         "PulseHMIS runs your whole clinic, from reception to the injection room, over your own local network. Offline-first, for Android and Windows.",
+         "PulseHMIS runs your whole clinic, from reception to the injection room, over your own local network. Offline-first, for Android, Windows and Mac.",
          "/pulsehmis/", (P / "pulsehmis.html").read_text(encoding="utf-8"), active="PulseHMIS", tab="apps",
          jsonld=app_ld("PulseHMIS", "MedicalApplication", "Offline-first hospital management information system.", "/pulsehmis/"))
     page("edupulse/index.html", "EduPulse · School administration that works offline",
-         "EduPulse manages students, attendance, fees, payroll, exams and automatic report cards for schools, colleges and universities. Offline-first, for Android and Windows.",
+         "EduPulse manages students, attendance, fees, payroll, exams and automatic report cards for schools, colleges and universities. Offline-first, for Android, Windows and Mac.",
          "/edupulse/", (P / "edupulse.html").read_text(encoding="utf-8"), active="EduPulse", tab="apps",
          jsonld=app_ld("EduPulse", "EducationalApplication", "Offline-first school, college and university administration system.", "/edupulse/"))
     page("pulseremit-pro/index.html", "PulseRemit Pro · Branch banking, SACCO & money transfer",
-         "Savings accounts, deposits, withdrawals, balance enquiries, loans, money transfers and cash control for banks, MFIs and SACCOs. Works on the branch network without internet. Android and Windows.",
+         "Savings accounts, deposits, withdrawals, balance enquiries, loans, money transfers and cash control for banks, MFIs and SACCOs. Works on the branch network without internet. Android, Windows and Mac.",
          "/pulseremit-pro/", (P / "pulseremit.html").read_text(encoding="utf-8"), active="PulseRemit Pro", tab="apps",
          jsonld=app_ld("PulseRemit Pro", "FinanceApplication", "Branch banking, SACCO and money-transfer system for financial institutions.", "/pulseremit-pro/"))
     page("lwasa-ludo/index.html", "Lwasa Ludo · The classic board game in 3D, in Luganda",
-         "Play Ludo in 3D against the computer, with friends on one device or online with players anywhere. Blitz mode, trophies, unlockable dice and boards and Luganda commentary. Android and Windows.",
+         "Play Ludo in 3D against the computer, with friends on one device or online with players anywhere. Blitz mode, trophies, unlockable dice and boards and Luganda commentary. Android, Windows and Mac.",
          "/lwasa-ludo/", (P / "ludo.html").read_text(encoding="utf-8"), active="Lwasa Ludo", tab="apps", body_class="ludo-page", force_dark=True,
          jsonld=app_ld("Lwasa Ludo", "GameApplication", "3D Ludo board game with Luganda commentary.", "/lwasa-ludo/"))
     page("pulseproperty/index.html", "PulseProperty Pro · Property & rent management that works offline",
-         "PulseProperty Pro manages units, tenants, leases, automatic invoices, rent receipts, deposits, meters, repairs and landlord statements. Offline-first, for Android and Windows.",
+         "PulseProperty Pro manages units, tenants, leases, automatic invoices, rent receipts, deposits, meters, repairs and landlord statements. Offline-first, for Android, Windows and Mac.",
          "/pulseproperty/", (P / "pulseproperty.html").read_text(encoding="utf-8"), active="PulseProperty", tab="apps",
          jsonld=app_ld("PulseProperty Pro", "BusinessApplication", "Offline-first property, rent and estate management.", "/pulseproperty/"))
     page("pulsestock/index.html", "PulseStock · Pharmacy, supermarket & inventory software that works offline",
-         "PulseStock runs pharmacies, supermarkets and shops: offline barcode tills, batches and expiry, prescriptions with dose checks, purchasing and branch transfers. For Android and Windows.",
+         "PulseStock runs pharmacies, supermarkets and shops: offline barcode tills, batches and expiry, prescriptions with dose checks, purchasing and branch transfers. For Android, Windows and Mac.",
          "/pulsestock/", (P / "pulsestock.html").read_text(encoding="utf-8"), active="PulseStock", tab="apps",
          jsonld=app_ld("PulseStock", "BusinessApplication", "Offline-first point of sale, pharmacy and inventory management.", "/pulsestock/"))
     page("support/index.html", "Support · Pulse Generation UG", "Read our reply to your message and answer back.", "/support/",

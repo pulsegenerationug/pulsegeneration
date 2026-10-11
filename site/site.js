@@ -23,6 +23,7 @@
   /* ================= ICONS ================= */
   var I = {
     android: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.4 11.4 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>',
+    apple: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>',
     windows: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.1 10.4 4v7.2H3zm8.3-1.2L21 2.5v8.7h-9.7zM3 12.1h7.4v7.2L3 18.2zm8.3 0H21v8.8l-9.7-1.4z"/></svg>',
     download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>',
     play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>',
@@ -86,18 +87,24 @@
       { title: "Lwasa Ludo", video: "https://youtu.be/qHFgzQnEiSc", product: "Lwasa Ludo", description: "The classic board game in 3D, with Luganda commentary." }
     ],
     downloads: [
-      { app: "PulseHMIS", platform: "Android", version: "2.3.0", size: "74 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-2.3.0.apk" },
-      { app: "PulseHMIS", platform: "Windows", version: "2.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseHMIS-Setup-2.3.0.exe" },
-      { app: "EduPulse", platform: "Android", version: "1.5.0", size: "85 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse-1.5.0.apk" },
-      { app: "EduPulse", platform: "Windows", version: "1.5.0", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/EduPulse_Setup_1.5.0.exe" },
-      { app: "PulseRemit Pro", platform: "Android", version: "1.3.0", size: "92 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemit_Pro.apk" },
-      { app: "PulseRemit Pro", platform: "Windows", version: "1.3.0", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/PulseRemitProSetup-1.3.0.exe" },
-      { app: "PulseProperty Pro", platform: "Android", version: "1.0.1", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyPro-1.0.1.apk" },
-      { app: "PulseProperty Pro", platform: "Windows", version: "1.0.1", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulsePropertyProSetup-1.0.1.exe" },
-      { app: "PulseStock", platform: "Android", version: "1.0.1", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStock-1.0.1.apk" },
-      { app: "PulseStock", platform: "Windows", version: "1.0.1", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10/PulseStockSetup-1.0.1.exe" },
-      { app: "Lwasa Ludo", platform: "Android", version: "2.1.0", size: "66 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/Lwasa_Ludo.apk" },
-      { app: "Lwasa Ludo", platform: "Windows", version: "2.1.0", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v1.0.0/LwasaLudoSetup-1.0.0.exe" }
+      { app: "PulseHMIS", platform: "Android", version: "2.3.1", size: "74 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseHMIS-2.3.1.apk" },
+      { app: "PulseHMIS", platform: "Windows", version: "2.3.1", size: "16 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseHMIS-Setup-2.3.1.exe" },
+      { app: "PulseHMIS", platform: "Mac", version: "2.3.1", size: "26 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseHMIS-2.3.1-Mac.zip" },
+      { app: "EduPulse", platform: "Android", version: "1.5.1", size: "81 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/EduPulse-1.5.1.apk" },
+      { app: "EduPulse", platform: "Windows", version: "1.5.1", size: "18 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/EduPulse_Setup_1.5.1.exe" },
+      { app: "EduPulse", platform: "Mac", version: "1.5.1", size: "30 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/EduPulse-1.5.1-Mac.zip" },
+      { app: "PulseRemit Pro", platform: "Android", version: "1.3.1", size: "87 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseRemitPro-1.3.1.apk" },
+      { app: "PulseRemit Pro", platform: "Windows", version: "1.3.1", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseRemitProSetup-1.3.1.exe" },
+      { app: "PulseRemit Pro", platform: "Mac", version: "1.3.1", size: "26 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseRemitPro-1.3.1-Mac.zip" },
+      { app: "PulseProperty Pro", platform: "Android", version: "1.0.2", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulsePropertyPro-1.0.2.apk" },
+      { app: "PulseProperty Pro", platform: "Windows", version: "1.0.2", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulsePropertyProSetup-1.0.2.exe" },
+      { app: "PulseProperty Pro", platform: "Mac", version: "1.0.2", size: "25 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulsePropertyPro-1.0.2-Mac.zip" },
+      { app: "PulseStock", platform: "Android", version: "1.0.2", size: "117 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseStock-1.0.2.apk" },
+      { app: "PulseStock", platform: "Windows", version: "1.0.2", size: "15 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseStockSetup-1.0.2.exe" },
+      { app: "PulseStock", platform: "Mac", version: "1.0.2", size: "25 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/PulseStock-1.0.2-Mac.zip" },
+      { app: "Lwasa Ludo", platform: "Android", version: "2.1.1", size: "64 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/LwasaLudo-2.1.1.apk" },
+      { app: "Lwasa Ludo", platform: "Windows", version: "2.1.1", size: "13 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/LwasaLudoSetup-2.1.1.exe" },
+      { app: "Lwasa Ludo", platform: "Mac", version: "2.1.1", size: "23 MB", url: "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.11/LwasaLudo-2.1.1-Mac.zip" }
     ]
   };
 
@@ -149,6 +156,7 @@
   function pickFor(list) {
     if (PLATFORM === "android") return list.filter(function (d) { return /android/i.test(d.platform); })[0];
     if (PLATFORM === "windows") return list.filter(function (d) { return /windows/i.test(d.platform); })[0];
+    if (PLATFORM === "mac") return list.filter(function (d) { return /mac/i.test(d.platform); })[0];
     return null;
   }
 
@@ -360,6 +368,10 @@
   /* ================= DOWNLOADS ================= */
   function installSteps(d) {
     var android = /android/i.test(d.platform);
+    if (/mac/i.test(d.platform)) {
+      return '<ol class="steps">' + ["Wait for <b>" + esc(d.file) + "</b> to finish downloading, then double-click it to unzip.", "Drag <b>" + esc(d.app) + "</b> into your <b>Applications</b> folder.", "The first time only: <b>right-click the app → Open → Open</b>.", "If macOS still refuses, open <b>System Settings → Privacy &amp; Security</b> and click <b>Open Anyway</b>."].map(function (s) { return "<li><span>" + s + "</span></li>"; }).join("") + "</ol>" +
+        '<div class="callout mt-16">' + I.warn + "<span>Early Mac release for macOS 12 or newer (Apple silicon and Intel). It is not yet notarised by Apple, so macOS asks once before opening it. The Mac App Store version follows.</span></div>";
+    }
     var steps = android
       ? ["Wait for <b>" + esc(d.file) + "</b> to finish downloading.", "Open it from your notifications or the <b>Downloads</b> folder.", "If Android asks, allow <b>Install unknown apps</b> for your browser or file manager.", "Tap <b>Install</b>, then open " + esc(d.app) + "."]
       : ["Wait for <b>" + esc(d.file) + "</b> to finish downloading.", "Open the installer from your <b>Downloads</b> folder.", "If SmartScreen appears, choose <b>More info → Run anyway</b>.", "Follow the setup steps, then open " + esc(d.app) + " from the Start menu or desktop."];
@@ -390,10 +402,11 @@
   }
   function dlButton(d, recommended) {
     var android = /android/i.test(d.platform);
-    var kind = android ? "APK" : /windows/i.test(d.platform) ? "Installer (.exe)" : "Download";
+    var mac = /mac/i.test(d.platform);
+    var kind = android ? "APK" : /windows/i.test(d.platform) ? "Installer (.exe)" : mac ? "App (.zip)" : "Download";
     return '<a class="dl-btn' + (recommended ? " recommended" : "") + '" href="' + esc(d.url) + '" rel="noopener" data-dl="' + esc(d.app + "|" + d.platform) + '" aria-label="Download ' + esc(d.app) + " for " + esc(d.platform) + (d.size ? ", " + esc(d.size) : "") + '">' +
       (recommended ? '<span class="rec">For this device</span>' : "") +
-      '<span class="os ' + (android ? "android" : "windows") + '">' + (android ? I.android : I.windows) + "</span>" +
+      '<span class="os ' + (android ? "android" : mac ? "apple" : "windows") + '">' + (android ? I.android : mac ? I.apple : I.windows) + "</span>" +
       '<span class="txt"><b>' + esc(d.platform) + "</b><small>" + esc(kind) + (d.size ? " · " + esc(d.size) : "") + (d.version ? " · v" + esc(d.version) : "") + "</small></span>" +
       '<span class="arrow">' + I.download + "</span></a>";
   }
@@ -460,10 +473,10 @@
         btn.setAttribute("rel", "noopener");
         if (label) label.textContent = "Download for " + d.platform;
         var ico = $(".os-ico", btn);
-        if (ico) ico.innerHTML = /android/i.test(d.platform) ? I.android : I.windows;
+        if (ico) ico.innerHTML = /android/i.test(d.platform) ? I.android : /mac/i.test(d.platform) ? I.apple : I.windows;
       } else {
         btn.removeAttribute("data-dl");
-        if (label) label.textContent = PLATFORM === "ios" || PLATFORM === "mac" ? "Get it for Android or Windows" : "Download";
+        if (label) label.textContent = PLATFORM === "ios" ? "Get it for Android, Windows or Mac" : "Download";
       }
     });
   });
@@ -1048,7 +1061,7 @@
 
   /* ================= MISC ================= */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
-  if (PLATFORM === "ios" || PLATFORM === "mac") {
+  if (PLATFORM === "ios") {
     $$("[data-apple-note]").forEach(function (el) { el.hidden = false; });
   }
   window.PG = { openSheet: openSheet, toast: toast, openSearch: openSpot };

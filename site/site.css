@@ -555,6 +555,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .dl-btn .os svg { width: 24px; height: 24px; }
 .dl-btn .os.android { background: linear-gradient(135deg, #4fe07a, #1f9e45); }
 .dl-btn .os.windows { background: linear-gradient(135deg, #3d9bff, #0060df); }
+.dl-btn .os.apple { background: linear-gradient(135deg, #8e8e93, #1c1c1e); }
 .dl-btn .txt { flex: 1; min-width: 0; }
 .dl-btn .txt b { display: block; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
 .dl-btn .txt small { display: block; font-size: 13px; color: var(--label-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
