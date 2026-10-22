@@ -64,6 +64,7 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
   gtag('config', 'G-8TWBX69GCB');
 </script>
 <meta charset="utf-8">
+<meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
