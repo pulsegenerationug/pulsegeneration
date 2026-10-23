@@ -63,6 +63,23 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
 
   gtag('config', 'G-8TWBX69GCB');
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)}};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1334570271975920');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="utf-8">
 <meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -215,7 +232,7 @@ def page(out, title, desc, path, body, active="", tab="home", body_class="", for
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
             f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=6" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=7" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)

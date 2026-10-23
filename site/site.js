@@ -381,7 +381,15 @@
     return '<ol class="steps">' + steps.map(function (s) { return "<li><span>" + s + "</span></li>"; }).join("") + "</ol>" +
       '<div class="callout mt-16">' + I.warn + "<span>" + note + "</span></div>";
   }
+  // Meta Pixel events (no-op when the pixel is blocked)
+  function px(ev, params) { try { if (window.fbq) window.fbq("track", ev, params || {}); } catch (_) {} }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me/"]');
+    if (a) px("Contact", { content_name: "WhatsApp", page: location.pathname });
+  });
   function onDownloadClick(d) {
+    px("ViewContent", { content_name: d.app + " " + d.platform, content_category: "Download" });
+    try { if (window.fbq) window.fbq("trackCustom", "Download", { content_name: d.app, platform: d.platform }); } catch (_) {}
     toast("Downloading " + d.app + " for " + d.platform + "…");
     var ua = navigator.userAgent || "";
     track("web_track_download", {
@@ -777,6 +785,7 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.textContent = "Please enter a valid email."; st.className = "form-status err"; return; }
       var b = $("button", form); b.disabled = true;
       hub("web_subscribe", { p_email: email, p_name: null, p_interests: [], p_source: location.pathname }).then(function () {
+        px("Subscribe", { content_name: "Newsletter" });
         st.textContent = "Thank you! You'll get our release news and tips."; st.className = "form-status ok";
         form.email.value = "";
       }).catch(function (err) { st.textContent = err.message; st.className = "form-status err"; })
@@ -826,6 +835,7 @@
       row.page = location.pathname;
       row.lang = navigator.language || null;
       hub("web_contact_submit", { p: row }).then(function (res) {
+        px("Lead", { content_name: product || row.kind || "Contact form" });
         var link = res && res.ticket ? ticketUrl(res.ticket) : null;
         if (res && res.ticket) saveTicket({ t: res.ticket, subject: row.subject || (product ? product : "Message"), at: new Date().toISOString() });
         status.innerHTML = "Thank you, " + esc(name.split(" ")[0]) + ". Your message is in. We’ll reply soon." +
