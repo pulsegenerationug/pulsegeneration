@@ -159,6 +159,7 @@ def footer():
           <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro privacy</a></li>
           <li><a href="/pulsestock/privacy-policy.html">PulseStock privacy</a></li>
           <li><a href="/delete-account/">Delete your account</a></li>
+          <li><a href="/refund-policy/">Refund &amp; return policy</a></li>
         </ul>
       </div>
       <div>
@@ -181,7 +182,7 @@ def footer():
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Pulse Generation UG. All rights reserved.</span>
       <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
-      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a></span>
+      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a></span>
     </div>
   </div>
 </footer>
@@ -273,5 +274,8 @@ if __name__ == "__main__":
     page("delete-account/index.html", "Delete your account or data · Pulse Generation UG",
          "How to delete your account or your organisation's data in PulseHMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock and Lwasa Ludo: in the app, by e-mail or on WhatsApp.",
          "/delete-account/", (P / "delete-account.html").read_text(encoding="utf-8"), tab="home")
+    page("refund-policy/index.html", "Refund & return policy · Pulse Generation UG",
+         "Free 30-day trials, full refunds within 7 days if a licence doesn't work, exchanges between plans and apps, and how to ask for a refund.",
+         "/refund-policy/", (P / "refund-policy.html").read_text(encoding="utf-8"), tab="home")
     page("404.html", "Page not found · Pulse Generation UG", "This page doesn't exist.", "/404",
          (P / "404.html").read_text(encoding="utf-8"), tab="home")
