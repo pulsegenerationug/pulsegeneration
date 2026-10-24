@@ -60,7 +60,7 @@ APPS = {
         headline='Every specimen tracked.<br><span class="grad-lab">Every result signed.</span>',
         lead="PulseLMIS runs medical, hospital and reference laboratories: reception and orders, barcoded specimens, result entry with reference intervals and critical alerts, two-step validation, branded PDF reports, QC, analyser interfaces, billing and branches. It works with no internet, on your own network.",
         video="BL5p3M6Q5lc", shot="pulselmis-dashboard_light", shot2="pulselmis-reports_light", phone="pulselmis-phone_reception",
-        strip=[("Version", "2.2.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "60k", "UGX / month")],
+        strip=[("Version", "2.3.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "60k", "UGX / month")],
         features=[
             ("Reception & orders", "From the front desk to the bench.", ["Patient registration with duplicate checks", "Test catalogue with panels, priorities and clinical details", "Specimen labels with barcodes printed at once"]),
             ("Specimens", "Chain of custody you can prove.", ["Collection, receipt and rejection with reasons", "Accession numbers you scan anywhere", "Turnaround time from collection to release"]),

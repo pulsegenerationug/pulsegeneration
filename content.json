@@ -161,16 +161,16 @@
     {
       "app": "PulseLMIS",
       "platform": "Windows",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "size": "16 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.24/PulseLMIS-Setup-2.2.0.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.24b/PulseLMIS-Setup-2.3.0.exe"
     },
     {
       "app": "PulseLMIS",
       "platform": "Android",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "size": "77 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.24/PulseLMIS-2.2.0.apk"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.24b/PulseLMIS-2.3.0.apk"
     }
   ]
 }
