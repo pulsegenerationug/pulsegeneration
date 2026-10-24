@@ -103,13 +103,13 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=6">
+<link rel="stylesheet" href="/site/site.css?v=7">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
 
 def nav(active=""):
-    links = [("PulseHMIS", "/pulsehmis/"), ("EduPulse", "/edupulse/"), ("PulseRemit Pro", "/pulseremit-pro/"), ("PulseProperty", "/pulseproperty/"), ("PulseStock", "/pulsestock/"), ("Lwasa Ludo", "/lwasa-ludo/"),
+    links = [("PulseHMIS", "/pulsehmis/"), ("EduPulse", "/edupulse/"), ("PulseRemit Pro", "/pulseremit-pro/"), ("PulseProperty", "/pulseproperty/"), ("PulseStock", "/pulsestock/"), ("PulseLMIS", "/pulselmis/"), ("Lwasa Ludo", "/lwasa-ludo/"),
              ("Downloads", "/#downloads"), ("Tutorials", "/#tutorials"), ("Contact", "/#contact")]
     li = "".join(f'<a href="{u}"{" aria-current=\"page\" data-keep-active" if n == active else ""}>{n}</a>' for n, u in links)
     return f'''<a class="skip" href="#main">Skip to content</a>
@@ -157,6 +157,7 @@ def footer():
           <li><a href="/pulseremit-pro/">PulseRemit Pro</a></li>
           <li><a href="/pulseproperty/">PulseProperty Pro</a></li>
           <li><a href="/pulsestock/">PulseStock</a></li>
+          <li><a href="/pulselmis/">PulseLMIS</a></li>
           <li><a href="/lwasa-ludo/">Lwasa Ludo</a></li>
           <li><a href="/#downloads">All downloads</a></li>
           <li><a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">Release notes</a></li>
@@ -175,6 +176,7 @@ def footer():
           <li><a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo privacy</a></li>
           <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro privacy</a></li>
           <li><a href="/pulsestock/privacy-policy.html">PulseStock privacy</a></li>
+          <li><a href="/pulselmis/privacy-policy.html">PulseLMIS privacy</a></li>
           <li><a href="/delete-account/">Delete your account</a></li>
           <li><a href="/refund-policy/">Refund &amp; return policy</a></li>
         </ul>
@@ -284,12 +286,16 @@ if __name__ == "__main__":
          "PulseStock runs pharmacies, supermarkets and shops: offline barcode tills, batches and expiry, prescriptions with dose checks, purchasing and branch transfers. For Android, Windows and Mac.",
          "/pulsestock/", (P / "pulsestock.html").read_text(encoding="utf-8"), active="PulseStock", tab="apps",
          jsonld=app_ld("PulseStock", "BusinessApplication", "Offline-first point of sale, pharmacy and inventory management.", "/pulsestock/"))
+    page("pulselmis/index.html", "PulseLMIS · Laboratory information system that works offline",
+         "PulseLMIS runs medical and reference laboratories: reception, barcoded specimens, result entry with critical alerts, validation, branded reports, QC, analyser interfaces, billing and branches. For Android and Windows.",
+         "/pulselmis/", (P / "pulselmis.html").read_text(encoding="utf-8"), active="PulseLMIS", tab="apps",
+         jsonld=app_ld("PulseLMIS", "MedicalApplication", "Offline-first laboratory information system.", "/pulselmis/"))
     page("support/index.html", "Support · Pulse Generation UG", "Read our reply to your message and answer back.", "/support/",
          (P / "support.html").read_text(encoding="utf-8"), tab="home")
     page("account/index.html", "My account · Pulse Generation UG", "Your Pulse account: conversations with us, your details and release news.", "/account/",
          (P / "account.html").read_text(encoding="utf-8"), tab="home")
     page("delete-account/index.html", "Delete your account or data · Pulse Generation UG",
-         "How to delete your account or your organisation's data in PulseHMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock and Lwasa Ludo: in the app, by e-mail or on WhatsApp.",
+         "How to delete your account or your organisation's data in PulseHMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock, PulseLMIS and Lwasa Ludo: in the app, by e-mail or on WhatsApp.",
          "/delete-account/", (P / "delete-account.html").read_text(encoding="utf-8"), tab="home")
     page("refund-policy/index.html", "Refund & return policy · Pulse Generation UG",
          "Free 30-day trials, full refunds within 7 days if a licence doesn't work, exchanges between plans and apps, and how to ask for a refund.",

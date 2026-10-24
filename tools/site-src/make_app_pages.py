@@ -55,6 +55,32 @@ APPS = {
             ("Does it need internet?", "No. One computer is the Host and the tills connect over your own network. Internet is used, when available, for branch totals, recalls, catalog updates, licences and support."),
         ],
     ),
+    "pulselmis": dict(
+        name="PulseLMIS", tagline="Laboratory information system", color="#0E7C86", grad="grad-lab",
+        headline='Every specimen tracked.<br><span class="grad-lab">Every result signed.</span>',
+        lead="PulseLMIS runs medical, hospital and reference laboratories: reception and orders, barcoded specimens, result entry with reference intervals and critical alerts, two-step validation, branded PDF reports, QC, analyser interfaces, billing and branches. It works with no internet, on your own network.",
+        video="BL5p3M6Q5lc", shot="pulselmis-dashboard_light", shot2="pulselmis-reports_light", phone="pulselmis-phone_reception",
+        strip=[("Version", "2.2.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "60k", "UGX / month")],
+        features=[
+            ("Reception & orders", "From the front desk to the bench.", ["Patient registration with duplicate checks", "Test catalogue with panels, priorities and clinical details", "Specimen labels with barcodes printed at once"]),
+            ("Specimens", "Chain of custody you can prove.", ["Collection, receipt and rejection with reasons", "Accession numbers you scan anywhere", "Turnaround time from collection to release"]),
+            ("Result entry", "Fast, safe and flagged.", ["Reference intervals by sex and age, delta checks", "Critical values alerted and their communication logged", "Calculated parameters, tables and narratives"]),
+            ("Validation & release", "Two people, one signature.", ["Technical validation then medical authorisation", "Autoverification rules you control", "Versioned amendments with reasons"]),
+            ("Reports", "Your letterhead on every page.", ["Logos, header, footer and signature block", "A4, A5, Letter and thermal receipts", "English, French, Kiswahili, Chinese and Arabic"]),
+            ("Analysers", "Results straight from the machine.", ["ASTM and HL7 interfaces with host query", "Model packs for Sysmex, Mindray, Roche, Beckman, Siemens", "Printable interface verification"]),
+            ("Specialties", "The whole laboratory.", ["Microbiology with antibiograms", "Blood bank, histopathology and cytology", "Molecular plates with control validity"]),
+            ("Quality", "Ready for ISO 15189.", ["Westgard QC with Levey-Jennings charts", "Inventory lots and expiry, equipment maintenance", "Audit trail of every action"]),
+            ("Billing & branches", "Paid, claimed and connected.", ["Price lists linked to the test catalogue", "Mobile Money, insurance claims and e-invoices", "Branches and head office through the Pulse cloud"]),
+        ],
+        prices=[("Monthly", "60,000"), ("6 months", "300,000"), ("1 year", "550,000"), ("Lifetime", "2,000,000")],
+        faqs=[
+            ("Does it need internet?", "No. One computer is the Host; other computers, tablets and phones on the same network connect to it, and analysers send results to it. Internet is only used, when available, for licence delivery, branches, staff messages and support."),
+            ("Do patient results go to the cloud?", "No. Patients, results, reports and invoices stay on your computers. The cloud only carries the licence, user names, activity counts, staff messages between branches and the support chat."),
+            ("Can it print on our letterhead?", "Yes. Upload your logos, set the header, footer and signature in Settings › Branding & printing, choose the paper for each document and use Test print. Pre-printed stationery is supported too."),
+            ("Which analysers does it connect to?", "Any analyser that speaks ASTM (LIS1-A / LIS2-A2) or HL7 over the network or a shared folder. Ready code maps exist for common Sysmex, Mindray, Roche, Beckman Coulter, Siemens, Abbott, Stago and HbA1c analysers."),
+            ("How do we pay for the licence?", "MTN Mobile Money or Airtel Money. Send the transaction ID from Settings › Subscription; the key arrives in the app by itself, or on WhatsApp for offline activation."),
+        ],
+    ),
 }
 
 ICO = ["ico-teal", "ico-indigo", "ico-blue", "ico-orange", "ico-pink", "ico-gray", "ico-teal", "ico-indigo", "ico-blue"]

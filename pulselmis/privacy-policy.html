@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulseLMIS - Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a2e; }
+  h1 { color: #0B1F4D; }
+  h2 { color: #0A5BD3; margin-top: 2em; }
+  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #555; }
+  a { color: #0A5BD3; }
+</style>
+</head>
+<body>
+<h1>PulseLMIS - Privacy Policy</h1>
+<p><em>Last updated: 11 October 2026 (version 1.0)</em></p>
+
+<p>PulseLMIS is business software developed by <strong>Pulse Generation UG</strong> ("we", "us") for medical, hospital, reference and research laboratories
+(the "laboratory"). It is used by the laboratory's staff, not by the general public.</p>
+
+<h2>1. Who controls the data</h2>
+<p>All information recorded in PulseLMIS is entered by the laboratory's staff and belongs to the laboratory.
+The laboratory is the data controller and is responsible for its lawful use under the laws of its country.
+Pulse Generation UG operates the "Pulse cloud" only as a processor that connects the laboratory's own computers
+(section 3). <strong>We never sell this data or use it for advertising.</strong></p>
+
+<h2>2. Information the app stores</h2>
+<p>To run daily operations the app stores, on the laboratory's own devices:</p>
+<ul>
+  <li>patient details entered by staff: names, date of birth, sex, identifiers (MRN, national ID), phone, email and address;</li>
+  <li>test orders, specimens and their chain of custody, results, comments, amendments, critical-result calls, reports and delivery logs, microbiology, blood bank, pathology and molecular records;</li>
+  <li>quality control, inventory, equipment, invoices, payments, payers and insurance claims;</li>
+  <li>staff user accounts (passwords only as salted one-way hashes), device registrations and an audit log of actions.</li>
+</ul>
+
+<h2>3. Where it is stored and sent</h2>
+<ul>
+  <li>Data is stored in a database on the laboratory's main (Host) computer or standalone device.</li>
+  <li>Other computers, phones and tablets connect to the Host over the laboratory's local network after pairing
+      with the Host's PIN; every request is encrypted (AES-256-GCM) and managers can block any device.</li>
+  <li>When a computer is online, the Pulse cloud (a Supabase database operated by Pulse Generation UG) connects the
+      laboratory's head office and branches. Over HTTPS it receives:
+    <ul>
+  <li>the laboratory profile (name, address, phone, email, director, accreditation number) and its licence state;</li>
+  <li>staff user names and roles (no passwords) so the head office can address messages and Pulse Generation UG can support the account;</li>
+  <li>activity <em>counts</em> for the head office and for support: number of patients, orders and released tests today, open critical calls, active tests, analysers and users, amount collected today;</li>
+  <li>staff messages addressed to other branches of the same laboratory organisation, and the support chat with Pulse Generation UG;</li>
+  <li>when Pulse Generation UG asks for diagnostics: app version, operating system, database size, licence state, the same counts and the last lines of the technical error log.</li>
+      <li>internal messages that staff send to the head office or other branches of the same laboratory (sender name and role, recipient, subject, text, time), so they can be delivered;</li>
+      <li>for licensing and support: the laboratory's name and contacts, its computers' Device IDs, app versions, licence status, licence requests and the support messages it sends to us.</li>
+    </ul>
+  </li>
+  <li><strong>Patient records, results, reports, specimens and invoices stay on the laboratory's computers. Reports are only sent by e-mail, SMS or WhatsApp when staff choose to deliver them, using the laboratory's own accounts.</strong></li>
+  <li>The cloud only returns an laboratory's own records to its own computers; one laboratory can never see another's
+      data. Pulse Generation UG staff do not browse laboratory records.</li>
+  <li>The laboratory can switch the cloud off in Settings. The app contains no advertising, analytics or tracking SDKs.</li>
+</ul>
+
+<h2>4. Permissions</h2>
+<ul>
+  <li><strong>Local network</strong> - to connect other computers, phones and tablets to the laboratory's Host computer, analysers and the clinician / patient portals on the same network.</li>
+  <li><strong>Internet</strong> - for licence delivery, branches, messages and support through the Pulse cloud, and for report delivery when the laboratory configures e-mail, SMS or WhatsApp.</li>
+  <li><strong>Files</strong> - to choose a logo for printed reports and to import analyser or remittance files, only when staff pick a file.</li>
+  <li><strong>Network access</strong> - to connect to the Host computer on the local network and to the Pulse cloud.</li>
+</ul>
+
+<h2>5. Security</h2>
+<p>Role-based permissions, manager approval of devices, approvals for sensitive actions, automatic sign-out, lock-out
+after failed sign-ins and a tamper-evident audit log protect the data. Backups can be protected with a password.</p>
+
+<h2>6. Retention and deletion</h2>
+<p>The laboratory decides how long records are kept, subject to the record-keeping rules of its country. Staff
+accounts are disabled by the laboratory's administrator. To delete the laboratory's cloud records, the owner can
+write to <a href="mailto:lwasapulse11@gmail.com">lwasapulse11@gmail.com</a>; we delete them within 30 days. People whose
+information was recorded by an laboratory should contact that laboratory to access or correct it.</p>
+
+<h2>7. Children</h2>
+<p>PulseLMIS is a business tool for adult staff and is not directed at children.</p>
+
+<h2>8. Contact</h2>
+<p>Questions about this policy: Pulse Generation UG, Kampala, Uganda ·
+<a href="mailto:lwasapulse11@gmail.com">lwasapulse11@gmail.com</a> · +256700677555 ·
+<a href="https://pulsegenerationug.com">pulsegenerationug.com</a></p>
+
+<footer>&copy; 2026 Pulse Generation UG. INNOVATE. BUILD. TRANSFORM.</footer>
+</body>
+</html>
