@@ -177,7 +177,7 @@
     "tone": "warn",
     "linkText": "How to update",
     "link": "https://github.com/pulsegenerationug/pulsegeneration/releases/tag/v2026.10.27",
-    "text": "Android users: this update uses a new signing key. Back up first and keep the backup file off the app (share it to Drive or WhatsApp, or use cloud backup), uninstall the old app, install the new one, then restore. Windows users: just run the new Setup."
+    "text": "Android: this update needs a reinstall. Back up first and save the backup outside the app, then uninstall, install the new version and restore. Windows: just run the new Setup."
   },
   "news": [
     {

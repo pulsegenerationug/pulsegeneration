@@ -1185,7 +1185,9 @@ table.matrix { width: 100%; border-collapse: collapse; font-size: 14px; min-widt
 @media (max-width: 1180px) { .nav-links a:nth-child(7) { display: none; } }
 
 /* ---------- Owner notice banner + news (content.json) ---------- */
-.site-notice { display: flex; align-items: center; gap: 12px; justify-content: center; padding: 10px 48px 10px 16px; position: relative; font-size: 14.5px; color: var(--label); background: color-mix(in srgb, var(--blue) 12%, var(--bg, transparent)); }
+/* The nav is fixed, so the bar sits just under it; the negative bottom margin
+   cancels the nav offset the hero already pads for, so nothing is hidden. */
+.site-notice { display: flex; align-items: center; gap: 12px; justify-content: center; padding: 10px 48px 10px 16px; position: relative; z-index: 85; margin: var(--nav-h) 0 calc(-1 * var(--nav-h)); font-size: 14.5px; line-height: 1.45; text-wrap: pretty; color: var(--label); background: color-mix(in srgb, var(--blue) 12%, var(--bg, transparent)); }
 .site-notice.ok { background: color-mix(in srgb, var(--green) 14%, var(--bg, transparent)); }
 .site-notice.warn { background: color-mix(in srgb, var(--orange) 16%, var(--bg, transparent)); }
 .site-notice a { font-weight: 700; color: inherit; text-decoration: underline; }
