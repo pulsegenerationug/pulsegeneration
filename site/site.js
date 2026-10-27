@@ -129,7 +129,13 @@
       try { file = decodeURIComponent(String(d.url).split("?")[0].split("/").pop()); } catch (e) {}
       return { app: String(d.app), platform: String(d.platform), version: d.version ? String(d.version) : "", size: d.size ? String(d.size) : "", url: String(d.url), file: d.filename || file };
     }).filter(Boolean);
-    return { tutorials: tutorials, downloads: downloads };
+    var safeUrl = function (u) { u = String(u || "").trim(); return /^https:\/\//i.test(u) || /^\/[^\/]/.test(u) ? u : ""; };
+    var n = data.notice && data.notice.text ? { text: String(data.notice.text), link: safeUrl(data.notice.link), linkText: String(data.notice.linkText || "Learn more"), tone: /^(info|ok|warn)$/.test(data.notice.tone) ? data.notice.tone : "info" } : null;
+    var news = (Array.isArray(data.news) ? data.news : []).map(function (x) {
+      if (!x || !x.title) return null;
+      return { title: String(x.title), date: String(x.date || ""), body: String(x.body || ""), product: String(x.product || ""), link: safeUrl(x.link), linkText: String(x.linkText || "Read more") };
+    }).filter(Boolean);
+    return { tutorials: tutorials, downloads: downloads, notice: n, news: news };
   }
   var CONTENT = normalise(FALLBACK);
   var contentListeners = [];
@@ -141,9 +147,54 @@
       var n = normalise(json);
       if (n.downloads.length) CONTENT.downloads = n.downloads;
       if (n.tutorials.length) CONTENT.tutorials = n.tutorials;
+      CONTENT.notice = n.notice;
+      CONTENT.news = n.news;
       contentListeners.forEach(function (fn) { fn(CONTENT); });
     })
     .catch(function () {});
+
+  /* ================= OWNER NOTICE + NEWS (content.json, edited from the Owner Console) ================= */
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function renderNotice(c) {
+    var old = document.getElementById("site-notice");
+    if (old) old.remove();
+    var n = c.notice;
+    if (!n) return;
+    var key = "pg-notice-" + n.text.length + "-" + n.text.slice(0, 40);
+    try { if (sessionStorage.getItem(key)) return; } catch (e) {}
+    var bar = el("div", "site-notice " + n.tone);
+    bar.id = "site-notice";
+    bar.setAttribute("role", "status");
+    var t = el("span", "site-notice-text", n.text);
+    bar.appendChild(t);
+    if (n.link) { var a = el("a", "", n.linkText); a.href = n.link; if (/^https:/.test(n.link)) { a.target = "_blank"; a.rel = "noopener"; } t.appendChild(document.createTextNode(" ")); t.appendChild(a); }
+    var x = el("button", "site-notice-close", "×");
+    x.type = "button";
+    x.setAttribute("aria-label", "Dismiss notice");
+    x.onclick = function () { bar.remove(); try { sessionStorage.setItem(key, "1"); } catch (e) {} };
+    bar.appendChild(x);
+    var nav = document.querySelector("header.nav");
+    if (nav && nav.parentNode) nav.parentNode.insertBefore(bar, nav.nextSibling); else document.body.insertBefore(bar, document.body.firstChild);
+  }
+  function renderNews(c) {
+    document.querySelectorAll("[data-news]").forEach(function (box) {
+      var section = box.closest("section");
+      box.textContent = "";
+      if (!c.news || !c.news.length) { if (section) section.hidden = true; return; }
+      if (section) section.hidden = false;
+      c.news.forEach(function (x) {
+        var card = el("article", "news-card");
+        var meta = [x.product, x.date].filter(Boolean).join(" · ");
+        if (meta) card.appendChild(el("div", "news-meta", meta));
+        card.appendChild(el("h3", "news-title", x.title));
+        x.body.split(/\n{2,}/).forEach(function (p) { if (p.trim()) card.appendChild(el("p", "news-body", p.trim())); });
+        if (x.link) { var a = el("a", "btn btn-tinted btn-sm", x.linkText); a.href = x.link; if (/^https:/.test(x.link)) { a.target = "_blank"; a.rel = "noopener"; } card.appendChild(a); }
+        box.appendChild(card);
+      });
+    });
+  }
+  function startOwnerContent() { onContent(function (c) { renderNotice(c); renderNews(c); }); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startOwnerContent); else startOwnerContent();
 
   /* ================= PLATFORM ================= */
   var ua = navigator.userAgent || "";

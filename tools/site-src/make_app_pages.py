@@ -10,7 +10,7 @@ APPS = {
         headline='Rent collected on time.<br><span class="grad-prop">Every unit accounted for.</span>',
         lead="PulseProperty Pro runs landlords’, agents’ and estate companies’ portfolios: units, tenants, leases, automatic invoices, payments with receipts, deposits, meters, repairs and owner statements. It works with no internet, on your own network, across branches.",
         video="BL5p3M6Q5lc", shot="pulseproperty-dashboard_light", shot2="pulseproperty-occupancy_light", phone="pulseproperty-phone_home",
-        strip=[("Version", "1.0.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "100k", "UGX / month")],
+        strip=[("Version", "1.1.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "100k", "UGX / month")],
         features=[
             ("Occupancy board", "See every unit at a glance.", ["Colour board: vacant, occupied, overdue, reserved, under repair", "Properties, blocks, floors and units in bulk", "Search any tenant, unit or receipt instantly"]),
             ("Tenants & KYC", "Know who lives in every unit.", ["Scan the national ID or passport: details read on the device", "Next of kin, photos, documents and consent", "Duplicate-tenant checks by ID and phone"]),
@@ -35,7 +35,7 @@ APPS = {
         headline='Every item. Every batch.<br><span class="grad-stock">Never an expired sale.</span>',
         lead="PulseStock runs supermarkets, shops, wholesalers, retail and hospital pharmacies: barcode tills that keep selling offline, batches and expiry dates first-to-expire-first-out, prescriptions with dose checks, purchasing, transfers between branches and honest cash-ups.",
         video="BL5p3M6Q5lc", shot="pulsestock-pos_light", shot2="pulsestock-expiry_light", phone="pulsestock-phone_pos",
-        strip=[("Version", "1.0.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for selling"), ("Free trial", "30 days", "everything on"), ("From", "80k", "UGX / month")],
+        strip=[("Version", "1.1.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for selling"), ("Free trial", "30 days", "everything on"), ("From", "80k", "UGX / month")],
         features=[
             ("Fast tills", "Scan, pay, next customer.", ["USB and phone-camera barcode scanning", "Cartons and pieces, retail and wholesale prices", "Tills keep selling if the Host is off, then catch up"]),
             ("Batches & expiry", "Expired stock can never be sold.", ["First-to-expire-first-out on every sale", "Do-not-sell window locks stock automatically", "Expiry dashboard: 30, 60 and 90 days"]),
@@ -60,7 +60,7 @@ APPS = {
         headline='Every specimen tracked.<br><span class="grad-lab">Every result signed.</span>',
         lead="PulseLMIS runs medical, hospital and reference laboratories: reception and orders, barcoded specimens, result entry with reference intervals and critical alerts, two-step validation, branded PDF reports, QC, analyser interfaces, billing and branches. It works with no internet, on your own network.",
         video="BL5p3M6Q5lc", shot="pulselmis-dashboard_light", shot2="pulselmis-reports_light", phone="pulselmis-phone_reception",
-        strip=[("Version", "2.3.0", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "60k", "UGX / month")],
+        strip=[("Version", "2.3.1", "Latest"), ("Platforms", "2", "Android · Windows"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "60k", "UGX / month")],
         features=[
             ("Reception & orders", "From the front desk to the bench.", ["Patient registration with duplicate checks", "Test catalogue with panels, priorities and clinical details", "Specimen labels with barcodes printed at once"]),
             ("Specimens", "Chain of custody you can prove.", ["Collection, receipt and rejection with reasons", "Accession numbers you scan anywhere", "Turnaround time from collection to release"]),
@@ -87,7 +87,9 @@ ICO = ["ico-teal", "ico-indigo", "ico-blue", "ico-orange", "ico-pink", "ico-gray
 
 
 def page(slug, a):
-    strip = "\n".join(f'          <div><small>{k}</small><b>{v}</b><span>{s}</span></div>' for k, v, s in a["strip"])
+    # site.js keeps the Version figure current from content.json (data-app-version)
+    ver = f' data-app-version="{a["name"]}"'
+    strip = "\n".join(f'          <div><small>{k}</small><b{ver if k == "Version" else ""}>{v}</b><span>{s}</span></div>' for k, v, s in a["strip"])
     feats = "\n".join(
         f'      <div class="feature reveal" style="--d:{(i % 3) * .05:.2f}s"><div class="t-ico {ICO[i]}">{{{{icon:check}}}}</div><h3>{t}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul></div>'
         for i, (t, p, li) in enumerate(a["features"]))
