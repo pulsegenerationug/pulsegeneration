@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<!-- Google Analytics + Meta Pixel load only after the visitor accepts cookies (site.js shows the banner) -->
+<script>
+window.pgLoadTracking = function () {
+  if (window.pgTrackingOn) return; window.pgTrackingOn = 1;
+  var s = document.createElement('script'); s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB'; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date()); gtag('config', 'G-8TWBX69GCB');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1334570271975920'); fbq('track', 'PageView');
+};
+try { if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking(); } catch (e) {}
+</script>
+<meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulseHMIS · Gestion hospitalière qui fonctionne sans internet</title>
+<meta name="description" content="PulseHMIS fait tourner toute votre clinique, de l’accueil à la salle d’injection, sur votre propre réseau local. Hors ligne d’abord, pour Android, Windows et Mac.">
+<link rel="canonical" href="https://pulsegenerationug.com/fr/pulsehmis/">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="color-scheme" content="light dark">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulse Generation UG">
+<meta property="og:title" content="PulseHMIS · Gestion hospitalière qui fonctionne sans internet">
+<meta property="og:description" content="PulseHMIS fait tourner toute votre clinique, de l’accueil à la salle d’injection, sur votre propre réseau local. Hors ligne d’abord, pour Android, Windows et Mac.">
+<meta property="og:url" content="https://pulsegenerationug.com/fr/pulsehmis/">
+<meta property="og:image" content="https://pulsegenerationug.com/images/og/pulsehmis.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@lwasapulse_ug">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/pulse-logo-32.png">
+<link rel="apple-touch-icon" href="/brand/pulse-logo-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/site/site.css?v=14">
+<script>(function(){var t=null;try{t=localStorage.getItem('pg_theme')}catch(e){}var d=document.documentElement;if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.setAttribute('data-theme-mode',(t==='light'||t==='dark')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PulseHMIS", "operatingSystem": "Android, Windows, macOS", "applicationCategory": "MedicalApplication", "description": "Offline-first hospital management information system.", "url": "https://pulsegenerationug.com/pulsehmis/", "image": "https://pulsegenerationug.com/images/og/pulsehmis.png", "offers": {"@type": "AggregateOffer", "lowPrice": 50000, "highPrice": 1500000, "priceCurrency": "UGX", "offerCount": 4}, "publisher": {"@type": "Organization", "name": "Pulse Generation UG"}}</script>
+<link rel="alternate" hreflang="en" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="x-default" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="fr" href="https://pulsegenerationug.com/fr/pulsehmis/">
+<link rel="alternate" hreflang="sw" href="https://pulsegenerationug.com/sw/pulsehmis/">
+<link rel="alternate" hreflang="zh" href="https://pulsegenerationug.com/zh/pulsehmis/">
+<link rel="alternate" hreflang="ar" href="https://pulsegenerationug.com/ar/pulsehmis/">
+<link rel="alternate" hreflang="es" href="https://pulsegenerationug.com/es/pulsehmis/">
+<link rel="alternate" hreflang="pt" href="https://pulsegenerationug.com/pt/pulsehmis/">
+<link rel="alternate" hreflang="de" href="https://pulsegenerationug.com/de/pulsehmis/">
+<link rel="alternate" hreflang="it" href="https://pulsegenerationug.com/it/pulsehmis/">
+<link rel="alternate" hreflang="ru" href="https://pulsegenerationug.com/ru/pulsehmis/">
+<link rel="alternate" hreflang="tr" href="https://pulsegenerationug.com/tr/pulsehmis/">
+<link rel="alternate" hreflang="id" href="https://pulsegenerationug.com/id/pulsehmis/">
+<link rel="alternate" hreflang="hi" href="https://pulsegenerationug.com/hi/pulsehmis/">
+</head>
+<body class="">
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="/fr/" aria-label="Accueil Pulse Generation UG">
+      <img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34">
+      <span>Pulse Generation<small>Ouganda</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <div class="prodmenu" data-products-menu>
+        <button class="pm-btn active" type="button" aria-expanded="false" aria-controls="pm-panel">Produits<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pm-panel" id="pm-panel" hidden>
+          <div class="pm-grid"><a class="pm-item" href="/fr/pulsehmis/" aria-current="page"><img src="/site/img/pulsehmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseHMIS</b><small>Hôpitaux et cliniques</small></span></a><a class="pm-item" href="/fr/pulselmis/"><img src="/site/img/pulselmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseLMIS</b><small>Laboratoires médicaux</small></span></a><a class="pm-item" href="/fr/edupulse/"><img src="/site/img/edupulse-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>EduPulse</b><small>Écoles, collèges et universités</small></span></a><a class="pm-item" href="/fr/pulseremit-pro/"><img src="/site/img/pulseremit-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseRemit Pro</b><small>Banques, SACCO et transferts d’argent</small></span></a><a class="pm-item" href="/fr/pulsestock/"><img src="/site/img/pulsestock-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseStock</b><small>Pharmacies, supermarchés et boutiques</small></span></a><a class="pm-item" href="/fr/pulseproperty/"><img src="/site/img/pulseproperty-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseProperty Pro</b><small>Propriétaires et gestionnaires immobiliers</small></span></a><a class="pm-item" href="/fr/lwasa-ludo/"><img src="/site/img/ludo-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>Lwasa Ludo</b><small>Jeu de Ludo 3D gratuit en luganda</small></span></a></div>
+          <div class="pm-foot"><a href="/fr/pricing/">Comparer les prix<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/fr/#downloads">Tous les téléchargements<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/changelog/">Nouveautés<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+        </div>
+      </div><a href="/fr/pricing/">Tarifs</a><a href="/fr/customers/" data-needs="stories" hidden>Clients</a><a href="/fr/security/">Sécurité</a><a href="/fr/help/">Aide</a><a href="/fr/company/">Entreprise</a></nav>
+    <div class="nav-actions">
+      <button class="search-pill" type="button" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Rechercher</span><kbd data-kbd>Ctrl K</kbd></button>
+      <div class="lang-menu" data-lang-menu><button class="icon-btn" type="button" aria-expanded="false" aria-label="Langue" title="Langue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></button><div class="lang-list" hidden></div></div>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Activer/désactiver le mode sombre"><svg class="theme-ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="theme-ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <a class="icon-btn acct-btn" href="/fr/account/" data-account-link aria-label="Mon compte" title="Mon compte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
+      <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/fr/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>Télécharger</span></a>
+      <a class="btn btn-sm nav-cta" href="/fr/demo/">Réserver une démo</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="app-hero" aria-labelledby="app-title">
+  <div class="ambient" aria-hidden="true"><div class="blob b2" style="opacity:.5"></div><div class="blob b1" style="opacity:.3"></div></div>
+  <div class="grid-fade" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="app-hero-grid">
+      <div>
+        <div class="app-id reveal">
+          <img class="app-icon" src="/site/img/pulsehmis-icon-384.webp" alt="Icône de l’application PulseHMIS" width="112" height="112">
+          <div><h1 id="app-title">PulseHMIS</h1><p>Système d’information de gestion hospitalière</p><p class="caption">Pulse Generation UG</p></div>
+        </div>
+        <h2 class="display reveal" style="font-size:clamp(40px,6vw,76px);--d:.05s">Des soins qui<br><span class="grad-hmis">n’attendent jamais internet.</span></h2>
+        <p class="lead mt-24 reveal" style="--d:.1s">PulseHMIS fait tourner toute votre clinique, de l’accueil à la salle d’injection, sur votre propre réseau local. Conçu pour les cliniques petites et moyennes, centres de santé et hôpitaux en Ouganda, au Soudan du Sud et au-delà.</p>
+        <div class="app-actions reveal" style="--d:.15s">
+          <a class="btn btn-lg btn-shine" href="#download" data-smart-dl="PulseHMIS" style="--b-bg:var(--hmis-deep)"><span class="os-ico" style="display:contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg></span><span class="label">Télécharger</span></a>
+          <button class="btn btn-lg btn-glass" type="button" data-video="0zYYHmW_cd0"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>Regarder le tutoriel complet</button>
+        </div>
+        <div class="info-strip reveal" style="--d:.2s">
+          <div><small>Version</small><b data-app-version="PulseHMIS">2.4.0</b><span>La plus récente</span></div>
+          <div><small>Plateformes</small><b>2</b><span>Android · Windows</span></div>
+          <div><small>Internet</small><b>Aucun</b><span>pour les soins</span></div>
+          <div><small>Essai gratuit</small><b>30 jours</b><span>toutes les fonctions</span></div>
+          <div><small>À partir de</small><b>50k</b><span>UGX / mois</span></div>
+        </div>
+      </div>
+      <div class="reveal-scale" style="--d:.15s">
+        <div class="laptop float-a" style="position:relative">
+          <div class="laptop-screen"><div class="screen">
+            <div class="mini">
+              <div class="mini-side">
+                <div class="logo"><img src="/site/img/pulsehmis-icon-96.webp" alt="">PulseHMIS</div>
+                <i><b></b>Tableau de bord</i><i><b></b>Accueil</i><i class="on"><b></b>Cabinet médical</i><i><b></b>Laboratoire</i><i><b></b>Caisse</i><i><b></b>Pharmacie</i><i><b></b>Salle d’injection</i>
+              </div>
+              <div class="mini-main">
+                <div style="display:flex;justify-content:space-between;align-items:center"><div class="mini-h">Consultation</div><span class="pill red" style="height:20px;font-size:9px;padding:0 8px">⚠ Allergie : pénicilline</span></div>
+                <div class="mini-stats">
+                  <div class="mini-stat"><small>Temp.</small><strong>37.8°</strong></div>
+                  <div class="mini-stat"><small>Pouls</small><strong>88</strong></div>
+                  <div class="mini-stat"><small>BMI</small><strong>23.5</strong></div>
+                  <div class="mini-stat"><small>Douleur</small><strong>3/10</strong></div>
+                </div>
+                <div class="mini-row">
+                  <div class="mini-panel"><h5>Ordonnance</h5>
+                    <div class="mini-li"><span>Artésunate IV 120 mg · 2×/j × 3 jours</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">Qté 6</em></div>
+                    <div class="mini-li" style="color:var(--label-2)"><span>↳ PUIS CONTINUER AVEC Artéméther-luméfantrine</span></div>
+                    <div class="mini-li"><span>Paracétamol 500 mg · 3×/j × 3 jours</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">Qté 9</em></div>
+                  </div>
+                  <div class="mini-panel"><h5>Demandes d’analyses</h5>
+                    <div class="mini-li"><span>TDR paludisme</span><em style="background:rgba(255,59,48,.15);color:#e0261b">Positif</em></div>
+                    <div class="mini-li"><span>Numération formule sanguine</span><em style="background:rgba(255,149,0,.16);color:#d97706">En attente</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="subnav">
+  <div class="wrap">
+    <div class="name"><img src="/site/img/pulsehmis-icon-96.webp" alt=""><span>PulseHMIS</span></div>
+    <nav aria-label="Sections PulseHMIS">
+      <a href="#journey">Parcours</a><a href="#departments">Services</a><a href="#sync">Synchro LAN</a><a href="#security">Sécurité</a><a href="#pricing">Tarifs</a><a href="#roadmap">Feuille de route</a><a href="#videos">Vidéos</a><a href="#download">Télécharger</a>
+    </nav>
+    <a class="btn btn-sm" href="#download" style="--b-bg:var(--hmis-deep)">Obtenir</a>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section class="section" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>Visite interactive</span>
+      <h2 class="title-1" id="journey-title">Un patient. Six postes.<br>Zéro internet.</h2>
+      <p class="lead">Suivez une visite de l’enregistrement à la salle d’injection. Chaque poste reste synchronisé sur votre réseau local, et personne ne ressaisit deux fois les mêmes informations.</p>
+    </div>
+    <div class="demo reveal-scale" data-journey>
+      <div class="demo-bar"><i></i><i></i><i></i><span>PulseHMIS · Visite V-2026-0412</span><span class="pill green live">Réseau local</span></div>
+      <div class="demo-body">
+        <div class="journey" role="tablist" aria-label="Postes">
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17a4 4 0 0 1 7 0M15 9h3M15 13h3"/></svg></span>Accueil</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></span>Médecin</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>Laboratoire</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>Caisse</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></span>Pharmacie</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></span>Injection</button>
+        </div>
+        <div class="j-progress"><i></i></div>
+        <div data-jpanel aria-live="polite"></div>
+        <div class="j-controls">
+          <label class="flex" style="align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--label-2)"><span class="switch"><input type="checkbox" data-jauto checked aria-label="Lecture auto"><span></span></span>Lecture auto</label>
+          <div class="wrap-gap"><button class="btn btn-gray btn-sm" type="button" data-jprev>Retour</button><button class="btn btn-sm" type="button" data-jnext style="--b-bg:var(--hmis-deep)">Poste suivant<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button></div>
+        </div>
+        <p class="demo-note">Aperçu illustratif avec des données de démonstration. Aucune information réelle de patient.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section section-alt" id="departments" aria-labelledby="dept-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>Chaque service</span>
+      <h2 class="title-1" id="dept-title">Tout ce qu’un établissement possède vraiment.<br>Rien de rajouté.</h2>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><div class="t-ico ico-teal"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg></div><h3>Tableau de bord</h3><p>Une vue d’ensemble immédiate et le moyen le plus rapide de trouver quelqu’un.</p><ul><li>Recherche instantanée par nom, ID patient, ID visite ou téléphone</li><li>Visites en cours, inscriptions du jour, analyses en attente et paiements attendus</li><li>En direct sur chaque ordinateur synchronisé en LAN</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffb38a,#ff7f50)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Accueil</h3><p>Le point d’entrée de chaque consultation.</p><ul><li>Recherche de patient nouveau ou déjà connu</li><li>Espèces, assurance (avec la compagnie) ou crédit, fixé une fois pour toutes</li><li>Allergies enregistrées et reportées</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#86a6ff,#5e8bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></div><h3>Cabinet médical</h3><p>Des décisions cliniques, avec les calculs faits pour vous.</p><ul><li>Constantes avec IMC et score de douleur automatiques</li><li>Diagnostics en sélection rapide et bandeau d’allergie toujours visible</li><li>Ordonnances aux quantités calculées automatiquement et enchaînements « PUIS CONTINUER AVEC… »</li></ul></div>
+      <div class="feature reveal"><div class="t-ico" style="background:linear-gradient(135deg,#b9a2ff,#9b7bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/></svg></div><h3>Laboratoire</h3><p>Des résultats au format exact de chaque analyse.</p><ul><li>Texte, numérique, paragraphe ou tableaux complets de paramètres</li><li>Valeurs selon l’âge et le sexe, avec signalement des anomalies</li><li>Ajout d’analyses depuis la paillasse ; paiements au guichet du labo suivis</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffd76e,#f5b51f)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Caisse</h3><p>Une facture complète et honnête.</p><ul><li>Consultation, laboratoire et pharmacie dans un seul détail</li><li>Paiements partiels, remises et « crédit en compte »</li><li>Confirmation avant tout trop-perçu ; la facturation ne bloque jamais les soins</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#7fe6da,#2fbfae)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></div><h3>Pharmacie</h3><p>Délivrer précisément, étiqueter clairement.</p><ul><li>Ordonnances enchaînées dans le bon ordre</li><li>Bascule « délivré » par médicament</li><li>Étiquettes d’ordonnance pour imprimante thermique</li></ul></div>
+      <div class="feature reveal"><div class="t-ico ico-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></div><h3>Salle d’injection</h3><p>Chaque dose, chaque équipe, comptabilisée.</p><ul><li>Doses prévues, administrées, restantes et jours restants</li><li>Chaque dose notée Matin, Après-midi, Soir ou Nuit</li><li>Une liste de sécurité des 10 bons par séance</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Rapports et analyses</h3><p>Sachez où en est votre établissement.</p><ul><li>Rapports de recettes, caisse, labo, médecins, pharmacie et traitements</li><li>Statistiques positif/négatif par analyse</li><li>Export CSV dans votre dossier Documents</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><h3>Paramètres et catalogues</h3><p>Adaptez PulseHMIS à votre établissement.</p><ul><li>En-têtes à un ou deux logos</li><li>Formulaire de médicaments, catalogue d’analyses et prestations</li><li>Devises du monde, tailles de police des documents, sauvegardes JSON</li></ul></div>
+    </div>
+
+    <div class="split mt-48">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>Essayez</span>
+        <h3 class="title-2 mt-16">Constantes avec IMC automatique.</h3>
+        <p class="lead mt-16">Au cabinet médical, PulseHMIS calcule l’IMC dès que le poids et la taille sont saisis : le chiffre est toujours juste, même en fin de longue garde.</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Les ordonnances font aussi les calculs.</b> Les quantités sont calculées à partir du dosage, de la fréquence et de la durée, avec le détail du calcul.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Les allergies sont toujours visibles.</b> Pas de sous-menus à fouiller.</span></li>
+        </ul>
+      </div>
+      <div class="demo reveal-scale" data-bmi>
+        <div class="demo-bar"><i></i><i></i><i></i><span>Cabinet médical · Constantes</span></div>
+        <div class="demo-body">
+          <div class="flex" style="align-items:center;gap:24px;flex-wrap:wrap">
+            <div><div class="caption" style="font-weight:600">BMI</div><div style="font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:1" data-bmi-out>23.5</div><span class="pill green" data-bmi-label>Zone saine</span></div>
+            <div style="flex:1;min-width:220px;display:grid;gap:18px">
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>Poids</span><span><b data-w>68</b> kg</span></span><input type="range" name="w" min="30" max="150" value="68" style="accent-color:var(--hmis)"></label>
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>Taille</span><span><b data-h>170</b> cm</span></span><input type="range" name="h" min="120" max="210" value="170" style="accent-color:var(--hmis)"></label>
+            </div>
+          </div>
+          <p class="demo-note">Démonstration uniquement. Pas un avis médical.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYNC -->
+<section class="section" id="sync" aria-labelledby="sync-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>Synchronisation LAN</span>
+        <h2 class="title-1 mt-16" id="sync-title">Chaque poste synchronisé, dans vos murs.</h2>
+        <p class="lead mt-16">Un ordinateur est l’ <b>Hôte</b>. Tous les autres ordinateurs, tablettes ou téléphones sont des <b>Client</b> sur votre propre réseau Wi-Fi ou filaire. Internet n’intervient jamais.</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Enregistré localement d’abord.</b> Chaque modification est écrite instantanément sur l’appareil, puis envoyée à l’Hôte en arrière-plan sans figer l’écran.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Des numéros de révision, pas des horloges.</b> Seul l’Hôte attribue les révisions : une modification récente n’est jamais perdue parce que deux ordinateurs ne sont pas d’accord sur l’heure.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Léger pour votre réseau.</b> Les clients demandent « du nouveau ? » toutes les quelques secondes et ne téléchargent des données compressées que si quelque chose a changé.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Résilient.</b> Si l’Hôte est injoignable, les clients continuent avec leur dernière copie. Un seul enregistrement défectueux ne peut pas bloquer la synchronisation pour tous.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ajoutez un ordinateur en quelques minutes.</b> Installez, pointez-le vers l’Hôte, et tout l’historique arrive en un cycle de synchronisation.</span></li>
+        </ul>
+      </div>
+      <div class="reveal-scale" style="--d:.1s">
+        <div class="lan" aria-hidden="true">
+          <span class="cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m2 2 20 20M17.5 19H7a5 5 0 0 1-1.6-9.7M9.3 5.3A6 6 0 0 1 18 10h.5a3.5 3.5 0 0 1 2 6.4"/></svg>Internet non requis</span>
+          <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <g>
+              <path id="w1" class="wire" d="M50 50 L50 14"/><path id="w2" class="wire" d="M50 50 L82 32"/><path id="w3" class="wire" d="M50 50 L82 68"/>
+              <path id="w4" class="wire" d="M50 50 L50 88"/><path id="w5" class="wire" d="M50 50 L18 68"/><path id="w6" class="wire" d="M50 50 L18 32"/>
+            </g>
+            <circle class="packet" r="1.2"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.6s" begin=".4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w2"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w4"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.3s" begin=".2s" repeatCount="indefinite"><mpath href="#w5"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.5s" begin="1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w6"/></animateMotion></circle>
+          </svg>
+          <div class="node host" style="left:50%;top:50%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>Hôte · révision 4 812</div>
+          <div class="node" style="left:50%;top:14%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Accueil</div>
+          <div class="node" style="left:82%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Médecin</div>
+          <div class="node" style="left:82%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Laboratoire</div>
+          <div class="node" style="left:50%;top:88%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Caisse</div>
+          <div class="node" style="left:18%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Pharmacie</div>
+          <div class="node" style="left:18%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>Salle d’injection</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section section-alt" id="security" aria-labelledby="sec-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--green)"></span>Sécurité et confidentialité</span>
+      <h2 class="title-1" id="sec-title">Chaque rôle voit ce dont il a besoin.<br>Les données des patients ne sortent jamais.</h2>
+      <p class="lead">Aucun patient, visite, ordonnance ou résultat d’analyse n’est jamais envoyé dans le cloud. Notre serveur sait seulement quels établissements existent et l’état de leur abonnement.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="matrix">
+        <thead><tr><th>Rôle</th><th>Accueil</th><th>Médecin</th><th>Labo</th><th>Caisse</th><th>Pharmacie</th><th>Injection</th><th>Rapports</th><th>Paramètres</th></tr></thead>
+        <tbody>
+          <tr><td>Administrateur</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Médecin</td><td class="o">opt.</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">opt.</td><td class="n">–</td></tr>
+          <tr><td>Infirmier (injections)</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td></tr>
+          <tr><td>Laboratoire</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">opt.</td><td class="n">–</td></tr>
+          <tr><td>Caisse</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="o">opt.</td><td class="n">–</td></tr>
+          <tr><td>Pharmacie</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="o">opt.</td><td class="n">–</td></tr>
+          <tr><td>Réceptionniste</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption center mt-16">opt. = vue propre au service qu’un administrateur peut accorder, selon la politique de l’établissement.</p>
+    <div class="features mt-32">
+      <div class="feature reveal"><div class="t-ico ico-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Mots de passe hachés et salés</h3><p>Jamais stockés en clair, y compris dans les sauvegardes. Les nouveaux comptes doivent changer leur mot de passe à la première connexion.</p></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>Piste d’audit complète</h3><p>Chaque changement d’étape, modification, paiement et résultat est enregistré sur la visite avec l’auteur et l’heure.</p></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></div><h3>Documents professionnels</h3><p>Reçus, résultats et demandes d’analyses, ordonnances et étiquettes, avec les prix masqués automatiquement pour les patients assurés.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">Tarifs</p><h2 class="title-1">Des formules simples. 30 jours gratuits.</h2>
+      <p class="lead">Une licence couvre un établissement (toutes ses agences). Chaque ordinateur et téléphone de votre réseau est inclus. Payez par Mobile Money MTN ou Airtel ; la clé s’active d’elle-même.</p></div>
+    <div class="price-grid"><div class="price-card"><h3>1 mois</h3><p class="price">UGX 50,000</p><p class="muted">Idéal pour commencer</p></div><div class="price-card"><h3>6 mois</h3><p class="price">UGX 200,000</p><p class="muted">Moins cher que le paiement mensuel</p></div><div class="price-card best"><span class="price-tag">Meilleur rapport qualité-prix</span><h3>1 an</h3><p class="price">UGX 400,000</p><p class="muted">Le meilleur choix pour la plupart</p></div><div class="price-card"><h3>À vie</h3><p class="price">UGX 1,500,000</p><p class="muted">Un seul paiement, licence permanente</p></div></div>
+    <div class="hero-cta center mt-24"><a class="btn btn-lg" href="/fr/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>Commencer l’essai gratuit</a>
+      <a class="btn btn-lg btn-glass" href="/fr/demo/?product=PulseHMIS"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg>Réserver une démo gratuite</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--purple)"></span>Feuille de route</span>
+      <h2 class="title-1" id="roadmap-title">Où va PulseHMIS.</h2>
+      <p class="lead">Améliorations prévues, par ordre de priorité. Susceptibles d’évoluer selon ce que nous apprenons des établissements qui utilisent PulseHMIS chaque jour.</p>
+    </div>
+    <div class="roadmap">
+      <div class="lane reveal"><h3><span class="pill teal">Ensuite</span>Court terme</h3><ul>
+        <li><b>Gestion du stock de la pharmacie</b><span>Niveaux de stock, déduction automatique, alertes de stock bas et de péremption.</span></li>
+        <li><b>Siège et agences</b><span>Les sites d’autres villes se joignent avec un code à usage unique, suivent une seule licence et envoient leurs chiffres quotidiens au siège. Les dossiers des patients restent sur place.</span></li>
+        <li><b>Messagerie interne</b><span>Médecins, infirmiers et services s’écrivent entre eux et avec le siège, uniquement au sein de votre établissement.</span></li>
+        <li><b>Cartes patient avec QR</b><span>Scannez pour retrouver instantanément un patient connu.</span></li>
+        <li><b>Notifications de mise à jour et mode démo</b><span>Sachez quand une nouvelle version arrive ; formez le personnel en toute sécurité.</span></li></ul></div>
+      <div class="lane reveal" style="--d:.06s"><h3><span class="pill indigo">Plus tard</span>Moyen terme</h3><ul>
+        <li><b>Luganda, swahili et arabe</b><span>L’interface dans les langues que parle votre personnel.</span></li>
+        <li><b>2FA administrateur et verrouillage automatique de session</b><span>Protection supplémentaire pour les postes partagés et chargés.</span></li>
+        <li><b>Données chiffrées au repos</b><span>Une protection même si un appareil est perdu.</span></li>
+        <li><b>Vaccination et références</b><span>Calendriers pédiatriques et lettres de référence.</span></li></ul></div>
+      <div class="lane reveal" style="--d:.12s"><h3><span class="pill">Vision</span>Long terme</h3><ul>
+        <li><b>Applications iOS et macOS</b><span>La même interface sur le matériel Apple.</span></li>
+        <li><b>Export HL7 / FHIR</b><span>Interopérabilité avec les systèmes de santé nationaux.</span></li>
+        <li><b>Sauvegarde cloud chiffrée, sur option</b><span>Un complément, jamais un remplacement.</span></li>
+        <li><b>Vue multi-agences</b><span>Consolidation sur plusieurs établissements.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section" id="videos" aria-labelledby="videos-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--red)"></span>Tutoriels</span>
+      <h2 class="title-1" id="videos-title">Voyez PulseHMIS en action.</h2>
+    </div>
+    <div class="videos" data-videos="PulseHMIS" data-feature></div>
+    <div class="center mt-32"><a class="btn btn-tinted" href="/tutorial.html">Ouvrir le guide interactif de démarrage<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section section-alt" id="download" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--blue)"></span>Télécharger</span>
+      <h2 class="title-1" id="dl-title">Installer PulseHMIS.</h2>
+      <p class="lead">Utilisez l’installateur Windows pour le PC de l’accueil ou de l’administrateur (en général l’Hôte) et l’APK Android pour les tablettes et téléphones de l’établissement.</p>
+    </div>
+    <div class="dl-grid" data-downloads="PulseHMIS"></div>
+    <div class="dl-note"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Directement depuis notre <a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">publication GitHub officielle</a></span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="pfaq-title">
+  <div class="wrap">
+    <div class="section-head reveal"><h2 class="title-2" id="pfaq-title">Questions sur PulseHMIS</h2></div>
+    <div class="faq"><div data-faq>
+      <details class="disc"><summary>Quel ordinateur doit être l’Hôte ?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>En général le PC Windows de l’accueil ou de l’administrateur, car il reste allumé la plus grande partie de la journée. N’importe quelle plateforme peut être l’Hôte, et une clinique à un seul ordinateur peut simplement fonctionner en autonome.</p></div></details>
+      <details class="disc"><summary>Que se passe-t-il si l’ordinateur Hôte tombe en panne ?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>Restaurez votre dernière sauvegarde (un fichier JSON lisible dans Documents › Backups, facile à copier sur une clé USB) sur le nouvel ordinateur et définissez-le comme Hôte. En attendant, les clients continuent avec leur dernière copie.</p></div></details>
+      <details class="disc"><summary>Comment payer un abonnement ?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>MTN Mobile Money, Airtel Money, Visa/Mastercard ou virement bancaire. Vous pouvez aussi payer directement et envoyer la preuve sur <a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a> avec votre ID d’appareil ; nous répondons avec une clé d’activation qui fonctionne entièrement hors ligne.</p></div></details>
+      <details class="disc"><summary>Peut-on corriger une visite passée ?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>Oui. Les administrateurs et les médecins peuvent ouvrir n’importe quelle visite depuis le Dossier patient et modifier les informations, la consultation, les résultats ou la facturation à toute étape. Chaque modification est conservée dans l’historique d’audit.</p></div></details>
+      <details class="disc"><summary>Les patients assurés voient-ils nos prix internes ?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>Non. Pour les patients assurés, les documents imprimés indiquent seulement « Mode de paiement : Assurance (Compagnie) », jamais une liste détaillée des prix internes.</p></div></details>
+    </div></div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="Commencer">
+  <div class="wrap">
+    <div class="cta-band reveal-scale">
+      <h2 class="title-1">Gérez votre clinique en toute confiance.</h2>
+      <p class="lead">Installez gratuitement dès aujourd’hui, ou laissez-nous présenter une démo à votre équipe et configurer votre réseau.</p>
+      <div class="hero-cta"><a class="btn btn-lg btn-white" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>Télécharger gratuitement</a><a class="btn btn-lg btn-glass" href="/fr/?product=PulseHMIS#contact">Demander une démo</a></div>
+    </div>
+  </div>
+</section>
+<section class="section" hidden aria-labelledby="stories-titlePulseHMIS" data-stories-section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><span class="dot" style="color:var(--green)"></span>Témoignages clients</span>
+      <h2 class="title-1" id="stories-titlePulseHMIS">La confiance là où ça compte.</h2></div>
+    
+    <div class="story-grid" data-stories="PulseHMIS"></div>
+    <p class="center mt-24"><a class="btn btn-gray" href="/fr/customers/">Plus de témoignages<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/fr/"><img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34"><span>Pulse Generation UG</span></a>
+        <p class="about">Logiciels hors ligne pour hôpitaux, écoles, banques et loisirs. Conçus et développés en Ouganda, pour les conditions réelles de l’Afrique de l’Est.</p>
+        <div class="socials"><a href="https://wa.me/256700677555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a><a href="https://t.me/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a><a href="https://www.youtube.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a><a href="https://tiktok.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 1 0 5 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"/></svg></a><a href="https://www.instagram.com/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://x.com/lwasapulse_ug" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.3l-7.2 8.2L22.4 21h-6.6l-5.2-6.8L4.7 21H1.4l7.7-8.8L1 3h6.8l4.7 6.2zm-1.2 16h1.8L7.5 4.9H5.5z"/></svg></a><a href="https://www.facebook.com/share/18yDouKsLP/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a><a href="https://github.com/pulsegenerationug" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a></div>
+      </div>
+      <div>
+        <h4>Applications</h4>
+        <ul>
+          <li><a href="/fr/pulsehmis/">PulseHMIS</a></li>
+          <li><a href="/fr/edupulse/">EduPulse</a></li>
+          <li><a href="/fr/pulseremit-pro/">PulseRemit Pro</a></li>
+          <li><a href="/fr/pulseproperty/">PulseProperty Pro</a></li>
+          <li><a href="/fr/pulsestock/">PulseStock</a></li>
+          <li><a href="/fr/pulselmis/">PulseLMIS</a></li>
+          <li><a href="/fr/lwasa-ludo/">Lwasa Ludo</a></li>
+          <li><a href="/fr/pricing/">Tarifs</a></li>
+          <li><a href="/fr/#downloads">Tous les téléchargements</a></li>
+          <li><a href="/changelog/">Nouveautés (journal des modifications)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Apprendre</h4>
+        <ul>
+          <li><a href="/fr/help/">Centre d’aide</a></li>
+          <li><a href="/fr/#tutorials">Tutoriels vidéo</a></li>
+          <li><a href="/tutorial.html">Guide interactif PulseHMIS</a></li>
+          <li><a href="/fr/#faq">FAQ</a></li>
+          <li><a href="/edupulse/privacy-policy.html">Confidentialité EduPulse</a></li>
+          <li><a href="/pulsehmis/privacy-policy.html">Confidentialité PulseHMIS</a></li>
+          <li><a href="/pulseremit-pro/privacy-policy.html">Confidentialité PulseRemit Pro</a></li>
+          <li><a href="/lwasa-ludo/privacy-policy.html">Confidentialité Lwasa Ludo</a></li>
+          <li><a href="/pulseproperty/privacy-policy.html">Confidentialité PulseProperty Pro</a></li>
+          <li><a href="/pulsestock/privacy-policy.html">Confidentialité PulseStock</a></li>
+          <li><a href="/pulselmis/privacy-policy.html">Confidentialité PulseLMIS</a></li>
+          <li><a href="/delete-account/">Supprimer votre compte</a></li>
+          <li><a href="/refund-policy/">Politique de remboursement et de retour</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="/fr/company/">À propos</a></li>
+          <li><a href="/fr/customers/" data-needs="stories" hidden>Témoignages clients</a></li>
+          <li><a href="/fr/security/">Sécurité et vos données</a></li>
+          <li><a href="/fr/demo/">Réserver une démo</a></li>
+          <li><a href="/fr/status/">État des services</a></li>
+        </ul>
+        <h4 class="mt-24">Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+256700677555">+256 700 677 555</a></li>
+          <li><a href="tel:+256761174741">+256 761 174 741</a></li>
+          <li><a href="tel:+211920677555">+211 920 677 555</a></li>
+          <li><a href="mailto:pulsegenerationug@gmail.com">pulsegenerationug@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <form class="newsletter" data-newsletter novalidate>
+      <div><h4>Nouvelles versions et astuces</h4><p>Nouvelles versions, fonctions et vidéos de formation. Pas de spam ; désinscription à tout moment.</p></div>
+      <div class="nl-row"><input type="email" name="email" placeholder="Votre adresse e-mail" aria-label="Votre adresse e-mail" autocomplete="email" required>
+        <button class="btn" type="submit">S’abonner</button></div>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Pulse Generation UG. Tous droits réservés.</span>
+      <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
+      <div class="lang-menu lang-menu-up" data-lang-menu><button class="btn btn-sm btn-gray" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Langue</button><div class="lang-list" hidden></div></div>
+      <span><a href="/privacy/">Confidentialité</a> · <a href="/terms/">Conditions</a> · <a href="/refund-policy/">Remboursements</a> · <a href="/fr/account/">Mon compte</a> · <a href="/delete-account/">Supprimer le compte</a> · <a href="/fr/support/">Assistance</a> · <button type="button" class="linklike" data-cookie-settings>Paramètres des cookies</button></span>
+    </div>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Navigation rapide"><ul><li><a href="/fr/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 3.3a1 1 0 0 1 1.4 0l8 7.6A1 1 0 0 1 20 12.6h-1V20a1 1 0 0 1-1 1h-4v-5.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V21H6a1 1 0 0 1-1-1v-7.4H4a1 1 0 0 1-.7-1.7z"/></svg><span>Accueil</span></a></li><li><a href="/fr/#products" class="active" data-keep-active><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg><span>Applications</span></a></li><li><a href="/fr/#downloads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.2 10.7-3.5 3.5a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l1.8 1.8V7.5a1 1 0 1 1 2 0v5.6l1.8-1.8a1 1 0 0 1 1.4 1.4z"/></svg><span>Téléchargements</span></a></li><li><a href="/fr/#tutorials"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zm6.3 2.6v6.8a.6.6 0 0 0 .9.5l5.4-3.4a.6.6 0 0 0 0-1l-5.4-3.4a.6.6 0 0 0-.9.5z"/></svg><span>Vidéos</span></a></li><li><a href="/fr/#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg><span>Contact</span></a></li></ul></nav>
+<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Discutez avec nous sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a>
+<div class="toast-region" aria-live="polite"></div>
+<script>window.PG_I18N={"Hospital management that works with no internet": "Gestion hospitalière qui fonctionne sans internet", "Health & Medical": "Santé et médecine", "School, college & university administration, offline-first": "Administration d’écoles, collèges et universités, hors ligne d’abord", "Education": "Éducation", "Branch banking, SACCO & money transfer": "Banque d’agence, SACCO et transferts d’argent", "Finance": "Finances", "The classic board game in 3D, with Luganda commentary": "Le jeu de société classique en 3D, avec commentaires en luganda", "Board game": "Jeu de société", "Property, rent & estate management, offline-first": "Gestion immobilière, locative et de domaines, hors ligne d’abord", "Business": "Entreprise", "Pharmacy, supermarket & inventory, offline-first": "Pharmacie, supermarché et stock, hors ligne d’abord", "PulseHMIS full tutorial": "Tutoriel complet PulseHMIS", "A complete walkthrough of hospital software that works with no internet, from reception to pharmacy.": "Une visite complète d’un logiciel hospitalier qui fonctionne sans internet, de l’accueil à la pharmacie.", "PulseHMIS video tutorial 1": "Tutoriel vidéo PulseHMIS 1", "Watch PulseHMIS in action.": "Voyez PulseHMIS en action.", "PulseHMIS video tutorial 2": "Tutoriel vidéo PulseHMIS 2", "The classic board game in 3D, with Luganda commentary.": "Le jeu de société classique en 3D, avec commentaires en luganda.", "Learn more": "En savoir plus", "Read more": "Lire la suite", "Dismiss notice": "Fermer l’avis", "Read the full story": "Lire toute l’histoire", "Light appearance": "Apparence claire", "Dark appearance": "Apparence sombre", "Dialog": "Boîte de dialogue", "Close": "Fermer", "Follow the setup steps, then open": "Suivez les étapes d’installation, puis ouvrez", "Android shows an “unknown sources” prompt for any app installed outside the Play Store. This is expected.": "Android affiche une alerte « sources inconnues » pour toute application installée hors du Play Store. C’est normal.", "Windows SmartScreen can warn about new publishers. The installer comes straight from our official GitHub release.": "Windows SmartScreen peut avertir pour les nouveaux éditeurs. L’installateur vient directement de notre publication GitHub officielle.", "Contact": "Contact", "Download": "Télécharger", "Downloading": "Téléchargement", "Installing": "Installation", "Installer (.exe)": "Installateur (.exe)", "App (.zip)": "Application (.zip)", "Learn more about": "En savoir plus sur", "Download for Windows": "Télécharger pour Windows", "Download for Android": "Télécharger pour Android", "Download for": "Télécharger pour", "Get it for Android, Windows or Mac": "Disponible pour Android, Windows ou Mac", "Video": "Vidéo", "Home": "Accueil", "Hospital management system": "Système de gestion hospitalière", "PulseHMIS pricing": "Tarifs PulseHMIS", "From 50,000 UGX / month · 30 days free": "À partir de 50 000 UGX / mois · 30 jours gratuits", "PulseHMIS LAN sync": "Synchro LAN PulseHMIS", "Host and client, no internet": "Hôte et clients, sans internet", "PulseHMIS interactive guide": "Guide interactif PulseHMIS", "Getting started walkthrough": "Visite guidée de démarrage", "School administration system": "Système d’administration scolaire", "EduPulse report cards": "Bulletins EduPulse", "Automatic grading & report cards": "Notation et bulletins automatiques", "EduPulse fees & finance": "Frais et finances EduPulse", "Fees, receipts, expenses, payroll": "Frais, reçus, dépenses, paie", "PulseRemit Pro loans": "Prêts PulseRemit Pro", "Loan products, schedules, repayments": "Produits de prêt, échéanciers, remboursements", "PulseRemit Pro pricing": "Tarifs PulseRemit Pro", "One licence per bank": "Une licence par banque", "3D board game in Luganda": "Jeu de société 3D en luganda", "Property & rent management": "Gestion immobilière et locative", "Pharmacy, supermarket & inventory": "Pharmacie, supermarché et stock", "Lwasa Ludo privacy policy": "politique de confidentialité de Lwasa Ludo", "What the game collects": "Ce que le jeu collecte", "All downloads": "Tous les téléchargements", "Android APK & Windows installers": "APK Android et installateurs Windows", "Video tutorials": "Tutoriels vidéo", "Learn by watching": "Apprendre en regardant", "About the founder": "À propos du fondateur", "Help & FAQ": "Aide et FAQ", "Questions, answered": "Vos questions, nos réponses", "Contact us": "Nous contacter", "WhatsApp, phone, email": "WhatsApp, téléphone, e-mail", "Pricing": "Tarifs", "Every app, every plan": "Chaque application, chaque formule", "Book a demo": "Réserver une démo", "Free 30-minute demo": "Démo gratuite de 30 minutes", "Security & your data": "Sécurité et vos données", "Where your data lives": "Où vivent vos données", "Help Center": "Centre d’aide", "Guides, videos and answers": "Guides, vidéos et réponses", "What's new": "Nouveautés", "Changelog of every release": "Journal de chaque version", "About the company": "À propos de l’entreprise", "Customer stories": "Témoignages clients", "Organisations using Pulse": "Organisations qui utilisent Pulse", "Privacy": "Confidentialité", "Website privacy notice": "Avis de confidentialité du site", "Terms": "Conditions", "Terms of use": "Conditions d’utilisation", "Pages": "Pages", "Downloads": "Téléchargements", "Videos": "Vidéos", "Answers on this page": "Réponses sur cette page", "On this page": "Sur cette page", "Jump to section": "Aller à la section", "Search": "Rechercher", "Search apps, downloads, videos, help…": "Rechercher applications, téléchargements, vidéos, aide…", "Search the site": "Rechercher sur le site", "Copied": "Copié", "Link copied": "Lien copié", "This service is being set up. Please try again soon, or reach us on WhatsApp.": "Ce service est en cours de mise en place. Réessayez bientôt, ou contactez-nous sur WhatsApp.", "Please enter a valid email.": "Veuillez saisir une adresse e-mail valide.", "Subscribe": "S’abonner", "Newsletter": "Lettre d’information", "Thank you! You'll get our release news and tips.": "Merci ! Vous recevrez nos nouveautés et astuces.", "Please add your name, email and a message.": "Ajoutez votre nom, votre e-mail et un message.", "That email address doesn’t look right.": "Cette adresse e-mail ne semble pas correcte.", "Sending…": "Envoi…", "Demo request": "Demande de démo", "Contact form": "Formulaire de contact", "Message": "Message", "Thank you,": "Merci,", "Demo request sent": "Demande de démo envoyée", "Message sent": "Message envoyé", "You’ve sent several messages in a short time.": "Vous avez envoyé plusieurs messages en peu de temps.", "We couldn’t send that just now.": "Nous n’avons pas pu l’envoyer pour l’instant.", "Your message": "Votre message", "We replied": "Nous avons répondu", "Closed": "Fermé", "Waiting for our reply": "En attente de notre réponse", "Write a reply…": "Écrire une réponse…", "Reply sent": "Réponse envoyée", "Reception": "Accueil", "Register once. Route instantly.": "Enregistrez une fois. Orientez instantanément.", "New or returning patients are registered in one form: name, age, gender, phone, allergies and payment method. Cash, Insurance or Credit is locked in here and carried to every department automatically.": "Patients nouveaux ou déjà connus enregistrés dans un seul formulaire : nom, âge, sexe, téléphone, allergies et mode de paiement. Espèces, assurance ou crédit sont fixés ici et transmis automatiquement à chaque service.", "Patient search": "Recherche de patient", "Insurance companies": "Compagnies d’assurance", "Allergy capture": "Saisie des allergies", "Visit routing": "Orientation de la visite", "Patient": "Patient", "Nakato Sarah · 34 F": "Nakato Sarah · 34 ans F", "Payment": "Paiement", "Insurance (company)": "Assurance (compagnie)", "Allergies": "Allergies", "Penicillin": "Pénicilline", "Next": "Ensuite", "Doctor’s office →": "Cabinet médical →", "Doctor": "Médecin", "Vitals, diagnosis, prescriptions.": "Constantes, diagnostic, ordonnances.", "Capture vitals with automatic BMI, record complaints and diagnoses, order lab tests and prescribe. PulseHMIS calculates the billable quantity from strength, frequency and duration, and shows the maths.": "Saisissez les constantes avec IMC automatique, notez les plaintes et diagnostics, demandez des analyses et prescrivez. PulseHMIS calcule la quantité facturable à partir du dosage, de la fréquence et de la durée, et montre le calcul.", "Auto BMI": "IMC automatique", "Allergy banner": "Bandeau d’allergie", "Lab orders": "Demandes d’analyses", "Temp / Pulse": "Temp. / Pouls", "37.8 °C · 88 bpm": "37,8 °C · 88 bpm", "23.5 · healthy": "23,5 · normal", "Diagnosis": "Diagnostic", "Malaria (suspected)": "Paludisme (suspecté)", "Lab": "Labo", "Malaria RDT, FBC": "TDR paludisme, NFS", "Laboratory": "Laboratoire", "Results in the right format.": "Des résultats au bon format.", "Text, numeric with reference ranges, paragraphs or full parameter tables with age- and gender-specific ranges. Abnormal values are flagged, and technicians can add a follow-up test on the spot.": "Texte, numérique avec valeurs de référence, paragraphes ou tableaux complets de paramètres avec intervalles selon l’âge et le sexe. Les valeurs anormales sont signalées, et les techniciens peuvent ajouter une analyse complémentaire sur place.", "Reference ranges": "Valeurs de référence", "Abnormal flags": "Signalement des anomalies", "Add test": "Ajouter une analyse", "Lab counter payments": "Paiements au guichet du labo", "Malaria RDT": "TDR paludisme", "Positive ⚑": "Positif ⚑", "Haemoglobin": "Hémoglobine", "Status": "État", "Back to doctor →": "Retour au médecin →", "Cashier": "Caisse", "Every shilling accounted for.": "Chaque shilling comptabilisé.", "Consultation, lab and pharmacy totals in one bill, with discounts, partial payments and a full payment history. Lab fees already paid at the counter are deducted, so nobody is charged twice.": "Consultation, laboratoire et pharmacie réunis dans une seule facture, avec remises, paiements partiels et historique complet. Les frais de labo déjà payés au guichet sont déduits : personne ne paie deux fois.", "Installments": "Échéances", "Credit on file": "Crédit en compte", "Over-payment check": "Contrôle du trop-perçu", "Branded receipts": "Reçus à vos couleurs", "Consultation": "Consultation", "Pharmacy": "Pharmacie", "Paid · Balance": "Payé · Solde", "Dispense exactly what was prescribed.": "Délivrez exactement ce qui a été prescrit.", "The full prescription in chained order, with per-medicine dispensed toggles for partial dispensing and compact labels for a thermal printer. The bill status is visible at a glance.": "L’ordonnance complète dans l’ordre enchaîné, avec une bascule « délivré » par médicament pour la délivrance partielle et des étiquettes compactes pour imprimante thermique. L’état de la facture est visible d’un coup d’œil.", "Per-item dispensing": "Délivrance par article", "Prescription labels": "Étiquettes d’ordonnance", "Balance visibility": "Solde visible", "Send back to cashier": "Renvoyer à la caisse", "Artemether-Lumefantrine": "Artéméther-luméfantrine", "Dispensed ✓": "Délivré ✓", "Paracetamol 500 mg": "Paracétamol 500 mg", "Label": "Étiquette", "Printed": "Imprimée", "Bill": "Facture", "Settled": "Réglée", "Injection": "Injection", "Every dose, every shift.": "Chaque dose, chaque équipe.", "A medication administration record for each injectable course: doses planned, given and remaining. Each dose is logged with a time of day, and a 10 Rights safety checklist runs every session.": "Un registre d’administration pour chaque traitement injectable : doses prévues, administrées et restantes. Chaque dose est notée avec un moment de la journée, et une liste de sécurité des 10 bons s’exécute à chaque séance.", "Dose tracking": "Suivi des doses", "Morning/Evening labels": "Libellés Matin/Soir", "10 Rights checklist": "Liste des 10 bons", "Shift handover": "Relève d’équipe", "Artesunate IV": "Artésunate IV", "Dose 2 of 3": "Dose 2 sur 3", "Last given": "Dernière administration", "Morning · 08:14": "Matin · 08:14", "Evening": "Soir", "Checklist": "Liste de contrôle", "Underweight": "Insuffisance pondérale", "Healthy range": "Zone saine", "Overweight": "Surpoids", "Obese range": "Obésité", "Excellent": "Excellent", "Very good": "Très bien", "Good": "Bien", "Satisfactory": "Satisfaisant", "Fair": "Passable", "Needs improvement": "À améliorer", "All marked present": "Tous marqués présents", "Attendance saved, offline": "Présences enregistrées, hors ligne", "Another six! Roll again.": "Encore un six ! Rejouez.", "Mukaga! A six lets a token out. Roll again.": "Mukaga ! Un six fait sortir un pion. Rejouez.", "Good luck!": "Bonne chance !", "Nice move!": "Beau coup !", "Almost!": "Presque !", "Well played!": "Bien joué !", "Oops!": "Oups !", "Accept": "Accepter", "Cookie choices": "Choix des cookies", "We'd like to use cookies to count visits and measure our adverts (Google Analytics and Meta). Nothing loads unless you accept.": "Nous aimerions utiliser des cookies pour compter les visites et mesurer nos publicités (Google Analytics et Meta). Rien ne se charge sans votre accord.", "Privacy notice": "Avis de confidentialité", "Decline": "Refuser", "Working": "Opérationnel", "Not responding": "Ne répond pas", "Some services are having problems": "Certains services rencontrent des problèmes", "All services are working": "Tous les services fonctionnent", "Last checked": "Dernière vérification", "English": "Anglais"};window.PG_LANG_PATHS=["/", "/pulsehmis/", "/pulselmis/", "/edupulse/", "/pulseremit-pro/", "/pulsestock/", "/pulseproperty/", "/lwasa-ludo/", "/pricing/", "/demo/", "/customers/", "/security/", "/company/", "/help/", "/status/", "/support/", "/account/"];</script>
+<script src="/site/site.js?v=14" defer></script>
+</body>
+</html>

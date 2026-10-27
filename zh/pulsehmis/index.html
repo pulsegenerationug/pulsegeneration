@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+<head>
+<meta charset="utf-8">
+<!-- Google Analytics + Meta Pixel load only after the visitor accepts cookies (site.js shows the banner) -->
+<script>
+window.pgLoadTracking = function () {
+  if (window.pgTrackingOn) return; window.pgTrackingOn = 1;
+  var s = document.createElement('script'); s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB'; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date()); gtag('config', 'G-8TWBX69GCB');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1334570271975920'); fbq('track', 'PageView');
+};
+try { if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking(); } catch (e) {}
+</script>
+<meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulseHMIS · 无需联网的医院管理系统</title>
+<meta name="description" content="PulseHMIS 通过您自己的局域网运行整个诊所，从前台到注射室。离线优先，支持 Android、Windows 和 Mac。">
+<link rel="canonical" href="https://pulsegenerationug.com/zh/pulsehmis/">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="color-scheme" content="light dark">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulse Generation UG">
+<meta property="og:title" content="PulseHMIS · 无需联网的医院管理系统">
+<meta property="og:description" content="PulseHMIS 通过您自己的局域网运行整个诊所，从前台到注射室。离线优先，支持 Android、Windows 和 Mac。">
+<meta property="og:url" content="https://pulsegenerationug.com/zh/pulsehmis/">
+<meta property="og:image" content="https://pulsegenerationug.com/images/og/pulsehmis.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@lwasapulse_ug">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/pulse-logo-32.png">
+<link rel="apple-touch-icon" href="/brand/pulse-logo-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/site/site.css?v=14">
+<script>(function(){var t=null;try{t=localStorage.getItem('pg_theme')}catch(e){}var d=document.documentElement;if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.setAttribute('data-theme-mode',(t==='light'||t==='dark')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PulseHMIS", "operatingSystem": "Android, Windows, macOS", "applicationCategory": "MedicalApplication", "description": "Offline-first hospital management information system.", "url": "https://pulsegenerationug.com/pulsehmis/", "image": "https://pulsegenerationug.com/images/og/pulsehmis.png", "offers": {"@type": "AggregateOffer", "lowPrice": 50000, "highPrice": 1500000, "priceCurrency": "UGX", "offerCount": 4}, "publisher": {"@type": "Organization", "name": "Pulse Generation UG"}}</script>
+<link rel="alternate" hreflang="en" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="x-default" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="fr" href="https://pulsegenerationug.com/fr/pulsehmis/">
+<link rel="alternate" hreflang="sw" href="https://pulsegenerationug.com/sw/pulsehmis/">
+<link rel="alternate" hreflang="zh" href="https://pulsegenerationug.com/zh/pulsehmis/">
+<link rel="alternate" hreflang="ar" href="https://pulsegenerationug.com/ar/pulsehmis/">
+<link rel="alternate" hreflang="es" href="https://pulsegenerationug.com/es/pulsehmis/">
+<link rel="alternate" hreflang="pt" href="https://pulsegenerationug.com/pt/pulsehmis/">
+<link rel="alternate" hreflang="de" href="https://pulsegenerationug.com/de/pulsehmis/">
+<link rel="alternate" hreflang="it" href="https://pulsegenerationug.com/it/pulsehmis/">
+<link rel="alternate" hreflang="ru" href="https://pulsegenerationug.com/ru/pulsehmis/">
+<link rel="alternate" hreflang="tr" href="https://pulsegenerationug.com/tr/pulsehmis/">
+<link rel="alternate" hreflang="id" href="https://pulsegenerationug.com/id/pulsehmis/">
+<link rel="alternate" hreflang="hi" href="https://pulsegenerationug.com/hi/pulsehmis/">
+</head>
+<body class="">
+<a class="skip" href="#main">跳到正文</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="/zh/" aria-label="Pulse Generation UG 首页">
+      <img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34">
+      <span>Pulse Generation<small>乌干达</small></span>
+    </a>
+    <nav class="nav-links" aria-label="主菜单">
+      <div class="prodmenu" data-products-menu>
+        <button class="pm-btn active" type="button" aria-expanded="false" aria-controls="pm-panel">产品<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pm-panel" id="pm-panel" hidden>
+          <div class="pm-grid"><a class="pm-item" href="/zh/pulsehmis/" aria-current="page"><img src="/site/img/pulsehmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseHMIS</b><small>医院与诊所</small></span></a><a class="pm-item" href="/zh/pulselmis/"><img src="/site/img/pulselmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseLMIS</b><small>医学实验室</small></span></a><a class="pm-item" href="/zh/edupulse/"><img src="/site/img/edupulse-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>EduPulse</b><small>中小学、学院与大学</small></span></a><a class="pm-item" href="/zh/pulseremit-pro/"><img src="/site/img/pulseremit-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseRemit Pro</b><small>银行、储蓄信用社与汇款</small></span></a><a class="pm-item" href="/zh/pulsestock/"><img src="/site/img/pulsestock-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseStock</b><small>药店、超市与商店</small></span></a><a class="pm-item" href="/zh/pulseproperty/"><img src="/site/img/pulseproperty-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseProperty Pro</b><small>房东与物业管理者</small></span></a><a class="pm-item" href="/zh/lwasa-ludo/"><img src="/site/img/ludo-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>Lwasa Ludo</b><small>免费 3D 卢多棋游戏（卢干达语）</small></span></a></div>
+          <div class="pm-foot"><a href="/zh/pricing/">比较价格<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/zh/#downloads">全部下载<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/changelog/">新功能<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+        </div>
+      </div><a href="/zh/pricing/">价格</a><a href="/zh/customers/" data-needs="stories" hidden>客户</a><a href="/zh/security/">安全</a><a href="/zh/help/">帮助</a><a href="/zh/company/">公司</a></nav>
+    <div class="nav-actions">
+      <button class="search-pill" type="button" data-search-open aria-label="搜索"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>搜索</span><kbd data-kbd>Ctrl K</kbd></button>
+      <div class="lang-menu" data-lang-menu><button class="icon-btn" type="button" aria-expanded="false" aria-label="语言" title="语言"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></button><div class="lang-list" hidden></div></div>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="切换深色模式"><svg class="theme-ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="theme-ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <a class="icon-btn acct-btn" href="/zh/account/" data-account-link aria-label="我的账户" title="我的账户"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
+      <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/zh/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>下载</span></a>
+      <a class="btn btn-sm nav-cta" href="/zh/demo/">预约演示</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="app-hero" aria-labelledby="app-title">
+  <div class="ambient" aria-hidden="true"><div class="blob b2" style="opacity:.5"></div><div class="blob b1" style="opacity:.3"></div></div>
+  <div class="grid-fade" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="app-hero-grid">
+      <div>
+        <div class="app-id reveal">
+          <img class="app-icon" src="/site/img/pulsehmis-icon-384.webp" alt="PulseHMIS 应用图标" width="112" height="112">
+          <div><h1 id="app-title">PulseHMIS</h1><p>医院管理信息系统</p><p class="caption">Pulse Generation UG</p></div>
+        </div>
+        <h2 class="display reveal" style="font-size:clamp(40px,6vw,76px);--d:.05s">患者诊疗<br><span class="grad-hmis">从不等待网络。</span></h2>
+        <p class="lead mt-24 reveal" style="--d:.1s">PulseHMIS 通过您自己的局域网运行整个诊所，从前台到注射室。专为乌干达、南苏丹及其他地区的中小型诊所、卫生中心和医院打造。</p>
+        <div class="app-actions reveal" style="--d:.15s">
+          <a class="btn btn-lg btn-shine" href="#download" data-smart-dl="PulseHMIS" style="--b-bg:var(--hmis-deep)"><span class="os-ico" style="display:contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg></span><span class="label">下载</span></a>
+          <button class="btn btn-lg btn-glass" type="button" data-video="0zYYHmW_cd0"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>观看完整教程</button>
+        </div>
+        <div class="info-strip reveal" style="--d:.2s">
+          <div><small>版本</small><b data-app-version="PulseHMIS">2.4.0</b><span>最新</span></div>
+          <div><small>平台</small><b>2</b><span>Android · Windows</span></div>
+          <div><small>互联网</small><b>无需</b><span>用于患者诊疗</span></div>
+          <div><small>免费试用</small><b>30 天</b><span>全部功能</span></div>
+          <div><small>起价</small><b>50k</b><span>UGX / 月</span></div>
+        </div>
+      </div>
+      <div class="reveal-scale" style="--d:.15s">
+        <div class="laptop float-a" style="position:relative">
+          <div class="laptop-screen"><div class="screen">
+            <div class="mini">
+              <div class="mini-side">
+                <div class="logo"><img src="/site/img/pulsehmis-icon-96.webp" alt="">PulseHMIS</div>
+                <i><b></b>仪表板</i><i><b></b>前台</i><i class="on"><b></b>诊室</i><i><b></b>化验室</i><i><b></b>收费处</i><i><b></b>药房</i><i><b></b>注射室</i>
+              </div>
+              <div class="mini-main">
+                <div style="display:flex;justify-content:space-between;align-items:center"><div class="mini-h">问诊</div><span class="pill red" style="height:20px;font-size:9px;padding:0 8px">⚠ 过敏：青霉素</span></div>
+                <div class="mini-stats">
+                  <div class="mini-stat"><small>体温</small><strong>37.8°</strong></div>
+                  <div class="mini-stat"><small>脉搏</small><strong>88</strong></div>
+                  <div class="mini-stat"><small>BMI</small><strong>23.5</strong></div>
+                  <div class="mini-stat"><small>疼痛</small><strong>3/10</strong></div>
+                </div>
+                <div class="mini-row">
+                  <div class="mini-panel"><h5>处方</h5>
+                    <div class="mini-li"><span>青蒿琥酯静注 120 mg · 每日两次 × 3 天</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">数量 6</em></div>
+                    <div class="mini-li" style="color:var(--label-2)"><span>↳ 然后继续使用 蒿甲醚-本芴醇</span></div>
+                    <div class="mini-li"><span>对乙酰氨基酚 500 mg · 每日三次 × 3 天</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">数量 9</em></div>
+                  </div>
+                  <div class="mini-panel"><h5>化验申请</h5>
+                    <div class="mini-li"><span>疟疾快速检测</span><em style="background:rgba(255,59,48,.15);color:#e0261b">阳性</em></div>
+                    <div class="mini-li"><span>血常规</span><em style="background:rgba(255,149,0,.16);color:#d97706">待处理</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="subnav">
+  <div class="wrap">
+    <div class="name"><img src="/site/img/pulsehmis-icon-96.webp" alt=""><span>PulseHMIS</span></div>
+    <nav aria-label="PulseHMIS 栏目">
+      <a href="#journey">工作流程</a><a href="#departments">科室</a><a href="#sync">局域网同步</a><a href="#security">安全</a><a href="#pricing">价格</a><a href="#roadmap">路线图</a><a href="#videos">视频</a><a href="#download">下载</a>
+    </nav>
+    <a class="btn btn-sm" href="#download" style="--b-bg:var(--hmis-deep)">获取</a>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section class="section" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>互动演示</span>
+      <h2 class="title-1" id="journey-title">一位患者，六个工作站。<br>零网络。</h2>
+      <p class="lead">跟随一次就诊，从登记到注射室。每个工作站都通过局域网保持同步，没有人需要重复录入相同信息。</p>
+    </div>
+    <div class="demo reveal-scale" data-journey>
+      <div class="demo-bar"><i></i><i></i><i></i><span>PulseHMIS · 就诊 V-2026-0412</span><span class="pill green live">局域网</span></div>
+      <div class="demo-body">
+        <div class="journey" role="tablist" aria-label="工作站">
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17a4 4 0 0 1 7 0M15 9h3M15 13h3"/></svg></span>前台</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></span>医生</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>化验室</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>收费处</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></span>药房</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></span>注射</button>
+        </div>
+        <div class="j-progress"><i></i></div>
+        <div data-jpanel aria-live="polite"></div>
+        <div class="j-controls">
+          <label class="flex" style="align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--label-2)"><span class="switch"><input type="checkbox" data-jauto checked aria-label="自动播放"><span></span></span>自动播放</label>
+          <div class="wrap-gap"><button class="btn btn-gray btn-sm" type="button" data-jprev>返回</button><button class="btn btn-sm" type="button" data-jnext style="--b-bg:var(--hmis-deep)">下一个工作站<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button></div>
+        </div>
+        <p class="demo-note">使用演示数据的示意预览，不含真实患者信息。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section section-alt" id="departments" aria-labelledby="dept-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>每个科室</span>
+      <h2 class="title-1" id="dept-title">机构真正需要的一切。<br>没有任何拼凑。</h2>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><div class="t-ico ico-teal"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg></div><h3>仪表板</h3><p>一目了然的概览，以及找人的最快方式。</p><ul><li>按姓名、患者编号、就诊编号或电话即时搜索</li><li>进行中的就诊、今日登记、待化验和待付款</li><li>在每台局域网同步的电脑上实时显示</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffb38a,#ff7f50)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>前台</h3><p>每次就诊的起点。</p><ul><li>新患者或复诊患者查询</li><li>现金、保险（含保险公司）或赊账，一次设定</li><li>过敏信息被记录并沿用</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#86a6ff,#5e8bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></div><h3>诊室</h3><p>临床决策，计算由系统完成。</p><ul><li>生命体征，自动计算 BMI 和疼痛评分</li><li>快速选择诊断，过敏横幅始终可见</li><li>处方自动计算数量，并支持“然后继续使用…”的疗程衔接</li></ul></div>
+      <div class="feature reveal"><div class="t-ico" style="background:linear-gradient(135deg,#b9a2ff,#9b7bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/></svg></div><h3>化验室</h3><p>按每项检验所需的格式呈现结果。</p><ul><li>文本、数值、段落或完整参数表</li><li>按年龄和性别区分的参考范围，并标记异常</li><li>在化验台即可加项；化验窗口收费全程跟踪</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffd76e,#f5b51f)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>收费处</h3><p>完整、透明的账单。</p><ul><li>问诊、化验和药房费用一张明细</li><li>部分付款、折扣和“账上余额”</li><li>多收前先确认；收费从不阻碍治疗</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#7fe6da,#2fbfae)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></div><h3>药房</h3><p>精准发药，标签清晰。</p><ul><li>按正确顺序衔接的处方</li><li>按药品切换“已发药”</li><li>热敏打印机处方标签</li></ul></div>
+      <div class="feature reveal"><div class="t-ico ico-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></div><h3>注射室</h3><p>每一剂、每一班，都有据可查。</p><ul><li>计划、已给、剩余剂量及剩余天数</li><li>每剂标记为早、午、晚或夜</li><li>每次给药的“10 项正确”安全核对清单</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>报表与分析</h3><p>随时掌握机构运营状况。</p><ul><li>收入、收费、化验、医生、药房和治疗报表</li><li>按检验项目的阳性/阴性统计</li><li>CSV 导出到“文档”文件夹</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><h3>设置与目录</h3><p>按贵机构的需要定制 PulseHMIS。</p><ul><li>单徽标或双徽标抬头</li><li>药品目录、化验项目目录和服务项目</li><li>全球货币、文档字号、JSON 备份</li></ul></div>
+    </div>
+
+    <div class="split mt-48">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>试一试</span>
+        <h3 class="title-2 mt-16">生命体征，自动计算 BMI。</h3>
+        <p class="lead mt-16">在诊室里，录入体重和身高后 PulseHMIS 立即计算 BMI，即使在漫长值班结束时，数值也总是准确的。</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>处方也会自动计算。</b> 数量根据规格、频次和疗程计算，并显示计算过程。</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>过敏信息始终可见。</b> 无需层层翻找子菜单。</span></li>
+        </ul>
+      </div>
+      <div class="demo reveal-scale" data-bmi>
+        <div class="demo-bar"><i></i><i></i><i></i><span>诊室 · 生命体征</span></div>
+        <div class="demo-body">
+          <div class="flex" style="align-items:center;gap:24px;flex-wrap:wrap">
+            <div><div class="caption" style="font-weight:600">BMI</div><div style="font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:1" data-bmi-out>23.5</div><span class="pill green" data-bmi-label>健康范围</span></div>
+            <div style="flex:1;min-width:220px;display:grid;gap:18px">
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>体重</span><span><b data-w>68</b> kg</span></span><input type="range" name="w" min="30" max="150" value="68" style="accent-color:var(--hmis)"></label>
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>身高</span><span><b data-h>170</b> cm</span></span><input type="range" name="h" min="120" max="210" value="170" style="accent-color:var(--hmis)"></label>
+            </div>
+          </div>
+          <p class="demo-note">仅供演示，不构成医疗建议。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYNC -->
+<section class="section" id="sync" aria-labelledby="sync-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>局域网同步</span>
+        <h2 class="title-1 mt-16" id="sync-title">每个工作站都同步，就在您的楼内。</h2>
+        <p class="lead mt-16">一台电脑作为 <b>主机</b>。其他所有电脑、平板或手机都是 <b>客户端</b> ，运行在您自己的 Wi-Fi 或有线网络上。全程不涉及互联网。</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>先保存在本地。</b> 每项更改立即写入设备，然后在后台推送到主机，屏幕不会卡顿。</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>用修订号，而不是时钟。</b> 只有主机分配修订号，因此不会因为两台电脑时间不一致而丢失较新的修改。</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>对网络负担很小。</b> 客户端每隔几秒询问一次“有更新吗？”，只有内容变化时才下载压缩数据。</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>稳健可靠。</b> 主机无法连接时，客户端会继续使用最后一份副本工作。单条错误记录不会影响所有人的同步。</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>几分钟即可添加一台电脑。</b> 安装后指向主机，完整历史会在一个同步周期内到达。</span></li>
+        </ul>
+      </div>
+      <div class="reveal-scale" style="--d:.1s">
+        <div class="lan" aria-hidden="true">
+          <span class="cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m2 2 20 20M17.5 19H7a5 5 0 0 1-1.6-9.7M9.3 5.3A6 6 0 0 1 18 10h.5a3.5 3.5 0 0 1 2 6.4"/></svg>无需互联网</span>
+          <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <g>
+              <path id="w1" class="wire" d="M50 50 L50 14"/><path id="w2" class="wire" d="M50 50 L82 32"/><path id="w3" class="wire" d="M50 50 L82 68"/>
+              <path id="w4" class="wire" d="M50 50 L50 88"/><path id="w5" class="wire" d="M50 50 L18 68"/><path id="w6" class="wire" d="M50 50 L18 32"/>
+            </g>
+            <circle class="packet" r="1.2"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.6s" begin=".4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w2"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w4"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.3s" begin=".2s" repeatCount="indefinite"><mpath href="#w5"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.5s" begin="1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w6"/></animateMotion></circle>
+          </svg>
+          <div class="node host" style="left:50%;top:50%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>主机 · 修订 4,812</div>
+          <div class="node" style="left:50%;top:14%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>前台</div>
+          <div class="node" style="left:82%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>医生</div>
+          <div class="node" style="left:82%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>化验室</div>
+          <div class="node" style="left:50%;top:88%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>收费处</div>
+          <div class="node" style="left:18%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>药房</div>
+          <div class="node" style="left:18%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>注射室</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section section-alt" id="security" aria-labelledby="sec-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--green)"></span>安全与隐私</span>
+      <h2 class="title-1" id="sec-title">每个角色只看到所需内容。<br>患者数据从不外传。</h2>
+      <p class="lead">任何患者、就诊、处方或化验结果都不会发送到云端。我们的后台只知道有哪些机构及其订阅状态。</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="matrix">
+        <thead><tr><th>角色</th><th>前台</th><th>医生</th><th>化验</th><th>收费处</th><th>药房</th><th>注射</th><th>报表</th><th>设置</th></tr></thead>
+        <tbody>
+          <tr><td>管理员</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>医生</td><td class="o">可选</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">可选</td><td class="n">–</td></tr>
+          <tr><td>护士（注射）</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td></tr>
+          <tr><td>化验室</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">可选</td><td class="n">–</td></tr>
+          <tr><td>收费处</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="o">可选</td><td class="n">–</td></tr>
+          <tr><td>药房</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="o">可选</td><td class="n">–</td></tr>
+          <tr><td>前台接待</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption center mt-16">可选 = 管理员可根据机构政策授予的科室专属视图。</p>
+    <div class="features mt-32">
+      <div class="feature reveal"><div class="t-ico ico-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>加盐的密码哈希</h3><p>绝不以明文存储，备份中也一样。新账户首次登录时必须修改密码。</p></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>完整审计记录</h3><p>每次阶段变更、编辑、付款和结果都记录在就诊中，包括操作人和时间。</p></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></div><h3>专业文档</h3><p>收据、化验结果、化验申请单、处方和标签，保险患者的价格会自动隐藏。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">价格</p><h2 class="title-1">简单套餐，30 天免费。</h2>
+      <p class="lead">一份许可证覆盖一家机构（含其所有分支）。网络内的每台电脑和手机都包含在内。通过 MTN 或 Airtel 移动支付付款，密钥会自动激活。</p></div>
+    <div class="price-grid"><div class="price-card"><h3>1 个月</h3><p class="price">UGX 50,000</p><p class="muted">适合入门</p></div><div class="price-card"><h3>6 个月</h3><p class="price">UGX 200,000</p><p class="muted">比按月付更省</p></div><div class="price-card best"><span class="price-tag">最超值</span><h3>1 年</h3><p class="price">UGX 400,000</p><p class="muted">大多数人的最佳选择</p></div><div class="price-card"><h3>终身</h3><p class="price">UGX 1,500,000</p><p class="muted">一次付款，永久许可</p></div></div>
+    <div class="hero-cta center mt-24"><a class="btn btn-lg" href="/zh/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>开始免费试用</a>
+      <a class="btn btn-lg btn-glass" href="/zh/demo/?product=PulseHMIS"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg>预约免费演示</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--purple)"></span>路线图</span>
+      <h2 class="title-1" id="roadmap-title">PulseHMIS 的发展方向。</h2>
+      <p class="lead">按优先级排列的计划改进。会根据每天使用 PulseHMIS 的机构的反馈而调整。</p>
+    </div>
+    <div class="roadmap">
+      <div class="lane reveal"><h3><span class="pill teal">下一步</span>近期</h3><ul>
+        <li><b>药房库存管理</b><span>库存水平、自动扣减、低库存和过期提醒。</span></li>
+        <li><b>总部与分支</b><span>其他城镇的站点用一次性代码加入，共用一份许可证，并每天向总部发送数据。患者病历保留在本地。</span></li>
+        <li><b>内部消息</b><span>医生、护士和科室之间以及与总部互发消息，仅限贵机构内部。</span></li>
+        <li><b>带二维码的患者卡</b><span>扫码即可立即找到复诊患者。</span></li>
+        <li><b>更新通知与演示模式</b><span>新版本发布时及时获知；安全地培训员工。</span></li></ul></div>
+      <div class="lane reveal" style="--d:.06s"><h3><span class="pill indigo">稍后</span>中期</h3><ul>
+        <li><b>卢干达语、斯瓦希里语和阿拉伯语</b><span>以员工使用的语言呈现界面。</span></li>
+        <li><b>管理员双重验证与会话自动锁定</b><span>为繁忙的共享工作站提供额外保护。</span></li>
+        <li><b>静态数据加密</b><span>即使设备丢失也能受保护。</span></li>
+        <li><b>免疫接种与转诊</b><span>儿科接种计划和转诊信。</span></li></ul></div>
+      <div class="lane reveal" style="--d:.12s"><h3><span class="pill">愿景</span>长期</h3><ul>
+        <li><b>iOS 与 macOS 应用</b><span>在 Apple 设备上提供相同界面。</span></li>
+        <li><b>HL7 / FHIR 导出</b><span>与国家卫生系统互联互通。</span></li>
+        <li><b>可选的加密云备份</b><span>是补充，绝非替代。</span></li>
+        <li><b>多分支视图</b><span>跨多个机构的汇总。</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section" id="videos" aria-labelledby="videos-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--red)"></span>教程</span>
+      <h2 class="title-1" id="videos-title">观看 PulseHMIS 实际运行。</h2>
+    </div>
+    <div class="videos" data-videos="PulseHMIS" data-feature></div>
+    <div class="center mt-32"><a class="btn btn-tinted" href="/tutorial.html">打开互动入门指南<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section section-alt" id="download" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--blue)"></span>下载</span>
+      <h2 class="title-1" id="dl-title">安装 PulseHMIS。</h2>
+      <p class="lead">前台或管理员电脑（通常为主机）使用 Windows 安装程序，机构内的平板和手机使用 Android APK。</p>
+    </div>
+    <div class="dl-grid" data-downloads="PulseHMIS"></div>
+    <div class="dl-note"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>直接来自我们的 <a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">官方 GitHub 发布页</a></span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="pfaq-title">
+  <div class="wrap">
+    <div class="section-head reveal"><h2 class="title-2" id="pfaq-title">PulseHMIS 常见问题</h2></div>
+    <div class="faq"><div data-faq>
+      <details class="disc"><summary>哪台电脑应作为主机？<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>通常是前台或管理员的 Windows 电脑，因为它一天中大部分时间都开着。任何平台都可以作为主机，单台电脑的诊所可直接使用独立模式。</p></div></details>
+      <details class="disc"><summary>主机电脑坏了怎么办？<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>将最新备份（位于“文档 › Backups”中的可读 JSON 文件，易于复制到 U 盘）恢复到新电脑并设为主机。期间客户端会继续使用最后一份副本工作。</p></div></details>
+      <details class="disc"><summary>如何支付订阅费用？<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>MTN Mobile Money、Airtel Money、Visa/Mastercard 或银行转账。您也可以直接付款，并通过以下方式发送凭证： <a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a> 并附上设备 ID；我们会回复一个可完全离线使用的激活密钥。</p></div></details>
+      <details class="disc"><summary>可以更正以往的就诊记录吗？<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>可以。管理员和医生可从患者档案中心打开任何就诊，在任意阶段编辑信息、问诊、化验结果或账单。每项更改都会保存在审计记录中。</p></div></details>
+      <details class="disc"><summary>保险患者能看到我们的内部价格吗？<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>不会。对于保险患者，打印文件只显示“付款方式：保险（公司）”，绝不显示内部价格明细。</p></div></details>
+    </div></div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="开始使用">
+  <div class="wrap">
+    <div class="cta-band reveal-scale">
+      <h2 class="title-1">安心经营您的诊所。</h2>
+      <p class="lead">今天就免费安装，或让我们为您的团队演示并搭建网络。</p>
+      <div class="hero-cta"><a class="btn btn-lg btn-white" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>免费下载</a><a class="btn btn-lg btn-glass" href="/zh/?product=PulseHMIS#contact">申请演示</a></div>
+    </div>
+  </div>
+</section>
+<section class="section" hidden aria-labelledby="stories-titlePulseHMIS" data-stories-section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><span class="dot" style="color:var(--green)"></span>客户故事</span>
+      <h2 class="title-1" id="stories-titlePulseHMIS">在关键之处值得信赖。</h2></div>
+    
+    <div class="story-grid" data-stories="PulseHMIS"></div>
+    <p class="center mt-24"><a class="btn btn-gray" href="/zh/customers/">更多客户故事<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/zh/"><img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34"><span>Pulse Generation UG</span></a>
+        <p class="about">面向医院、学校、银行和娱乐的离线优先软件。在乌干达设计与开发，适应东非的真实环境。</p>
+        <div class="socials"><a href="https://wa.me/256700677555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a><a href="https://t.me/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a><a href="https://www.youtube.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a><a href="https://tiktok.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 1 0 5 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"/></svg></a><a href="https://www.instagram.com/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://x.com/lwasapulse_ug" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.3l-7.2 8.2L22.4 21h-6.6l-5.2-6.8L4.7 21H1.4l7.7-8.8L1 3h6.8l4.7 6.2zm-1.2 16h1.8L7.5 4.9H5.5z"/></svg></a><a href="https://www.facebook.com/share/18yDouKsLP/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a><a href="https://github.com/pulsegenerationug" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a></div>
+      </div>
+      <div>
+        <h4>应用</h4>
+        <ul>
+          <li><a href="/zh/pulsehmis/">PulseHMIS</a></li>
+          <li><a href="/zh/edupulse/">EduPulse</a></li>
+          <li><a href="/zh/pulseremit-pro/">PulseRemit Pro</a></li>
+          <li><a href="/zh/pulseproperty/">PulseProperty Pro</a></li>
+          <li><a href="/zh/pulsestock/">PulseStock</a></li>
+          <li><a href="/zh/pulselmis/">PulseLMIS</a></li>
+          <li><a href="/zh/lwasa-ludo/">Lwasa Ludo</a></li>
+          <li><a href="/zh/pricing/">价格</a></li>
+          <li><a href="/zh/#downloads">全部下载</a></li>
+          <li><a href="/changelog/">新功能（更新日志）</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>学习</h4>
+        <ul>
+          <li><a href="/zh/help/">帮助中心</a></li>
+          <li><a href="/zh/#tutorials">视频教程</a></li>
+          <li><a href="/tutorial.html">PulseHMIS 互动指南</a></li>
+          <li><a href="/zh/#faq">常见问题</a></li>
+          <li><a href="/edupulse/privacy-policy.html">EduPulse 隐私</a></li>
+          <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS 隐私</a></li>
+          <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro 隐私</a></li>
+          <li><a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo 隐私</a></li>
+          <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro 隐私</a></li>
+          <li><a href="/pulsestock/privacy-policy.html">PulseStock 隐私</a></li>
+          <li><a href="/pulselmis/privacy-policy.html">PulseLMIS 隐私</a></li>
+          <li><a href="/delete-account/">删除您的账户</a></li>
+          <li><a href="/refund-policy/">退款与退货政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>公司</h4>
+        <ul>
+          <li><a href="/zh/company/">关于我们</a></li>
+          <li><a href="/zh/customers/" data-needs="stories" hidden>客户故事</a></li>
+          <li><a href="/zh/security/">安全与您的数据</a></li>
+          <li><a href="/zh/demo/">预约演示</a></li>
+          <li><a href="/zh/status/">服务状态</a></li>
+        </ul>
+        <h4 class="mt-24">联系</h4>
+        <ul>
+          <li><a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+256700677555">+256 700 677 555</a></li>
+          <li><a href="tel:+256761174741">+256 761 174 741</a></li>
+          <li><a href="tel:+211920677555">+211 920 677 555</a></li>
+          <li><a href="mailto:pulsegenerationug@gmail.com">pulsegenerationug@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <form class="newsletter" data-newsletter novalidate>
+      <div><h4>版本新闻与技巧</h4><p>新版本、新功能和培训视频。绝无垃圾邮件，可随时退订。</p></div>
+      <div class="nl-row"><input type="email" name="email" placeholder="您的电子邮件地址" aria-label="您的电子邮件地址" autocomplete="email" required>
+        <button class="btn" type="submit">订阅</button></div>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Pulse Generation UG。保留所有权利。</span>
+      <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
+      <div class="lang-menu lang-menu-up" data-lang-menu><button class="btn btn-sm btn-gray" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>语言</button><div class="lang-list" hidden></div></div>
+      <span><a href="/privacy/">隐私</a> · <a href="/terms/">条款</a> · <a href="/refund-policy/">退款</a> · <a href="/zh/account/">我的账户</a> · <a href="/delete-account/">删除账户</a> · <a href="/zh/support/">支持</a> · <button type="button" class="linklike" data-cookie-settings>Cookie 设置</button></span>
+    </div>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="快速导航"><ul><li><a href="/zh/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 3.3a1 1 0 0 1 1.4 0l8 7.6A1 1 0 0 1 20 12.6h-1V20a1 1 0 0 1-1 1h-4v-5.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V21H6a1 1 0 0 1-1-1v-7.4H4a1 1 0 0 1-.7-1.7z"/></svg><span>首页</span></a></li><li><a href="/zh/#products" class="active" data-keep-active><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg><span>应用</span></a></li><li><a href="/zh/#downloads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.2 10.7-3.5 3.5a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l1.8 1.8V7.5a1 1 0 1 1 2 0v5.6l1.8-1.8a1 1 0 0 1 1.4 1.4z"/></svg><span>下载</span></a></li><li><a href="/zh/#tutorials"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zm6.3 2.6v6.8a.6.6 0 0 0 .9.5l5.4-3.4a.6.6 0 0 0 0-1l-5.4-3.4a.6.6 0 0 0-.9.5z"/></svg><span>视频</span></a></li><li><a href="/zh/#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg><span>联系</span></a></li></ul></nav>
+<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="在 WhatsApp 上与我们聊天"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a>
+<div class="toast-region" aria-live="polite"></div>
+<script>window.PG_I18N={"Hospital management that works with no internet": "无需联网的医院管理", "Health & Medical": "健康与医疗", "School, college & university administration, offline-first": "中小学、学院与大学管理，离线优先", "Education": "教育", "Branch banking, SACCO & money transfer": "网点银行、储蓄信用社与汇款", "Finance": "财务", "The classic board game in 3D, with Luganda commentary": "经典棋盘游戏 3D 版，卢干达语解说", "Board game": "棋盘游戏", "Property, rent & estate management, offline-first": "物业、租赁与地产管理，离线优先", "Business": "商业", "Pharmacy, supermarket & inventory, offline-first": "药店、超市与库存，离线优先", "PulseHMIS full tutorial": "PulseHMIS 完整教程", "A complete walkthrough of hospital software that works with no internet, from reception to pharmacy.": "从前台到药房，完整演示无需联网的医院软件。", "PulseHMIS video tutorial 1": "PulseHMIS 视频教程 1", "Watch PulseHMIS in action.": "观看 PulseHMIS 实际运行。", "PulseHMIS video tutorial 2": "PulseHMIS 视频教程 2", "The classic board game in 3D, with Luganda commentary.": "经典棋盘游戏 3D 版，卢干达语解说。", "Learn more": "了解更多", "Read more": "阅读更多", "Dismiss notice": "关闭通知", "Read the full story": "阅读完整故事", "Light appearance": "浅色外观", "Dark appearance": "深色外观", "Dialog": "对话框", "Close": "关闭", "Follow the setup steps, then open": "按照安装步骤操作，然后打开", "Android shows an “unknown sources” prompt for any app installed outside the Play Store. This is expected.": "凡是在 Play 商店以外安装的应用，Android 都会提示“未知来源”。这是正常的。", "Windows SmartScreen can warn about new publishers. The installer comes straight from our official GitHub release.": "Windows SmartScreen 可能会对新发布者发出警告。安装程序直接来自我们的官方 GitHub 发布页。", "Contact": "联系", "Download": "下载", "Downloading": "正在下载", "Installing": "安装", "Installer (.exe)": "安装程序（.exe）", "App (.zip)": "应用（.zip）", "Learn more about": "了解更多：", "Download for Windows": "下载 Windows 版", "Download for Android": "下载 Android 版", "Download for": "下载适用于", "Get it for Android, Windows or Mac": "适用于 Android、Windows 或 Mac", "Video": "视频", "Home": "首页", "Hospital management system": "医院管理系统", "PulseHMIS pricing": "PulseHMIS 价格", "From 50,000 UGX / month · 30 days free": "每月 50,000 UGX 起 · 30 天免费", "PulseHMIS LAN sync": "PulseHMIS 局域网同步", "Host and client, no internet": "主机与客户端，无需互联网", "PulseHMIS interactive guide": "PulseHMIS 互动指南", "Getting started walkthrough": "入门导览", "School administration system": "学校管理系统", "EduPulse report cards": "EduPulse 成绩单", "Automatic grading & report cards": "自动评分与成绩单", "EduPulse fees & finance": "EduPulse 学费与财务", "Fees, receipts, expenses, payroll": "学费、收据、支出、工资", "PulseRemit Pro loans": "PulseRemit Pro 贷款", "Loan products, schedules, repayments": "贷款产品、还款计划、还款", "PulseRemit Pro pricing": "PulseRemit Pro 价格", "One licence per bank": "每家银行一份许可证", "3D board game in Luganda": "卢干达语 3D 棋盘游戏", "Property & rent management": "物业与租赁管理", "Pharmacy, supermarket & inventory": "药店、超市与库存", "Lwasa Ludo privacy policy": "Lwasa Ludo 隐私政策", "What the game collects": "游戏会收集什么", "All downloads": "全部下载", "Android APK & Windows installers": "Android APK 与 Windows 安装程序", "Video tutorials": "视频教程", "Learn by watching": "边看边学", "About the founder": "关于创始人", "Help & FAQ": "帮助与常见问题", "Questions, answered": "问题解答", "Contact us": "联系我们", "WhatsApp, phone, email": "WhatsApp、电话、邮件", "Pricing": "价格", "Every app, every plan": "每款应用，每种套餐", "Book a demo": "预约演示", "Free 30-minute demo": "30 分钟免费演示", "Security & your data": "安全与您的数据", "Where your data lives": "数据存放在哪里", "Help Center": "帮助中心", "Guides, videos and answers": "指南、视频与解答", "What's new": "新功能", "Changelog of every release": "每个版本的更新日志", "About the company": "关于公司", "Customer stories": "客户故事", "Organisations using Pulse": "使用 Pulse 的机构", "Privacy": "隐私", "Website privacy notice": "网站隐私声明", "Terms": "条款", "Terms of use": "使用条款", "Pages": "页面", "Downloads": "下载", "Videos": "视频", "Answers on this page": "本页的解答", "On this page": "本页内容", "Jump to section": "跳转到该部分", "Search": "搜索", "Search apps, downloads, videos, help…": "搜索应用、下载、视频、帮助…", "Search the site": "搜索本站", "Copied": "已复制", "Link copied": "链接已复制", "This service is being set up. Please try again soon, or reach us on WhatsApp.": "该服务正在设置中，请稍后再试，或通过 WhatsApp 联系我们。", "Please enter a valid email.": "请输入有效的电子邮件地址。", "Subscribe": "订阅", "Newsletter": "新闻通讯", "Thank you! You'll get our release news and tips.": "谢谢！您将收到我们的版本资讯和技巧。", "Please add your name, email and a message.": "请填写姓名、邮箱和留言。", "That email address doesn’t look right.": "该邮箱地址似乎不正确。", "Sending…": "发送中…", "Demo request": "演示申请", "Contact form": "联系表单", "Message": "留言", "Thank you,": "谢谢，", "Demo request sent": "演示申请已发送", "Message sent": "消息已发送", "You’ve sent several messages in a short time.": "您在短时间内发送了多条消息。", "We couldn’t send that just now.": "暂时无法发送。", "Your message": "您的消息", "We replied": "我们已回复", "Closed": "已关闭", "Waiting for our reply": "等待我们回复", "Write a reply…": "写回复…", "Reply sent": "回复已发送", "Reception": "前台", "Register once. Route instantly.": "一次登记，即刻分诊。", "New or returning patients are registered in one form: name, age, gender, phone, allergies and payment method. Cash, Insurance or Credit is locked in here and carried to every department automatically.": "新患者或复诊患者在一张表中完成登记：姓名、年龄、性别、电话、过敏和付款方式。现金、保险或赊账在此确定，并自动带到每个科室。", "Patient search": "患者搜索", "Insurance companies": "保险公司", "Allergy capture": "过敏信息采集", "Visit routing": "就诊分诊", "Patient": "患者", "Nakato Sarah · 34 F": "Nakato Sarah · 34 岁 女", "Payment": "付款", "Insurance (company)": "保险（公司）", "Allergies": "过敏", "Penicillin": "青霉素", "Next": "下一步", "Doctor’s office →": "诊室 →", "Doctor": "医生", "Vitals, diagnosis, prescriptions.": "生命体征、诊断、处方。", "Capture vitals with automatic BMI, record complaints and diagnoses, order lab tests and prescribe. PulseHMIS calculates the billable quantity from strength, frequency and duration, and shows the maths.": "录入生命体征并自动计算 BMI，记录主诉和诊断，开化验单和处方。PulseHMIS 根据规格、频次和疗程计算计费数量，并显示计算过程。", "Auto BMI": "自动 BMI", "Allergy banner": "过敏横幅", "Lab orders": "化验申请", "Temp / Pulse": "体温 / 脉搏", "37.8 °C · 88 bpm": "37.8 °C · 88 次/分", "23.5 · healthy": "23.5 · 健康", "Diagnosis": "诊断", "Malaria (suspected)": "疟疾（疑似）", "Lab": "化验", "Malaria RDT, FBC": "疟疾快速检测、血常规", "Laboratory": "化验室", "Results in the right format.": "结果格式恰到好处。", "Text, numeric with reference ranges, paragraphs or full parameter tables with age- and gender-specific ranges. Abnormal values are flagged, and technicians can add a follow-up test on the spot.": "文本、带参考范围的数值、段落或完整参数表，并按年龄和性别区分范围。异常值会被标记，技术员可当场加做后续检验。", "Reference ranges": "参考范围", "Abnormal flags": "异常标记", "Add test": "加做检验", "Lab counter payments": "化验窗口收费", "Malaria RDT": "疟疾快速检测", "Positive ⚑": "阳性 ⚑", "Haemoglobin": "血红蛋白", "Status": "状态", "Back to doctor →": "返回医生 →", "Cashier": "收费处", "Every shilling accounted for.": "每一先令都有账可查。", "Consultation, lab and pharmacy totals in one bill, with discounts, partial payments and a full payment history. Lab fees already paid at the counter are deducted, so nobody is charged twice.": "问诊、化验和药房费用合并为一张账单，支持折扣、部分付款和完整付款记录。已在化验窗口支付的费用会被扣除，不会重复收费。", "Installments": "分期付款", "Credit on file": "账上余额", "Over-payment check": "多付检查", "Branded receipts": "带品牌的收据", "Consultation": "问诊", "Pharmacy": "药房", "Paid · Balance": "已付 · 余额", "Dispense exactly what was prescribed.": "严格按处方发药。", "The full prescription in chained order, with per-medicine dispensed toggles for partial dispensing and compact labels for a thermal printer. The bill status is visible at a glance.": "按衔接顺序显示完整处方，每种药品都可切换“已发药”以支持部分发药，并提供适合热敏打印机的紧凑标签。账单状态一目了然。", "Per-item dispensing": "按项发药", "Prescription labels": "处方标签", "Balance visibility": "余额可见", "Send back to cashier": "退回收费处", "Artemether-Lumefantrine": "蒿甲醚-本芴醇", "Dispensed ✓": "已发药 ✓", "Paracetamol 500 mg": "对乙酰氨基酚 500 mg", "Label": "标签", "Printed": "已打印", "Bill": "账单", "Settled": "已结清", "Injection": "注射", "Every dose, every shift.": "每一剂，每一班。", "A medication administration record for each injectable course: doses planned, given and remaining. Each dose is logged with a time of day, and a 10 Rights safety checklist runs every session.": "每个注射疗程的给药记录：计划、已给和剩余剂量。每剂都记录给药时段，并在每次给药时执行“10 项正确”安全核对。", "Dose tracking": "剂量跟踪", "Morning/Evening labels": "早/晚标签", "10 Rights checklist": "“10 项正确”清单", "Shift handover": "交接班", "Artesunate IV": "青蒿琥酯静注", "Dose 2 of 3": "第 2 剂，共 3 剂", "Last given": "上次给药", "Morning · 08:14": "早上 · 08:14", "Evening": "晚上", "Checklist": "核对清单", "Underweight": "偏瘦", "Healthy range": "健康范围", "Overweight": "超重", "Obese range": "肥胖", "Excellent": "优秀", "Very good": "很好", "Good": "良好", "Satisfactory": "合格", "Fair": "一般", "Needs improvement": "有待提高", "All marked present": "已全部标记为出勤", "Attendance saved, offline": "考勤已离线保存", "Another six! Roll again.": "又是六点！再掷一次。", "Mukaga! A six lets a token out. Roll again.": "Mukaga！掷出六点可让棋子出发，再掷一次。", "Good luck!": "祝你好运！", "Nice move!": "好棋！", "Almost!": "差一点！", "Well played!": "打得好！", "Oops!": "哎呀！", "Accept": "接受", "Cookie choices": "Cookie 选项", "We'd like to use cookies to count visits and measure our adverts (Google Analytics and Meta). Nothing loads unless you accept.": "我们希望使用 Cookie 来统计访问量并衡量广告效果（Google Analytics 和 Meta）。除非您接受，否则不会加载任何内容。", "Privacy notice": "隐私声明", "Decline": "拒绝", "Working": "运行正常", "Not responding": "无响应", "Some services are having problems": "部分服务出现问题", "All services are working": "所有服务运行正常", "Last checked": "上次检查", "English": "英语"};window.PG_LANG_PATHS=["/", "/pulsehmis/", "/pulselmis/", "/edupulse/", "/pulseremit-pro/", "/pulsestock/", "/pulseproperty/", "/lwasa-ludo/", "/pricing/", "/demo/", "/customers/", "/security/", "/company/", "/help/", "/status/", "/support/", "/account/"];</script>
+<script src="/site/site.js?v=14" defer></script>
+</body>
+</html>

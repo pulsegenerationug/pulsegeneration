@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="hi" class="no-js">
+<head>
+<meta charset="utf-8">
+<!-- Google Analytics + Meta Pixel load only after the visitor accepts cookies (site.js shows the banner) -->
+<script>
+window.pgLoadTracking = function () {
+  if (window.pgTrackingOn) return; window.pgTrackingOn = 1;
+  var s = document.createElement('script'); s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB'; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date()); gtag('config', 'G-8TWBX69GCB');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1334570271975920'); fbq('track', 'PageView');
+};
+try { if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking(); } catch (e) {}
+</script>
+<meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulseHMIS · बिना इंटरनेट चलने वाला अस्पताल प्रबंधन</title>
+<meta name="description" content="PulseHMIS आपके पूरे क्लिनिक को, रिसेप्शन से इंजेक्शन कक्ष तक, आपके अपने लोकल नेटवर्क पर चलाता है। पहले ऑफ़लाइन, Android, Windows और Mac के लिए।">
+<link rel="canonical" href="https://pulsegenerationug.com/hi/pulsehmis/">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="color-scheme" content="light dark">
+<meta property="og:locale" content="hi_IN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pulse Generation UG">
+<meta property="og:title" content="PulseHMIS · बिना इंटरनेट चलने वाला अस्पताल प्रबंधन">
+<meta property="og:description" content="PulseHMIS आपके पूरे क्लिनिक को, रिसेप्शन से इंजेक्शन कक्ष तक, आपके अपने लोकल नेटवर्क पर चलाता है। पहले ऑफ़लाइन, Android, Windows और Mac के लिए।">
+<meta property="og:url" content="https://pulsegenerationug.com/hi/pulsehmis/">
+<meta property="og:image" content="https://pulsegenerationug.com/images/og/pulsehmis.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@lwasapulse_ug">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/pulse-logo-32.png">
+<link rel="apple-touch-icon" href="/brand/pulse-logo-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="/site/site.css?v=14">
+<script>(function(){var t=null;try{t=localStorage.getItem('pg_theme')}catch(e){}var d=document.documentElement;if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.setAttribute('data-theme-mode',(t==='light'||t==='dark')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));})();</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PulseHMIS", "operatingSystem": "Android, Windows, macOS", "applicationCategory": "MedicalApplication", "description": "Offline-first hospital management information system.", "url": "https://pulsegenerationug.com/pulsehmis/", "image": "https://pulsegenerationug.com/images/og/pulsehmis.png", "offers": {"@type": "AggregateOffer", "lowPrice": 50000, "highPrice": 1500000, "priceCurrency": "UGX", "offerCount": 4}, "publisher": {"@type": "Organization", "name": "Pulse Generation UG"}}</script>
+<link rel="alternate" hreflang="en" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="x-default" href="https://pulsegenerationug.com/pulsehmis/">
+<link rel="alternate" hreflang="fr" href="https://pulsegenerationug.com/fr/pulsehmis/">
+<link rel="alternate" hreflang="sw" href="https://pulsegenerationug.com/sw/pulsehmis/">
+<link rel="alternate" hreflang="zh" href="https://pulsegenerationug.com/zh/pulsehmis/">
+<link rel="alternate" hreflang="ar" href="https://pulsegenerationug.com/ar/pulsehmis/">
+<link rel="alternate" hreflang="es" href="https://pulsegenerationug.com/es/pulsehmis/">
+<link rel="alternate" hreflang="pt" href="https://pulsegenerationug.com/pt/pulsehmis/">
+<link rel="alternate" hreflang="de" href="https://pulsegenerationug.com/de/pulsehmis/">
+<link rel="alternate" hreflang="it" href="https://pulsegenerationug.com/it/pulsehmis/">
+<link rel="alternate" hreflang="ru" href="https://pulsegenerationug.com/ru/pulsehmis/">
+<link rel="alternate" hreflang="tr" href="https://pulsegenerationug.com/tr/pulsehmis/">
+<link rel="alternate" hreflang="id" href="https://pulsegenerationug.com/id/pulsehmis/">
+<link rel="alternate" hreflang="hi" href="https://pulsegenerationug.com/hi/pulsehmis/">
+</head>
+<body class="">
+<a class="skip" href="#main">सामग्री पर जाएँ</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="/hi/" aria-label="Pulse Generation UG होम">
+      <img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34">
+      <span>Pulse Generation<small>युगांडा</small></span>
+    </a>
+    <nav class="nav-links" aria-label="मुख्य">
+      <div class="prodmenu" data-products-menu>
+        <button class="pm-btn active" type="button" aria-expanded="false" aria-controls="pm-panel">उत्पाद<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pm-panel" id="pm-panel" hidden>
+          <div class="pm-grid"><a class="pm-item" href="/hi/pulsehmis/" aria-current="page"><img src="/site/img/pulsehmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseHMIS</b><small>अस्पताल और क्लिनिक</small></span></a><a class="pm-item" href="/hi/pulselmis/"><img src="/site/img/pulselmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseLMIS</b><small>चिकित्सा प्रयोगशालाएँ</small></span></a><a class="pm-item" href="/hi/edupulse/"><img src="/site/img/edupulse-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>EduPulse</b><small>स्कूल, कॉलेज और विश्वविद्यालय</small></span></a><a class="pm-item" href="/hi/pulseremit-pro/"><img src="/site/img/pulseremit-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseRemit Pro</b><small>बैंक, सहकारी बचत समितियाँ और धन-प्रेषण</small></span></a><a class="pm-item" href="/hi/pulsestock/"><img src="/site/img/pulsestock-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseStock</b><small>फ़ार्मेसी, सुपरमार्केट और दुकानें</small></span></a><a class="pm-item" href="/hi/pulseproperty/"><img src="/site/img/pulseproperty-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseProperty Pro</b><small>मकान-मालिक और संपत्ति प्रबंधक</small></span></a><a class="pm-item" href="/hi/lwasa-ludo/"><img src="/site/img/ludo-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>Lwasa Ludo</b><small>लुगांडा में मुफ़्त 3D लूडो गेम</small></span></a></div>
+          <div class="pm-foot"><a href="/hi/pricing/">कीमतों की तुलना करें<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/hi/#downloads">सभी डाउनलोड<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/changelog/">नया क्या है<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+        </div>
+      </div><a href="/hi/pricing/">कीमतें</a><a href="/hi/customers/" data-needs="stories" hidden>ग्राहक</a><a href="/hi/security/">सुरक्षा</a><a href="/hi/help/">सहायता</a><a href="/hi/company/">कंपनी</a></nav>
+    <div class="nav-actions">
+      <button class="search-pill" type="button" data-search-open aria-label="खोजें"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>खोजें</span><kbd data-kbd>Ctrl K</kbd></button>
+      <div class="lang-menu" data-lang-menu><button class="icon-btn" type="button" aria-expanded="false" aria-label="भाषा" title="भाषा"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></button><div class="lang-list" hidden></div></div>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="डार्क मोड बदलें"><svg class="theme-ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="theme-ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <a class="icon-btn acct-btn" href="/hi/account/" data-account-link aria-label="मेरा खाता" title="मेरा खाता"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
+      <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/hi/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>डाउनलोड करें</span></a>
+      <a class="btn btn-sm nav-cta" href="/hi/demo/">डेमो बुक करें</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="app-hero" aria-labelledby="app-title">
+  <div class="ambient" aria-hidden="true"><div class="blob b2" style="opacity:.5"></div><div class="blob b1" style="opacity:.3"></div></div>
+  <div class="grid-fade" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="app-hero-grid">
+      <div>
+        <div class="app-id reveal">
+          <img class="app-icon" src="/site/img/pulsehmis-icon-384.webp" alt="PulseHMIS ऐप आइकन" width="112" height="112">
+          <div><h1 id="app-title">PulseHMIS</h1><p>अस्पताल प्रबंधन सूचना प्रणाली</p><p class="caption">Pulse Generation UG</p></div>
+        </div>
+        <h2 class="display reveal" style="font-size:clamp(40px,6vw,76px);--d:.05s">मरीज़ों की देखभाल<br><span class="grad-hmis">जो कभी इंटरनेट का इंतज़ार नहीं करती।</span></h2>
+        <p class="lead mt-24 reveal" style="--d:.1s">PulseHMIS आपके पूरे क्लिनिक को, रिसेप्शन से इंजेक्शन कक्ष तक, आपके अपने लोकल नेटवर्क पर चलाता है। युगांडा, दक्षिण सूडान और आगे के छोटे-मध्यम क्लिनिकों, स्वास्थ्य केंद्रों और अस्पतालों के लिए बना।</p>
+        <div class="app-actions reveal" style="--d:.15s">
+          <a class="btn btn-lg btn-shine" href="#download" data-smart-dl="PulseHMIS" style="--b-bg:var(--hmis-deep)"><span class="os-ico" style="display:contents"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg></span><span class="label">डाउनलोड करें</span></a>
+          <button class="btn btn-lg btn-glass" type="button" data-video="0zYYHmW_cd0"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>पूरा ट्यूटोरियल देखें</button>
+        </div>
+        <div class="info-strip reveal" style="--d:.2s">
+          <div><small>संस्करण</small><b data-app-version="PulseHMIS">2.4.0</b><span>नवीनतम</span></div>
+          <div><small>प्लेटफ़ॉर्म</small><b>2</b><span>Android · Windows</span></div>
+          <div><small>इंटरनेट</small><b>ज़रूरी नहीं</b><span>मरीज़ों की देखभाल के लिए</span></div>
+          <div><small>मुफ़्त ट्रायल</small><b>30 दिन</b><span>सभी फ़ीचर</span></div>
+          <div><small>से शुरू</small><b>50k</b><span>UGX / माह</span></div>
+        </div>
+      </div>
+      <div class="reveal-scale" style="--d:.15s">
+        <div class="laptop float-a" style="position:relative">
+          <div class="laptop-screen"><div class="screen">
+            <div class="mini">
+              <div class="mini-side">
+                <div class="logo"><img src="/site/img/pulsehmis-icon-96.webp" alt="">PulseHMIS</div>
+                <i><b></b>डैशबोर्ड</i><i><b></b>रिसेप्शन</i><i class="on"><b></b>डॉक्टर का कक्ष</i><i><b></b>प्रयोगशाला</i><i><b></b>कैशियर</i><i><b></b>फ़ार्मेसी</i><i><b></b>इंजेक्शन कक्ष</i>
+              </div>
+              <div class="mini-main">
+                <div style="display:flex;justify-content:space-between;align-items:center"><div class="mini-h">परामर्श</div><span class="pill red" style="height:20px;font-size:9px;padding:0 8px">⚠ एलर्जी: पेनिसिलिन</span></div>
+                <div class="mini-stats">
+                  <div class="mini-stat"><small>तापमान</small><strong>37.8°</strong></div>
+                  <div class="mini-stat"><small>नाड़ी</small><strong>88</strong></div>
+                  <div class="mini-stat"><small>BMI</small><strong>23.5</strong></div>
+                  <div class="mini-stat"><small>दर्द</small><strong>3/10</strong></div>
+                </div>
+                <div class="mini-row">
+                  <div class="mini-panel"><h5>पर्चा</h5>
+                    <div class="mini-li"><span>आर्टेसुनेट IV 120 mg · दिन में 2 बार × 3 दिन</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">मात्रा 6</em></div>
+                    <div class="mini-li" style="color:var(--label-2)"><span>↳ फिर जारी रखें: आर्टेमेथर-ल्यूमफ़ैंट्रिन</span></div>
+                    <div class="mini-li"><span>पैरासिटामोल 500 mg · दिन में 3 बार × 3 दिन</span><em style="background:rgba(34,211,184,.18);color:#0e9e8c">मात्रा 9</em></div>
+                  </div>
+                  <div class="mini-panel"><h5>लैब ऑर्डर</h5>
+                    <div class="mini-li"><span>मलेरिया रैपिड टेस्ट</span><em style="background:rgba(255,59,48,.15);color:#e0261b">पॉज़िटिव</em></div>
+                    <div class="mini-li"><span>पूर्ण रक्त गणना</span><em style="background:rgba(255,149,0,.16);color:#d97706">लंबित</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div></div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="subnav">
+  <div class="wrap">
+    <div class="name"><img src="/site/img/pulsehmis-icon-96.webp" alt=""><span>PulseHMIS</span></div>
+    <nav aria-label="PulseHMIS अनुभाग">
+      <a href="#journey">कार्यप्रवाह</a><a href="#departments">विभाग</a><a href="#sync">LAN सिंक</a><a href="#security">सुरक्षा</a><a href="#pricing">कीमतें</a><a href="#roadmap">रोडमैप</a><a href="#videos">वीडियो</a><a href="#download">डाउनलोड करें</a>
+    </nav>
+    <a class="btn btn-sm" href="#download" style="--b-bg:var(--hmis-deep)">पाएँ</a>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section class="section" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>इंटरैक्टिव झलक</span>
+      <h2 class="title-1" id="journey-title">एक मरीज़। छह स्टेशन।<br>शून्य इंटरनेट।</h2>
+      <p class="lead">पंजीकरण से इंजेक्शन कक्ष तक एक विज़िट देखें। हर स्टेशन लोकल नेटवर्क पर साथ चलता है, और कोई भी एक ही जानकारी दोबारा नहीं भरता।</p>
+    </div>
+    <div class="demo reveal-scale" data-journey>
+      <div class="demo-bar"><i></i><i></i><i></i><span>PulseHMIS · विज़िट V-2026-0412</span><span class="pill green live">लोकल नेटवर्क</span></div>
+      <div class="demo-body">
+        <div class="journey" role="tablist" aria-label="स्टेशन">
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17a4 4 0 0 1 7 0M15 9h3M15 13h3"/></svg></span>रिसेप्शन</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></span>डॉक्टर</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>प्रयोगशाला</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>कैशियर</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></span>फ़ार्मेसी</button>
+          <button type="button"><span class="j-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></span>इंजेक्शन</button>
+        </div>
+        <div class="j-progress"><i></i></div>
+        <div data-jpanel aria-live="polite"></div>
+        <div class="j-controls">
+          <label class="flex" style="align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--label-2)"><span class="switch"><input type="checkbox" data-jauto checked aria-label="ऑटो-प्ले"><span></span></span>ऑटो-प्ले</label>
+          <div class="wrap-gap"><button class="btn btn-gray btn-sm" type="button" data-jprev>वापस</button><button class="btn btn-sm" type="button" data-jnext style="--b-bg:var(--hmis-deep)">अगला स्टेशन<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></button></div>
+        </div>
+        <p class="demo-note">डेमो डेटा वाला उदाहरण पूर्वावलोकन। कोई असली मरीज़ जानकारी नहीं।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS -->
+<section class="section section-alt" id="departments" aria-labelledby="dept-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>हर विभाग</span>
+      <h2 class="title-1" id="dept-title">वह सब जो एक सुविधा में सच में होता है।<br>कुछ भी ज़बरदस्ती जोड़ा नहीं।</h2>
+    </div>
+    <div class="features">
+      <div class="feature reveal"><div class="t-ico ico-teal"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg></div><h3>डैशबोर्ड</h3><p>एक नज़र में झलक और किसी को भी ढूँढने का सबसे तेज़ तरीक़ा।</p><ul><li>नाम, मरीज़ आईडी, विज़िट आईडी या फ़ोन से तुरंत खोज</li><li>सक्रिय विज़िट, आज के पंजीकरण, लंबित लैब और भुगतान की प्रतीक्षा</li><li>हर LAN-सिंक कंप्यूटर पर लाइव</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffb38a,#ff7f50)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>रिसेप्शन</h3><p>हर मुलाक़ात की शुरुआत।</p><ul><li>नए या पुराने मरीज़ की खोज</li><li>नकद, बीमा (कंपनी सहित) या उधार, एक बार तय</li><li>एलर्जी दर्ज होकर आगे जाती है</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#86a6ff,#5e8bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></div><h3>डॉक्टर का कक्ष</h3><p>क्लिनिकल निर्णय, गणना आपके लिए की हुई।</p><ul><li>स्वचालित BMI और दर्द स्कोर के साथ वाइटल्स</li><li>जल्दी चुने जाने वाले निदान और हमेशा दिखने वाला एलर्जी बैनर</li><li>स्वतः गणना की गई मात्रा वाले पर्चे और “फिर जारी रखें…” उपचार-शृंखलाएँ</li></ul></div>
+      <div class="feature reveal"><div class="t-ico" style="background:linear-gradient(135deg,#b9a2ff,#9b7bff)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/></svg></div><h3>प्रयोगशाला</h3><p>हर जाँच के लिए ठीक उसी प्रारूप में परिणाम।</p><ul><li>टेक्स्ट, संख्या, अनुच्छेद या पूरी पैरामीटर तालिकाएँ</li><li>आयु और लिंग के अनुसार सीमाएँ, असामान्य संकेतों के साथ</li><li>बेंच से ही जाँच जोड़ें; लैब काउंटर भुगतान ट्रैक होते हैं</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico" style="background:linear-gradient(135deg,#ffd76e,#f5b51f)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>कैशियर</h3><p>पूरा और ईमानदार बिल।</p><ul><li>परामर्श, लैब और फ़ार्मेसी एक ही ब्योरे में</li><li>आंशिक भुगतान, छूट और “जमा क्रेडिट”</li><li>ज़्यादा वसूली से पहले पुष्टि; बिलिंग कभी इलाज नहीं रोकती</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico" style="background:linear-gradient(135deg,#7fe6da,#2fbfae)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg></div><h3>फ़ार्मेसी</h3><p>सटीक दवा दें, साफ़ लेबल लगाएँ।</p><ul><li>सही क्रम में जुड़े पर्चे</li><li>हर दवा के लिए “दी गई” टॉगल</li><li>थर्मल प्रिंटर के लिए पर्चा-लेबल</li></ul></div>
+      <div class="feature reveal"><div class="t-ico ico-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a1 1 0 0 1-1.4 0l-2.6-2.6a1 1 0 0 1 0-1.4L15 5M9 11l4 4M5 19l-3 3"/></svg></div><h3>इंजेक्शन कक्ष</h3><p>हर खुराक, हर शिफ़्ट का हिसाब।</p><ul><li>नियोजित, दी गई, बची खुराकें और बचे दिन</li><li>हर खुराक सुबह, दोपहर, शाम या रात के रूप में दर्ज</li><li>हर सत्र के लिए 10 राइट्स सुरक्षा चेकलिस्ट</li></ul></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>रिपोर्ट और विश्लेषण</h3><p>जानिए आपकी सुविधा कैसा चल रही है।</p><ul><li>आय, कैशियर, लैब, डॉक्टर, फ़ार्मेसी और उपचार रिपोर्ट</li><li>हर जाँच के पॉज़िटिव/नेगेटिव आँकड़े</li><li>आपके Documents फ़ोल्डर में CSV निर्यात</li></ul></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><h3>सेटिंग और सूचियाँ</h3><p>PulseHMIS को अपनी सुविधा के अनुसार ढालें।</p><ul><li>एक या दो लोगो वाले लेटरहेड</li><li>दवा सूची, लैब जाँच सूची और सेवाएँ</li><li>दुनिया की मुद्राएँ, दस्तावेज़ फ़ॉन्ट आकार, JSON बैकअप</li></ul></div>
+    </div>
+
+    <div class="split mt-48">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>आज़माएँ</span>
+        <h3 class="title-2 mt-16">स्वचालित BMI के साथ वाइटल्स।</h3>
+        <p class="lead mt-16">डॉक्टर के कक्ष में वज़न और लंबाई डालते ही PulseHMIS BMI निकाल देता है, इसलिए लंबी शिफ़्ट के अंत में भी संख्या हमेशा सही रहती है।</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>पर्चे भी गणना करते हैं।</b> मात्रा शक्ति, आवृत्ति और अवधि से निकाली जाती है, गणना दिखाते हुए।</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>एलर्जी हमेशा दिखती है।</b> खोजने के लिए कोई उप-मेनू नहीं।</span></li>
+        </ul>
+      </div>
+      <div class="demo reveal-scale" data-bmi>
+        <div class="demo-bar"><i></i><i></i><i></i><span>डॉक्टर का कक्ष · वाइटल्स</span></div>
+        <div class="demo-body">
+          <div class="flex" style="align-items:center;gap:24px;flex-wrap:wrap">
+            <div><div class="caption" style="font-weight:600">BMI</div><div style="font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:1" data-bmi-out>23.5</div><span class="pill green" data-bmi-label>स्वस्थ सीमा</span></div>
+            <div style="flex:1;min-width:220px;display:grid;gap:18px">
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>वज़न</span><span><b data-w>68</b> kg</span></span><input type="range" name="w" min="30" max="150" value="68" style="accent-color:var(--hmis)"></label>
+              <label class="field"><span style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>लंबाई</span><span><b data-h>170</b> cm</span></span><input type="range" name="h" min="120" max="210" value="170" style="accent-color:var(--hmis)"></label>
+            </div>
+          </div>
+          <p class="demo-note">केवल डेमो। चिकित्सा सलाह नहीं।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYNC -->
+<section class="section" id="sync" aria-labelledby="sync-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow"><span class="dot" style="color:var(--hmis)"></span>LAN सिंक्रोनाइज़ेशन</span>
+        <h2 class="title-1 mt-16" id="sync-title">हर स्टेशन सिंक में, आपकी इमारत के भीतर।</h2>
+        <p class="lead mt-16">एक कंप्यूटर होता है <b>होस्ट</b>। बाक़ी हर कंप्यूटर, टैबलेट या फ़ोन होता है <b>क्लाइंट</b> आपके अपने Wi-Fi या वायर्ड नेटवर्क पर। इंटरनेट कभी शामिल नहीं होता।</p>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>पहले लोकल सहेजा जाता है।</b> हर बदलाव तुरंत डिवाइस पर लिखा जाता है, फिर स्क्रीन रोके बिना बैकग्राउंड में होस्ट को भेजा जाता है।</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>संशोधन संख्याएँ, घड़ियाँ नहीं।</b> संशोधन केवल होस्ट देता है, इसलिए दो कंप्यूटरों का समय अलग होने से नया बदलाव कभी नहीं खोता।</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>आपके नेटवर्क पर हल्का।</b> क्लाइंट हर कुछ सेकंड में “कुछ नया?” पूछते हैं और बदलाव होने पर ही संपीड़ित डेटा डाउनलोड करते हैं।</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>मज़बूत।</b> होस्ट तक पहुँच न हो तो क्लाइंट अपनी आख़िरी कॉपी से काम करते रहते हैं। एक ख़राब रिकॉर्ड सबका सिंक नहीं बिगाड़ सकता।</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>मिनटों में कंप्यूटर जोड़ें।</b> इंस्टॉल करें, होस्ट से जोड़ें, और पूरा इतिहास एक सिंक चक्र में आ जाता है।</span></li>
+        </ul>
+      </div>
+      <div class="reveal-scale" style="--d:.1s">
+        <div class="lan" aria-hidden="true">
+          <span class="cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m2 2 20 20M17.5 19H7a5 5 0 0 1-1.6-9.7M9.3 5.3A6 6 0 0 1 18 10h.5a3.5 3.5 0 0 1 2 6.4"/></svg>इंटरनेट ज़रूरी नहीं</span>
+          <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <g>
+              <path id="w1" class="wire" d="M50 50 L50 14"/><path id="w2" class="wire" d="M50 50 L82 32"/><path id="w3" class="wire" d="M50 50 L82 68"/>
+              <path id="w4" class="wire" d="M50 50 L50 88"/><path id="w5" class="wire" d="M50 50 L18 68"/><path id="w6" class="wire" d="M50 50 L18 32"/>
+            </g>
+            <circle class="packet" r="1.2"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#w1"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.6s" begin=".4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w2"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#w3"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w4"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.3s" begin=".2s" repeatCount="indefinite"><mpath href="#w5"/></animateMotion></circle>
+            <circle class="packet" r="1.2"><animateMotion dur="2.5s" begin="1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#w6"/></animateMotion></circle>
+          </svg>
+          <div class="node host" style="left:50%;top:50%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span>होस्ट · संशोधन 4,812</div>
+          <div class="node" style="left:50%;top:14%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>रिसेप्शन</div>
+          <div class="node" style="left:82%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>डॉक्टर</div>
+          <div class="node" style="left:82%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>प्रयोगशाला</div>
+          <div class="node" style="left:50%;top:88%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>कैशियर</div>
+          <div class="node" style="left:18%;top:68%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>फ़ार्मेसी</div>
+          <div class="node" style="left:18%;top:32%"><span class="n-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="17" y="8" width="5" height="12" rx="1.5"/></svg></span>इंजेक्शन कक्ष</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section section-alt" id="security" aria-labelledby="sec-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--green)"></span>सुरक्षा और गोपनीयता</span>
+      <h2 class="title-1" id="sec-title">हर भूमिका वही देखती है जो उसे चाहिए।<br>मरीज़ों का डेटा कभी बाहर नहीं जाता।</h2>
+      <p class="lead">कोई मरीज़, विज़िट, पर्चा या लैब परिणाम कभी क्लाउड पर नहीं भेजा जाता। हमारा सर्वर सिर्फ़ जानता है कि कौन-सी सुविधाएँ हैं और उनकी सदस्यता की स्थिति क्या है।</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="matrix">
+        <thead><tr><th>भूमिका</th><th>रिसेप्शन</th><th>डॉक्टर</th><th>लैब</th><th>कैशियर</th><th>फ़ार्मेसी</th><th>इंजेक्शन</th><th>रिपोर्ट</th><th>सेटिंग</th></tr></thead>
+        <tbody>
+          <tr><td>एडमिनिस्ट्रेटर</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>डॉक्टर</td><td class="o">वैकल्पिक</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">वैकल्पिक</td><td class="n">–</td></tr>
+          <tr><td>नर्स (इंजेक्शन)</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td></tr>
+          <tr><td>प्रयोगशाला</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="o">वैकल्पिक</td><td class="n">–</td></tr>
+          <tr><td>कैशियर</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="o">वैकल्पिक</td><td class="n">–</td></tr>
+          <tr><td>फ़ार्मेसी</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="y">✓</td><td class="n">–</td><td class="o">वैकल्पिक</td><td class="n">–</td></tr>
+          <tr><td>रिसेप्शनिस्ट</td><td class="y">✓</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption center mt-16">वैकल्पिक = विभाग-विशेष दृश्य जिसे एडमिनिस्ट्रेटर सुविधा की नीति के अनुसार दे सकता है।</p>
+    <div class="features mt-32">
+      <div class="feature reveal"><div class="t-ico ico-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>सॉल्टेड पासवर्ड हैश</h3><p>कभी सादे टेक्स्ट में नहीं रखे जाते, बैकअप में भी नहीं। नए खातों को पहली लॉगिन पर पासवर्ड बदलना होता है।</p></div>
+      <div class="feature reveal" style="--d:.05s"><div class="t-ico ico-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div><h3>पूरा ऑडिट रिकॉर्ड</h3><p>हर चरण-परिवर्तन, संपादन, भुगतान और परिणाम विज़िट पर दर्ज होता है, किसने और कब किया, इसके साथ।</p></div>
+      <div class="feature reveal" style="--d:.1s"><div class="t-ico ico-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg></div><h3>पेशेवर दस्तावेज़</h3><p>रसीदें, लैब परिणाम, लैब अनुरोध, पर्चे और लेबल, बीमा वाले मरीज़ों की क़ीमतें अपने-आप छिपी रहती हैं।</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+  <div class="wrap">
+    <div class="section-head center"><p class="eyebrow">कीमतें</p><h2 class="title-1">आसान प्लान। 30 दिन मुफ़्त।</h2>
+      <p class="lead">एक लाइसेंस एक सुविधा (उसकी सभी शाखाएँ) कवर करता है। नेटवर्क का हर कंप्यूटर और फ़ोन शामिल है। MTN या Airtel मोबाइल मनी से भुगतान करें; कुंजी अपने-आप सक्रिय होती है।</p></div>
+    <div class="price-grid"><div class="price-card"><h3>1 महीना</h3><p class="price">UGX 50,000</p><p class="muted">शुरुआत के लिए बढ़िया</p></div><div class="price-card"><h3>6 महीने</h3><p class="price">UGX 200,000</p><p class="muted">मासिक से बचत</p></div><div class="price-card best"><span class="price-tag">सबसे किफ़ायती</span><h3>1 साल</h3><p class="price">UGX 400,000</p><p class="muted">ज़्यादातर के लिए सबसे किफ़ायती</p></div><div class="price-card"><h3>आजीवन</h3><p class="price">UGX 1,500,000</p><p class="muted">एक भुगतान, स्थायी लाइसेंस</p></div></div>
+    <div class="hero-cta center mt-24"><a class="btn btn-lg" href="/hi/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>मुफ़्त ट्रायल शुरू करें</a>
+      <a class="btn btn-lg btn-glass" href="/hi/demo/?product=PulseHMIS"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg>मुफ़्त डेमो बुक करें</a></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--purple)"></span>रोडमैप</span>
+      <h2 class="title-1" id="roadmap-title">PulseHMIS आगे कहाँ जा रहा है।</h2>
+      <p class="lead">प्राथमिकता के क्रम में नियोजित सुधार। रोज़ PulseHMIS इस्तेमाल करने वाली सुविधाओं से सीखते हुए बदल सकते हैं।</p>
+    </div>
+    <div class="roadmap">
+      <div class="lane reveal"><h3><span class="pill teal">अगला</span>निकट भविष्य</h3><ul>
+        <li><b>फ़ार्मेसी स्टॉक प्रबंधन</b><span>स्टॉक स्तर, स्वचालित कटौती, कम स्टॉक और एक्सपायरी चेतावनी।</span></li>
+        <li><b>मुख्यालय और शाखाएँ</b><span>दूसरे शहरों की इकाइयाँ एक-बार के कोड से जुड़ती हैं, एक ही लाइसेंस से चलती हैं और रोज़ के आँकड़े मुख्यालय भेजती हैं। मरीज़ रिकॉर्ड वहीं रहते हैं।</span></li>
+        <li><b>आंतरिक संदेश</b><span>डॉक्टर, नर्स और विभाग आपस में और मुख्यालय से संदेश भेजते हैं, केवल आपकी सुविधा के भीतर।</span></li>
+        <li><b>QR वाले मरीज़ आईडी कार्ड</b><span>स्कैन करके लौटे मरीज़ को तुरंत खोजें।</span></li>
+        <li><b>अपडेट सूचनाएँ और डेमो मोड</b><span>नया संस्करण आने पर जानें; स्टाफ़ को सुरक्षित रूप से प्रशिक्षित करें।</span></li></ul></div>
+      <div class="lane reveal" style="--d:.06s"><h3><span class="pill indigo">बाद में</span>मध्यम अवधि</h3><ul>
+        <li><b>लुगांडा, स्वाहिली और अरबी</b><span>इंटरफ़ेस उन भाषाओं में जो आपका स्टाफ़ बोलता है।</span></li>
+        <li><b>एडमिन 2FA और सत्र ऑटो-लॉक</b><span>व्यस्त, साझा वर्कस्टेशन के लिए अतिरिक्त सुरक्षा।</span></li>
+        <li><b>संग्रहीत डेटा का एन्क्रिप्शन</b><span>डिवाइस खो जाने पर भी सुरक्षा।</span></li>
+        <li><b>टीकाकरण और रेफ़रल</b><span>बाल टीकाकरण कार्यक्रम और रेफ़रल पत्र।</span></li></ul></div>
+      <div class="lane reveal" style="--d:.12s"><h3><span class="pill">दृष्टि</span>दीर्घ अवधि</h3><ul>
+        <li><b>iOS और macOS ऐप</b><span>Apple हार्डवेयर पर वही इंटरफ़ेस।</span></li>
+        <li><b>HL7 / FHIR निर्यात</b><span>राष्ट्रीय स्वास्थ्य प्रणालियों के साथ अंतर-संचालन।</span></li>
+        <li><b>वैकल्पिक एन्क्रिप्टेड क्लाउड बैकअप</b><span>एक पूरक, कभी विकल्प नहीं।</span></li>
+        <li><b>बहु-शाखा दृश्य</b><span>कई सुविधाओं का समेकन।</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section" id="videos" aria-labelledby="videos-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--red)"></span>ट्यूटोरियल</span>
+      <h2 class="title-1" id="videos-title">PulseHMIS को काम करते देखें।</h2>
+    </div>
+    <div class="videos" data-videos="PulseHMIS" data-feature></div>
+    <div class="center mt-32"><a class="btn btn-tinted" href="/tutorial.html">इंटरैक्टिव शुरुआती गाइड खोलें<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section section-alt" id="download" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="color:var(--blue)"></span>डाउनलोड करें</span>
+      <h2 class="title-1" id="dl-title">PulseHMIS इंस्टॉल करें।</h2>
+      <p class="lead">रिसेप्शन या एडमिन पीसी (आमतौर पर होस्ट) के लिए Windows इंस्टॉलर और सुविधा के टैबलेट व फ़ोन के लिए Android APK इस्तेमाल करें।</p>
+    </div>
+    <div class="dl-grid" data-downloads="PulseHMIS"></div>
+    <div class="dl-note"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>सीधे हमारी <a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">आधिकारिक GitHub रिलीज़ से आती हैं</a></span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" aria-labelledby="pfaq-title">
+  <div class="wrap">
+    <div class="section-head reveal"><h2 class="title-2" id="pfaq-title">PulseHMIS के सवाल</h2></div>
+    <div class="faq"><div data-faq>
+      <details class="disc"><summary>कौन-सा कंप्यूटर होस्ट होना चाहिए?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>आमतौर पर रिसेप्शन या एडमिन का Windows पीसी, क्योंकि वह दिन भर ज़्यादातर चालू रहता है। कोई भी प्लेटफ़ॉर्म होस्ट हो सकता है, और एक कंप्यूटर वाला क्लिनिक स्टैंडअलोन चल सकता है।</p></div></details>
+      <details class="disc"><summary>होस्ट कंप्यूटर ख़राब हो जाए तो क्या होगा?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>अपना नवीनतम बैकअप (Documents › Backups में पढ़ने योग्य JSON फ़ाइल, USB पर कॉपी करना आसान) नए कंप्यूटर पर बहाल करें और उसे होस्ट बनाएँ। इस बीच क्लाइंट अपनी आख़िरी कॉपी से काम करते रहते हैं।</p></div></details>
+      <details class="disc"><summary>सदस्यता का भुगतान कैसे करें?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>MTN मोबाइल मनी, Airtel Money, Visa/Mastercard या बैंक ट्रांसफ़र। आप सीधे भुगतान करके सबूत यहाँ भी भेज सकते हैं: <a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a> अपने डिवाइस आईडी के साथ; हम पूरी तरह ऑफ़लाइन चलने वाली सक्रियण कुंजी भेजते हैं।</p></div></details>
+      <details class="disc"><summary>क्या पुरानी विज़िट सुधारी जा सकती है?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>हाँ। एडमिनिस्ट्रेटर और डॉक्टर मरीज़ रिकॉर्ड हब से कोई भी विज़िट खोलकर किसी भी चरण में विवरण, परामर्श, लैब परिणाम या बिलिंग संपादित कर सकते हैं। हर बदलाव ऑडिट इतिहास में रहता है।</p></div></details>
+      <details class="disc"><summary>क्या बीमा वाले मरीज़ हमारी आंतरिक क़ीमतें देखते हैं?<span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="disc-body"><p>नहीं। बीमा वाले मरीज़ों के छपे दस्तावेज़ों पर केवल “भुगतान का तरीक़ा: बीमा (कंपनी)” दिखता है, कभी आंतरिक मूल्य-सूची नहीं।</p></div></details>
+    </div></div>
+  </div>
+</section>
+
+<section class="section tight" aria-label="शुरू करें">
+  <div class="wrap">
+    <div class="cta-band reveal-scale">
+      <h2 class="title-1">अपना क्लिनिक भरोसे से चलाएँ।</h2>
+      <p class="lead">आज ही मुफ़्त इंस्टॉल करें, या हमें अपनी टीम को डेमो दिखाने और नेटवर्क सेट करने दें।</p>
+      <div class="hero-cta"><a class="btn btn-lg btn-white" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>मुफ़्त डाउनलोड करें</a><a class="btn btn-lg btn-glass" href="/hi/?product=PulseHMIS#contact">डेमो का अनुरोध करें</a></div>
+    </div>
+  </div>
+</section>
+<section class="section" hidden aria-labelledby="stories-titlePulseHMIS" data-stories-section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><span class="dot" style="color:var(--green)"></span>ग्राहकों की कहानियाँ</span>
+      <h2 class="title-1" id="stories-titlePulseHMIS">जहाँ ज़रूरी है, वहाँ भरोसेमंद।</h2></div>
+    
+    <div class="story-grid" data-stories="PulseHMIS"></div>
+    <p class="center mt-24"><a class="btn btn-gray" href="/hi/customers/">और ग्राहक कहानियाँ<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/hi/"><img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34"><span>Pulse Generation UG</span></a>
+        <p class="about">अस्पतालों, स्कूलों, बैंकों और मनोरंजन के लिए ऑफ़लाइन सॉफ़्टवेयर। युगांडा में डिज़ाइन और विकसित, पूर्वी अफ़्रीका की असली परिस्थितियों के लिए।</p>
+        <div class="socials"><a href="https://wa.me/256700677555" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a><a href="https://t.me/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a><a href="https://www.youtube.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a><a href="https://tiktok.com/@pulsegeneration_ug" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.8 5.8 0 1 0 5 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.3-1.6z"/></svg></a><a href="https://www.instagram.com/pulsegeneration_ug" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://x.com/lwasapulse_ug" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.3l-7.2 8.2L22.4 21h-6.6l-5.2-6.8L4.7 21H1.4l7.7-8.8L1 3h6.8l4.7 6.2zm-1.2 16h1.8L7.5 4.9H5.5z"/></svg></a><a href="https://www.facebook.com/share/18yDouKsLP/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a><a href="https://github.com/pulsegenerationug" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a></div>
+      </div>
+      <div>
+        <h4>ऐप</h4>
+        <ul>
+          <li><a href="/hi/pulsehmis/">PulseHMIS</a></li>
+          <li><a href="/hi/edupulse/">EduPulse</a></li>
+          <li><a href="/hi/pulseremit-pro/">PulseRemit Pro</a></li>
+          <li><a href="/hi/pulseproperty/">PulseProperty Pro</a></li>
+          <li><a href="/hi/pulsestock/">PulseStock</a></li>
+          <li><a href="/hi/pulselmis/">PulseLMIS</a></li>
+          <li><a href="/hi/lwasa-ludo/">Lwasa Ludo</a></li>
+          <li><a href="/hi/pricing/">कीमतें</a></li>
+          <li><a href="/hi/#downloads">सभी डाउनलोड</a></li>
+          <li><a href="/changelog/">नया क्या है (बदलाव सूची)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>सीखें</h4>
+        <ul>
+          <li><a href="/hi/help/">सहायता केंद्र</a></li>
+          <li><a href="/hi/#tutorials">वीडियो ट्यूटोरियल</a></li>
+          <li><a href="/tutorial.html">PulseHMIS इंटरैक्टिव गाइड</a></li>
+          <li><a href="/hi/#faq">सामान्य प्रश्न</a></li>
+          <li><a href="/edupulse/privacy-policy.html">EduPulse गोपनीयता</a></li>
+          <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS गोपनीयता</a></li>
+          <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro गोपनीयता</a></li>
+          <li><a href="/lwasa-ludo/privacy-policy.html">Lwasa Ludo गोपनीयता</a></li>
+          <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro गोपनीयता</a></li>
+          <li><a href="/pulsestock/privacy-policy.html">PulseStock गोपनीयता</a></li>
+          <li><a href="/pulselmis/privacy-policy.html">PulseLMIS गोपनीयता</a></li>
+          <li><a href="/delete-account/">अपना खाता हटाएँ</a></li>
+          <li><a href="/refund-policy/">धनवापसी और वापसी नीति</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="/hi/company/">हमारे बारे में</a></li>
+          <li><a href="/hi/customers/" data-needs="stories" hidden>ग्राहकों की कहानियाँ</a></li>
+          <li><a href="/hi/security/">सुरक्षा और आपका डेटा</a></li>
+          <li><a href="/hi/demo/">डेमो बुक करें</a></li>
+          <li><a href="/hi/status/">सेवा स्थिति</a></li>
+        </ul>
+        <h4 class="mt-24">संपर्क</h4>
+        <ul>
+          <li><a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+256700677555">+256 700 677 555</a></li>
+          <li><a href="tel:+256761174741">+256 761 174 741</a></li>
+          <li><a href="tel:+211920677555">+211 920 677 555</a></li>
+          <li><a href="mailto:pulsegenerationug@gmail.com">pulsegenerationug@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <form class="newsletter" data-newsletter novalidate>
+      <div><h4>रिलीज़ समाचार और टिप्स</h4><p>नए संस्करण, फ़ीचर और प्रशिक्षण वीडियो। कोई स्पैम नहीं; कभी भी छोड़ें।</p></div>
+      <div class="nl-row"><input type="email" name="email" placeholder="आपका ईमेल पता" aria-label="आपका ईमेल पता" autocomplete="email" required>
+        <button class="btn" type="submit">सदस्यता लें</button></div>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Pulse Generation UG. सर्वाधिकार सुरक्षित।</span>
+      <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
+      <div class="lang-menu lang-menu-up" data-lang-menu><button class="btn btn-sm btn-gray" type="button" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>भाषा</button><div class="lang-list" hidden></div></div>
+      <span><a href="/privacy/">गोपनीयता</a> · <a href="/terms/">शर्तें</a> · <a href="/refund-policy/">धनवापसी</a> · <a href="/hi/account/">मेरा खाता</a> · <a href="/delete-account/">खाता हटाएँ</a> · <a href="/hi/support/">सहायता</a> · <button type="button" class="linklike" data-cookie-settings>कुकी सेटिंग</button></span>
+    </div>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="त्वरित नेविगेशन"><ul><li><a href="/hi/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 3.3a1 1 0 0 1 1.4 0l8 7.6A1 1 0 0 1 20 12.6h-1V20a1 1 0 0 1-1 1h-4v-5.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V21H6a1 1 0 0 1-1-1v-7.4H4a1 1 0 0 1-.7-1.7z"/></svg><span>होम</span></a></li><li><a href="/hi/#products" class="active" data-keep-active><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg><span>ऐप</span></a></li><li><a href="/hi/#downloads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.2 10.7-3.5 3.5a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l1.8 1.8V7.5a1 1 0 1 1 2 0v5.6l1.8-1.8a1 1 0 0 1 1.4 1.4z"/></svg><span>डाउनलोड</span></a></li><li><a href="/hi/#tutorials"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zm6.3 2.6v6.8a.6.6 0 0 0 .9.5l5.4-3.4a.6.6 0 0 0 0-1l-5.4-3.4a.6.6 0 0 0-.9.5z"/></svg><span>वीडियो</span></a></li><li><a href="/hi/#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg><span>संपर्क</span></a></li></ul></nav>
+<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="WhatsApp पर हमसे चैट करें"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a>
+<div class="toast-region" aria-live="polite"></div>
+<script>window.PG_I18N={"Hospital management that works with no internet": "बिना इंटरनेट चलने वाला अस्पताल प्रबंधन", "Health & Medical": "स्वास्थ्य और चिकित्सा", "School, college & university administration, offline-first": "स्कूल, कॉलेज और विश्वविद्यालय प्रशासन, पहले ऑफ़लाइन", "Education": "शिक्षा", "Branch banking, SACCO & money transfer": "शाखा बैंकिंग, सहकारी समिति और धन-प्रेषण", "Finance": "वित्त", "The classic board game in 3D, with Luganda commentary": "लुगांडा कमेंट्री के साथ 3D में क्लासिक बोर्ड गेम", "Board game": "बोर्ड गेम", "Property, rent & estate management, offline-first": "संपत्ति, किराया और एस्टेट प्रबंधन, पहले ऑफ़लाइन", "Business": "व्यवसाय", "Pharmacy, supermarket & inventory, offline-first": "फ़ार्मेसी, सुपरमार्केट और इन्वेंटरी, पहले ऑफ़लाइन", "PulseHMIS full tutorial": "PulseHMIS पूरा ट्यूटोरियल", "A complete walkthrough of hospital software that works with no internet, from reception to pharmacy.": "रिसेप्शन से फ़ार्मेसी तक, बिना इंटरनेट चलने वाले अस्पताल सॉफ़्टवेयर की पूरी झलक।", "PulseHMIS video tutorial 1": "PulseHMIS वीडियो ट्यूटोरियल 1", "Watch PulseHMIS in action.": "PulseHMIS को काम करते देखें।", "PulseHMIS video tutorial 2": "PulseHMIS वीडियो ट्यूटोरियल 2", "The classic board game in 3D, with Luganda commentary.": "लुगांडा कमेंट्री के साथ 3D में क्लासिक बोर्ड गेम।", "Learn more": "और जानें", "Read more": "और पढ़ें", "Dismiss notice": "सूचना बंद करें", "Read the full story": "पूरी कहानी पढ़ें", "Light appearance": "हल्का रूप", "Dark appearance": "गहरा रूप", "Dialog": "संवाद", "Close": "बंद करें", "Follow the setup steps, then open": "सेटअप के चरण पूरे करें, फिर खोलें", "Android shows an “unknown sources” prompt for any app installed outside the Play Store. This is expected.": "Play Store के बाहर से इंस्टॉल हर ऐप के लिए Android “अज्ञात स्रोत” संकेत दिखाता है। यह सामान्य है।", "Windows SmartScreen can warn about new publishers. The installer comes straight from our official GitHub release.": "Windows SmartScreen नए प्रकाशकों पर चेतावनी दे सकता है। इंस्टॉलर सीधे हमारी आधिकारिक GitHub रिलीज़ से आता है।", "Contact": "संपर्क", "Download": "डाउनलोड करें", "Downloading": "डाउनलोड हो रहा है", "Installing": "इंस्टॉलेशन", "Installer (.exe)": "इंस्टॉलर (.exe)", "App (.zip)": "ऐप (.zip)", "Learn more about": "इसके बारे में और जानें:", "Download for Windows": "Windows के लिए डाउनलोड करें", "Download for Android": "Android के लिए डाउनलोड करें", "Download for": "इसके लिए डाउनलोड करें:", "Get it for Android, Windows or Mac": "Android, Windows या Mac के लिए पाएँ", "Video": "वीडियो", "Home": "होम", "Hospital management system": "अस्पताल प्रबंधन प्रणाली", "PulseHMIS pricing": "PulseHMIS कीमतें", "From 50,000 UGX / month · 30 days free": "50,000 UGX / माह से · 30 दिन मुफ़्त", "PulseHMIS LAN sync": "PulseHMIS LAN सिंक", "Host and client, no internet": "होस्ट और क्लाइंट, बिना इंटरनेट", "PulseHMIS interactive guide": "PulseHMIS इंटरैक्टिव गाइड", "Getting started walkthrough": "शुरुआती झलक", "School administration system": "स्कूल प्रशासन प्रणाली", "EduPulse report cards": "EduPulse रिपोर्ट कार्ड", "Automatic grading & report cards": "स्वचालित ग्रेडिंग और रिपोर्ट कार्ड", "EduPulse fees & finance": "EduPulse फ़ीस और वित्त", "Fees, receipts, expenses, payroll": "फ़ीस, रसीदें, ख़र्च, वेतन", "PulseRemit Pro loans": "PulseRemit Pro ऋण", "Loan products, schedules, repayments": "ऋण उत्पाद, किस्त-योजना, चुकौती", "PulseRemit Pro pricing": "PulseRemit Pro कीमतें", "One licence per bank": "प्रति बैंक एक लाइसेंस", "3D board game in Luganda": "लुगांडा में 3D बोर्ड गेम", "Property & rent management": "संपत्ति और किराया प्रबंधन", "Pharmacy, supermarket & inventory": "फ़ार्मेसी, सुपरमार्केट और इन्वेंटरी", "Lwasa Ludo privacy policy": "Lwasa Ludo गोपनीयता नीति", "What the game collects": "गेम क्या इकट्ठा करता है", "All downloads": "सभी डाउनलोड", "Android APK & Windows installers": "Android APK और Windows इंस्टॉलर", "Video tutorials": "वीडियो ट्यूटोरियल", "Learn by watching": "देखकर सीखें", "About the founder": "संस्थापक के बारे में", "Help & FAQ": "सहायता और सामान्य प्रश्न", "Questions, answered": "सवाल, जवाब", "Contact us": "संपर्क करें", "WhatsApp, phone, email": "WhatsApp, फ़ोन, ईमेल", "Pricing": "कीमतें", "Every app, every plan": "हर ऐप, हर प्लान", "Book a demo": "डेमो बुक करें", "Free 30-minute demo": "30 मिनट का मुफ़्त डेमो", "Security & your data": "सुरक्षा और आपका डेटा", "Where your data lives": "आपका डेटा कहाँ रहता है", "Help Center": "सहायता केंद्र", "Guides, videos and answers": "गाइड, वीडियो और जवाब", "What's new": "नया क्या है", "Changelog of every release": "हर रिलीज़ की बदलाव सूची", "About the company": "कंपनी के बारे में", "Customer stories": "ग्राहकों की कहानियाँ", "Organisations using Pulse": "Pulse इस्तेमाल करने वाली संस्थाएँ", "Privacy": "गोपनीयता", "Website privacy notice": "वेबसाइट गोपनीयता सूचना", "Terms": "शर्तें", "Terms of use": "उपयोग की शर्तें", "Pages": "पेज", "Downloads": "डाउनलोड", "Videos": "वीडियो", "Answers on this page": "इस पेज पर जवाब", "On this page": "इस पेज पर", "Jump to section": "अनुभाग पर जाएँ", "Search": "खोजें", "Search apps, downloads, videos, help…": "ऐप, डाउनलोड, वीडियो, सहायता खोजें…", "Search the site": "साइट में खोजें", "Copied": "कॉपी हुआ", "Link copied": "लिंक कॉपी हुआ", "This service is being set up. Please try again soon, or reach us on WhatsApp.": "यह सेवा सेट की जा रही है। कृपया जल्द फिर कोशिश करें, या WhatsApp पर हमसे संपर्क करें।", "Please enter a valid email.": "कृपया मान्य ईमेल डालें।", "Subscribe": "सदस्यता लें", "Newsletter": "न्यूज़लेटर", "Thank you! You'll get our release news and tips.": "धन्यवाद! आपको हमारे रिलीज़ समाचार और टिप्स मिलेंगे।", "Please add your name, email and a message.": "कृपया अपना नाम, ईमेल और संदेश जोड़ें।", "That email address doesn’t look right.": "यह ईमेल पता सही नहीं लगता।", "Sending…": "भेजा जा रहा है…", "Demo request": "डेमो अनुरोध", "Contact form": "संपर्क फ़ॉर्म", "Message": "संदेश", "Thank you,": "धन्यवाद,", "Demo request sent": "डेमो अनुरोध भेजा गया", "Message sent": "संदेश भेजा गया", "You’ve sent several messages in a short time.": "आपने कम समय में कई संदेश भेजे हैं।", "We couldn’t send that just now.": "हम अभी इसे भेज नहीं सके।", "Your message": "आपका संदेश", "We replied": "हमने जवाब दिया", "Closed": "बंद", "Waiting for our reply": "हमारे जवाब की प्रतीक्षा", "Write a reply…": "जवाब लिखें…", "Reply sent": "जवाब भेजा गया", "Reception": "रिसेप्शन", "Register once. Route instantly.": "एक बार पंजीकरण। तुरंत भेजें।", "New or returning patients are registered in one form: name, age, gender, phone, allergies and payment method. Cash, Insurance or Credit is locked in here and carried to every department automatically.": "नए या लौटे मरीज़ एक ही फ़ॉर्म में पंजीकृत होते हैं: नाम, उम्र, लिंग, फ़ोन, एलर्जी और भुगतान का तरीक़ा। नकद, बीमा या उधार यहीं तय होकर हर विभाग तक अपने-आप जाता है।", "Patient search": "मरीज़ खोज", "Insurance companies": "बीमा कंपनियाँ", "Allergy capture": "एलर्जी दर्ज करना", "Visit routing": "विज़िट मार्गदर्शन", "Patient": "मरीज़", "Nakato Sarah · 34 F": "Nakato Sarah · 34 म", "Payment": "भुगतान", "Insurance (company)": "बीमा (कंपनी)", "Allergies": "एलर्जी", "Penicillin": "पेनिसिलिन", "Next": "अगला", "Doctor’s office →": "डॉक्टर का कक्ष →", "Doctor": "डॉक्टर", "Vitals, diagnosis, prescriptions.": "वाइटल्स, निदान, पर्चे।", "Capture vitals with automatic BMI, record complaints and diagnoses, order lab tests and prescribe. PulseHMIS calculates the billable quantity from strength, frequency and duration, and shows the maths.": "स्वचालित BMI के साथ वाइटल्स दर्ज करें, शिकायतें और निदान लिखें, लैब जाँच मँगाएँ और दवा लिखें। PulseHMIS शक्ति, आवृत्ति और अवधि से बिल योग्य मात्रा निकालता है और गणना दिखाता है।", "Auto BMI": "स्वचालित BMI", "Allergy banner": "एलर्जी बैनर", "Lab orders": "लैब ऑर्डर", "Temp / Pulse": "तापमान / नाड़ी", "37.8 °C · 88 bpm": "37.8 °C · 88 bpm", "23.5 · healthy": "23.5 · स्वस्थ", "Diagnosis": "निदान", "Malaria (suspected)": "मलेरिया (संदिग्ध)", "Lab": "लैब", "Malaria RDT, FBC": "मलेरिया RDT, FBC", "Laboratory": "प्रयोगशाला", "Results in the right format.": "सही प्रारूप में परिणाम।", "Text, numeric with reference ranges, paragraphs or full parameter tables with age- and gender-specific ranges. Abnormal values are flagged, and technicians can add a follow-up test on the spot.": "टेक्स्ट, संदर्भ सीमाओं वाली संख्या, अनुच्छेद या आयु और लिंग आधारित सीमाओं वाली पूरी पैरामीटर तालिकाएँ। असामान्य मान चिह्नित होते हैं, और तकनीशियन वहीं अतिरिक्त जाँच जोड़ सकते हैं।", "Reference ranges": "संदर्भ सीमाएँ", "Abnormal flags": "असामान्य संकेत", "Add test": "जाँच जोड़ें", "Lab counter payments": "लैब काउंटर भुगतान", "Malaria RDT": "मलेरिया रैपिड टेस्ट", "Positive ⚑": "पॉज़िटिव ⚑", "Haemoglobin": "हीमोग्लोबिन", "Status": "स्थिति", "Back to doctor →": "डॉक्टर के पास वापस →", "Cashier": "कैशियर", "Every shilling accounted for.": "हर शिलिंग का हिसाब।", "Consultation, lab and pharmacy totals in one bill, with discounts, partial payments and a full payment history. Lab fees already paid at the counter are deducted, so nobody is charged twice.": "परामर्श, लैब और फ़ार्मेसी के योग एक ही बिल में, छूट, आंशिक भुगतान और पूरे भुगतान इतिहास के साथ। काउंटर पर पहले चुकाई लैब फ़ीस घटा दी जाती है, ताकि कोई दो बार न चुकाए।", "Installments": "किस्तें", "Credit on file": "जमा क्रेडिट", "Over-payment check": "अधिक भुगतान जाँच", "Branded receipts": "ब्रांडेड रसीदें", "Consultation": "परामर्श", "Pharmacy": "फ़ार्मेसी", "Paid · Balance": "भुगतान · बकाया", "Dispense exactly what was prescribed.": "ठीक वही दें जो लिखा गया।", "The full prescription in chained order, with per-medicine dispensed toggles for partial dispensing and compact labels for a thermal printer. The bill status is visible at a glance.": "पूरा पर्चा जुड़े क्रम में, आंशिक वितरण के लिए हर दवा पर “दी गई” टॉगल और थर्मल प्रिंटर के लिए छोटे लेबल। बिल की स्थिति एक नज़र में दिखती है।", "Per-item dispensing": "हर वस्तु का वितरण", "Prescription labels": "पर्चा लेबल", "Balance visibility": "बकाया दिखना", "Send back to cashier": "कैशियर को वापस भेजें", "Artemether-Lumefantrine": "आर्टेमेथर-ल्यूमफ़ैंट्रिन", "Dispensed ✓": "दी गई ✓", "Paracetamol 500 mg": "पैरासिटामोल 500 mg", "Label": "लेबल", "Printed": "छपा", "Bill": "बिल", "Settled": "चुकता", "Injection": "इंजेक्शन", "Every dose, every shift.": "हर खुराक, हर शिफ़्ट।", "A medication administration record for each injectable course: doses planned, given and remaining. Each dose is logged with a time of day, and a 10 Rights safety checklist runs every session.": "हर इंजेक्शन कोर्स का दवा प्रशासन रिकॉर्ड: नियोजित, दी गई और बची खुराकें। हर खुराक दिन के समय के साथ दर्ज होती है, और हर सत्र में 10 राइट्स सुरक्षा चेकलिस्ट चलती है।", "Dose tracking": "खुराक ट्रैकिंग", "Morning/Evening labels": "सुबह/शाम लेबल", "10 Rights checklist": "10 राइट्स चेकलिस्ट", "Shift handover": "शिफ़्ट हस्तांतरण", "Artesunate IV": "आर्टेसुनेट IV", "Dose 2 of 3": "खुराक 3 में से 2", "Last given": "अंतिम खुराक", "Morning · 08:14": "सुबह · 08:14", "Evening": "शाम", "Checklist": "चेकलिस्ट", "Underweight": "कम वज़न", "Healthy range": "स्वस्थ सीमा", "Overweight": "अधिक वज़न", "Obese range": "मोटापा", "Excellent": "उत्कृष्ट", "Very good": "बहुत अच्छा", "Good": "अच्छा", "Satisfactory": "संतोषजनक", "Fair": "ठीक-ठाक", "Needs improvement": "सुधार की ज़रूरत", "All marked present": "सभी उपस्थित चिह्नित", "Attendance saved, offline": "उपस्थिति ऑफ़लाइन सहेजी गई", "Another six! Roll again.": "फिर छक्का! दोबारा फेंकें।", "Mukaga! A six lets a token out. Roll again.": "Mukaga! छक्के से गोटी बाहर आती है। दोबारा फेंकें।", "Good luck!": "शुभकामनाएँ!", "Nice move!": "बढ़िया चाल!", "Almost!": "लगभग!", "Well played!": "अच्छा खेले!", "Oops!": "उफ़!", "Accept": "स्वीकार करें", "Cookie choices": "कुकी विकल्प", "We'd like to use cookies to count visits and measure our adverts (Google Analytics and Meta). Nothing loads unless you accept.": "हम विज़िट गिनने और अपने विज्ञापन मापने के लिए कुकी इस्तेमाल करना चाहेंगे (Google Analytics और Meta)। आपकी स्वीकृति के बिना कुछ लोड नहीं होता।", "Privacy notice": "गोपनीयता सूचना", "Decline": "अस्वीकार करें", "Working": "चल रहा है", "Not responding": "जवाब नहीं दे रहा", "Some services are having problems": "कुछ सेवाओं में समस्या है", "All services are working": "सभी सेवाएँ चल रही हैं", "Last checked": "अंतिम जाँच", "English": "अंग्रेज़ी"};window.PG_LANG_PATHS=["/", "/pulsehmis/", "/pulselmis/", "/edupulse/", "/pulseremit-pro/", "/pulsestock/", "/pulseproperty/", "/lwasa-ludo/", "/pricing/", "/demo/", "/customers/", "/security/", "/company/", "/help/", "/status/", "/support/", "/account/"];</script>
+<script src="/site/site.js?v=14" defer></script>
+</body>
+</html>

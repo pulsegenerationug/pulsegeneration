@@ -8,6 +8,9 @@
   root.classList.remove("no-js");
   var $ = function (s, el) { return (el || document).querySelector(s); };
   var $$ = function (s, el) { return Array.prototype.slice.call((el || document).querySelectorAll(s)); };
+  // Translated pages (built by i18n_build.py) carry PG_I18N = { English text: translation } for text this script writes.
+  var I18N = window.PG_I18N || null;
+  function t(s) { return (I18N && I18N[s]) || s; }
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function esc(s) {
@@ -675,7 +678,8 @@
   ];
   var spotOpen = false, spotEls = null, spotSel = 0, spotItems = [];
   function spotIndex() {
-    var items = PAGES.map(function (p) { return { group: "Pages", t: p.t, s: p.s, u: p.u, k: p.k, img: p.img, ico: p.ext ? I.chat : I.page, c: "ico-gray", ext: p.ext }; });
+    // translated pages search by the visitor's own words as well as the English keywords
+    var items = PAGES.map(function (p) { return { group: "Pages", t: t(p.t), s: t(p.s), u: p.u, k: p.k + (I18N ? " " + t(p.t) + " " + t(p.s) : ""), img: p.img, ico: p.ext ? I.chat : I.page, c: "ico-gray", ext: p.ext }; });
     CONTENT.downloads.forEach(function (d) {
       items.push({ group: "Downloads", t: d.app + " for " + d.platform, s: (d.version ? "v" + d.version + " · " : "") + (d.size || "") + " · " + d.file, u: d.url, k: "download get install " + d.app + " " + d.platform + " apk exe", ico: /android/i.test(d.platform) ? I.android : I.windows, c: /android/i.test(d.platform) ? "ico-green" : "ico-blue", dl: d.app + "|" + d.platform });
     });
@@ -737,7 +741,8 @@
       if (el) { if (it.faq) el.open = true; el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); history.replaceState(null, "", it.u); }
       return;
     }
-    window.location.href = it.u;
+    var m = it.u.match(/^([^?#]*)(.*)$/);
+    window.location.href = langUrl(LANG, m[1]) + m[2];
   }
   function openSpot() {
     if (spotOpen) return;
@@ -1231,6 +1236,113 @@
   }
   if (!consent()) cookieBanner();
   $$("[data-cookie-settings]").forEach(function (b) { b.addEventListener("click", cookieBanner); });
+
+  /* ================= STATUS PAGE ================= */
+  $$("[data-status]").forEach(function (list) {
+    // Public "anon" keys, the same ones shipped inside the apps; /auth/v1/health only says whether the service is up.
+    var HUB2_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNyYWR3bnNsbGV6dHVwcnpta2JtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1Njk2NTIsImV4cCI6MjEwNzE0NTY1Mn0.xD5vsXojzc4lkiUH24AQPYh9R6gbcDD3-YihtuyW0mg";
+    var checks = {
+      web: function () { return Promise.resolve(); },
+      hub1: function () { return fetch(HUB_URL + "/auth/v1/health", { headers: { apikey: HUB_KEY }, cache: "no-store" }); },
+      hub2: function () { return fetch("https://cradwnslleztuprzmkbm.supabase.co/auth/v1/health", { headers: { apikey: HUB2_KEY }, cache: "no-store" }); },
+      downloads: function () { return fetch("https://api.github.com/repos/pulsegenerationug/pulsegeneration/releases/latest", { cache: "no-store" }); }
+    };
+    var overall = $("[data-status-overall]"), when = $("[data-status-time]");
+    function run() {
+      var rows = $$("[data-check]", list), bad = 0, done = 0;
+      rows.forEach(function (row) {
+        var t0 = performance.now(), txt = $(".status-text", row);
+        var timeout = new Promise(function (_, rej) { setTimeout(function () { rej(new Error("timeout")); }, 10000); });
+        Promise.race([checks[row.getAttribute("data-check")](), timeout]).then(function (r) {
+          if (r && !r.ok) throw new Error(r.status);
+          row.className = "status-row tile ok"; txt.textContent = t("Working") + " · " + Math.round(performance.now() - t0) + " ms";
+        }).catch(function () {
+          bad++; row.className = "status-row tile down"; txt.textContent = t("Not responding");
+        }).then(function () {
+          if (++done < rows.length) return;
+          overall.className = "status-overall tile " + (bad ? "down" : "ok");
+          $("b", overall).textContent = t(bad ? "Some services are having problems" : "All services are working");
+          when.textContent = t("Last checked") + " " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + ".";
+        });
+      });
+    }
+    run();
+    setInterval(function () { if (!document.hidden) run(); }, 60000);
+  });
+
+  /* ================= LANGUAGES ================= */
+  var LANGS = { en: "English", fr: "Français", sw: "Kiswahili", zh: "中文", ar: "العربية", es: "Español", pt: "Português",
+    de: "Deutsch", it: "Italiano", ru: "Русский", tr: "Türkçe", id: "Bahasa Indonesia", hi: "हिन्दी" };
+  var LANG = document.documentElement.lang || "en";
+  var LANG_PATHS = window.PG_LANG_PATHS || ["/", "/pulsehmis/", "/pulselmis/", "/edupulse/", "/pulseremit-pro/", "/pulsestock/", "/pulseproperty/",
+    "/lwasa-ludo/", "/pricing/", "/demo/", "/customers/", "/security/", "/company/", "/help/", "/status/", "/support/", "/account/"];
+  function basePath(path) { var m = path.match(/^\/([a-z]{2})(\/.*)$/); return m && LANGS[m[1]] ? m[2] : path; }
+  function langUrl(lang, path) {
+    var b = basePath(path);
+    if (lang === "en" || LANG_PATHS.indexOf(b) < 0) return b;
+    return "/" + lang + b;
+  }
+  $$("[data-lang-menu]").forEach(function (menu) {
+    var btn = $("button", menu), list = $(".lang-list", menu);
+    Object.keys(LANGS).forEach(function (code) {
+      var a = el("a", "", LANGS[code]);
+      a.href = langUrl(code, location.pathname) + location.search + location.hash;
+      a.lang = code; a.hreflang = code;
+      if (code === LANG) a.setAttribute("aria-current", "true");
+      a.addEventListener("click", function () { try { localStorage.setItem("pg_lang", code); } catch (e) {} });
+      list.appendChild(a);
+    });
+    function set(open) { btn.setAttribute("aria-expanded", open ? "true" : "false"); list.hidden = !open; }
+    btn.addEventListener("click", function (e) { e.stopPropagation(); set(list.hidden); });
+    document.addEventListener("click", function (e) { if (!menu.contains(e.target)) set(false); });
+    menu.addEventListener("keydown", function (e) { if (e.key === "Escape") { set(false); btn.focus(); } });
+  });
+  // On the English site, offer the visitor's own language once (never redirect: search engines and shared links stay predictable).
+  (function () {
+    if (LANG !== "en" || LANG_PATHS.indexOf(location.pathname) < 0) return;
+    var saved = null; try { saved = localStorage.getItem("pg_lang"); } catch (e) {}
+    if (saved) return;
+    var want = (navigator.languages || [navigator.language || ""]).map(function (l) { return String(l).slice(0, 2).toLowerCase(); })
+      .filter(function (l) { return LANGS[l]; })[0];
+    if (!want || want === "en") return;
+    var OFFER = { fr: "Voir ce site en français", sw: "Tazama tovuti hii kwa Kiswahili", zh: "以中文查看本网站", ar: "اعرض هذا الموقع بالعربية",
+      es: "Ver este sitio en español", pt: "Ver este site em português", de: "Diese Website auf Deutsch ansehen", it: "Visualizza questo sito in italiano",
+      ru: "Открыть сайт на русском", tr: "Bu siteyi Türkçe görüntüle", id: "Lihat situs ini dalam Bahasa Indonesia", hi: "यह साइट हिन्दी में देखें" };
+    var bar = el("div", "lang-offer glass"); bar.lang = want;
+    var go = el("a", "btn btn-sm", OFFER[want]); go.href = langUrl(want, location.pathname);
+    go.addEventListener("click", function () { try { localStorage.setItem("pg_lang", want); } catch (e) {} });
+    var x = el("button", "lang-offer-x", "×"); x.type = "button"; x.setAttribute("aria-label", "Close");
+    x.onclick = function () { bar.remove(); try { localStorage.setItem("pg_lang", "en"); } catch (e) {} };
+    bar.appendChild(go); bar.appendChild(x); document.body.appendChild(bar);
+  })();
+  // Translate text and links that this script adds after the page has loaded.
+  if (I18N) {
+    var ATTR = ["placeholder", "aria-label", "title"];
+    var fix = function (node) {
+      if (node.nodeType === 3) {
+        var raw = node.nodeValue, key = raw.trim();
+        if (key && I18N[key]) node.nodeValue = raw.replace(key, I18N[key]);
+        return;
+      }
+      if (node.nodeType !== 1 || /^(SCRIPT|STYLE|svg)$/.test(node.nodeName)) return;
+      ATTR.forEach(function (a) { var v = node.getAttribute(a); if (v && I18N[v.trim()]) node.setAttribute(a, I18N[v.trim()]); });
+      if (node.nodeName === "A") {
+        var h = node.getAttribute("href");
+        if (h && h.charAt(0) === "/" && h.charAt(1) !== "/" && !node.hasAttribute("hreflang")) {
+          var parts = h.match(/^([^?#]*)(.*)$/);
+          if (basePath(parts[1]) === parts[1] && LANG_PATHS.indexOf(parts[1]) >= 0) node.setAttribute("href", "/" + LANG + parts[1] + parts[2]);
+        }
+      }
+      for (var c = node.firstChild; c; c = c.nextSibling) fix(c);
+    };
+    fix(document.body);
+    new MutationObserver(function (muts) {
+      muts.forEach(function (m) {
+        if (m.type === "characterData") fix(m.target);
+        else m.addedNodes.forEach(fix);
+      });
+    }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  }
 
   /* ================= MISC ================= */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });

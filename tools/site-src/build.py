@@ -92,7 +92,7 @@ try {{ if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking()
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=11">
+<link rel="stylesheet" href="/site/site.css?v=14">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
@@ -132,6 +132,7 @@ def nav(active=""):
       </div>{li}</nav>
     <div class="nav-actions">
       <button class="search-pill" type="button" data-search-open aria-label="Search">{ICON["search"]}<span>Search</span><kbd data-kbd>Ctrl K</kbd></button>
+      <div class="lang-menu" data-lang-menu><button class="icon-btn" type="button" aria-expanded="false" aria-label="Language" title="Language">{ICON["globe"]}</button><div class="lang-list" hidden></div></div>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">{ICON["moon"]}{ICON["sun"]}</button>
       <a class="icon-btn acct-btn" href="/account/" data-account-link aria-label="My account" title="My account">{ICON["person"]}</a>
       <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/#downloads">{ICON["download"]}<span>Download</span></a>
@@ -200,6 +201,7 @@ def footer():
           <li><a href="/customers/" data-needs="stories" hidden>Customer stories</a></li>
           <li><a href="/security/">Security &amp; your data</a></li>
           <li><a href="/demo/">Book a demo</a></li>
+          <li><a href="/status/">Service status</a></li>
         </ul>
         <h4 class="mt-24">Contact</h4>
         <ul>
@@ -220,6 +222,7 @@ def footer():
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Pulse Generation UG. All rights reserved.</span>
       <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
+      <div class="lang-menu lang-menu-up" data-lang-menu><button class="btn btn-sm btn-gray" type="button" aria-expanded="false">{ICON["globe"]}Language</button><div class="lang-list" hidden></div></div>
       <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a> · <button type="button" class="linklike" data-cookie-settings>Cookie settings</button></span>
     </div>
   </div>
@@ -337,7 +340,7 @@ def page(out, title, desc, path, body, active="", tab="home", body_class="", for
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
             f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=11" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=14" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
@@ -431,5 +434,8 @@ if __name__ == "__main__":
     page("changelog/index.html", "What’s new · Pulse Generation UG changelog",
          "Every Pulse app release, newest first: new features, fixes and how to update.",
          "/changelog/", changelog_page(), tab="downloads")
+    page("status/index.html", "Service status · Pulse Generation UG",
+         "Live status of the Pulse cloud services, website and downloads.",
+         "/status/", (P / "status.html").read_text(encoding="utf-8"))
     page("404.html", "Page not found · Pulse Generation UG", "This page doesn't exist.", "/404",
          (P / "404.html").read_text(encoding="utf-8"), tab="home")
