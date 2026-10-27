@@ -43,8 +43,8 @@
       "app": "PulseHMIS",
       "platform": "Windows",
       "version": "2.4.0",
-      "size": "20 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseHMIS-2.4.0-Windows.zip"
+      "size": "16 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseHMIS-Setup-2.4.0.exe"
     },
     {
       "app": "PulseHMIS",
@@ -64,8 +64,8 @@
       "app": "EduPulse",
       "platform": "Windows",
       "version": "1.6.0",
-      "size": "21 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/EduPulse-1.6.0-Windows.zip"
+      "size": "18 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/EduPulse-Setup-1.6.0.exe"
     },
     {
       "app": "EduPulse",
@@ -85,8 +85,8 @@
       "app": "PulseRemit Pro",
       "platform": "Windows",
       "version": "1.4.0",
-      "size": "18 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseRemitPro-1.4.0-Windows.zip"
+      "size": "16 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseRemitPro-Setup-1.4.0.exe"
     },
     {
       "app": "PulseRemit Pro",
@@ -106,8 +106,8 @@
       "app": "PulseProperty Pro",
       "platform": "Windows",
       "version": "1.1.0",
-      "size": "19 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulsePropertyPro-1.1.0-Windows.zip"
+      "size": "15 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulsePropertyPro-Setup-1.1.0.exe"
     },
     {
       "app": "PulseProperty Pro",
@@ -127,8 +127,8 @@
       "app": "PulseStock",
       "platform": "Windows",
       "version": "1.1.0",
-      "size": "19 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseStock-1.1.0-Windows.zip"
+      "size": "15 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseStock-Setup-1.1.0.exe"
     },
     {
       "app": "PulseStock",
@@ -162,8 +162,8 @@
       "app": "PulseLMIS",
       "platform": "Windows",
       "version": "2.3.1",
-      "size": "20 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseLMIS-2.3.1-Windows.zip"
+      "size": "16 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.27/PulseLMIS-Setup-2.3.1.exe"
     },
     {
       "app": "PulseLMIS",
@@ -177,7 +177,7 @@
     "tone": "warn",
     "linkText": "How to update",
     "link": "https://github.com/pulsegenerationug/pulsegeneration/releases/tag/v2026.10.27",
-    "text": "Android users: this update uses a new signing key. Back up first and keep the backup file off the app (share it to Drive or WhatsApp, or use cloud backup), uninstall the old app, install the new one, then restore. Windows users can update directly."
+    "text": "Android users: this update uses a new signing key. Back up first and keep the backup file off the app (share it to Drive or WhatsApp, or use cloud backup), uninstall the old app, install the new one, then restore. Windows users: just run the new Setup."
   },
   "news": [
     {
