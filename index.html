@@ -1,33 +1,22 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8TWBX69GCB');
-</script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1334570271975920');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <meta charset="utf-8">
+<!-- Google Analytics + Meta Pixel load only after the visitor accepts cookies (site.js shows the banner) -->
+<script>
+window.pgLoadTracking = function () {
+  if (window.pgTrackingOn) return; window.pgTrackingOn = 1;
+  var s = document.createElement('script'); s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB'; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date()); gtag('config', 'G-8TWBX69GCB');
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1334570271975920'); fbq('track', 'PageView');
+};
+try { if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking(); } catch (e) {}
+</script>
 <meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pulse Generation UG · Offline-first apps for hospitals, schools, banks and play</title>
@@ -50,7 +39,7 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=9">
+<link rel="stylesheet" href="/site/site.css?v=10">
 <script>(function(){var t=null;try{t=localStorage.getItem('pg_theme')}catch(e){}var d=document.documentElement;if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.setAttribute('data-theme-mode',(t==='light'||t==='dark')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Pulse Generation UG", "url": "https://pulsegenerationug.com", "logo": "https://pulsegenerationug.com/brand/pulse-logo-512.png", "founder": {"@type": "Person", "name": "Lwasa George"}, "email": "pulsegenerationug@gmail.com", "telephone": "+256700677555", "sameAs": ["https://wa.me/256700677555", "https://t.me/pulsegeneration_ug", "https://www.youtube.com/@pulsegeneration_ug", "https://tiktok.com/@pulsegeneration_ug", "https://www.instagram.com/pulsegeneration_ug", "https://x.com/lwasapulse_ug", "https://www.facebook.com/share/18yDouKsLP/", "https://github.com/pulsegenerationug"]}</script>
 </head>
@@ -62,12 +51,20 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
       <img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34">
       <span>Pulse Generation<small>Uganda</small></span>
     </a>
-    <nav class="nav-links" aria-label="Main"><a href="/pulsehmis/">PulseHMIS</a><a href="/edupulse/">EduPulse</a><a href="/pulseremit-pro/">PulseRemit Pro</a><a href="/pulseproperty/">PulseProperty</a><a href="/pulsestock/">PulseStock</a><a href="/pulselmis/">PulseLMIS</a><a href="/lwasa-ludo/">Lwasa Ludo</a><a href="/#downloads">Downloads</a><a href="/#tutorials">Tutorials</a><a href="/#contact">Contact</a></nav>
+    <nav class="nav-links" aria-label="Main">
+      <div class="prodmenu" data-products-menu>
+        <button class="pm-btn" type="button" aria-expanded="false" aria-controls="pm-panel">Products<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pm-panel" id="pm-panel" hidden>
+          <div class="pm-grid"><a class="pm-item" href="/pulsehmis/"><img src="/site/img/pulsehmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseHMIS</b><small>Hospitals & clinics</small></span></a><a class="pm-item" href="/pulselmis/"><img src="/site/img/pulselmis-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseLMIS</b><small>Medical laboratories</small></span></a><a class="pm-item" href="/edupulse/"><img src="/site/img/edupulse-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>EduPulse</b><small>Schools, colleges & universities</small></span></a><a class="pm-item" href="/pulseremit-pro/"><img src="/site/img/pulseremit-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseRemit Pro</b><small>Banks, SACCOs & money transfer</small></span></a><a class="pm-item" href="/pulsestock/"><img src="/site/img/pulsestock-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseStock</b><small>Pharmacies, supermarkets & shops</small></span></a><a class="pm-item" href="/pulseproperty/"><img src="/site/img/pulseproperty-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>PulseProperty Pro</b><small>Landlords & property managers</small></span></a><a class="pm-item" href="/lwasa-ludo/"><img src="/site/img/ludo-icon-96.webp" alt="" width="40" height="40" loading="lazy"><span><b>Lwasa Ludo</b><small>Free 3D Ludo game in Luganda</small></span></a></div>
+          <div class="pm-foot"><a href="/pricing/">Compare prices<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/#downloads">All downloads<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a><a href="/changelog/">What’s new<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></div>
+        </div>
+      </div><a href="/pricing/">Pricing</a><a href="/customers/" data-needs="stories" hidden>Customers</a><a href="/security/">Security</a><a href="/help/">Help</a><a href="/company/">Company</a></nav>
     <div class="nav-actions">
       <button class="search-pill" type="button" data-search-open aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span><kbd data-kbd>Ctrl K</kbd></button>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode"><svg class="theme-ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="theme-ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
       <a class="icon-btn acct-btn" href="/account/" data-account-link aria-label="My account" title="My account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></a>
-      <a class="btn btn-sm nav-cta" href="/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>Download</a>
+      <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/#downloads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>Download</span></a>
+      <a class="btn btn-sm nav-cta" href="/demo/">Book a demo</a>
     </div>
   </div>
 </header>
@@ -87,7 +84,7 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
       </div>
       <div class="hero-meta reveal" style="--d:.24s">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Works with no internet</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Android &amp; Windows</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Android, Windows &amp; Mac</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Made in Uganda</span>
       </div>
     </div>
@@ -194,8 +191,17 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="dot" style="color:var(--blue)"></span>Our apps</span>
-      <h2 class="title-1" id="products-title">Six apps. One promise:<br>they never wait for the internet.</h2>
+      <h2 class="title-1" id="products-title">Seven apps. One promise:<br>they never wait for the internet.</h2>
       <p class="lead">Each app runs fully on your own devices. Your data stays with you, and everything is free to download for Android, Windows and Mac.</p>
+    </div>
+    <div class="chooser reveal" aria-label="Which app is right for me?">
+      <span class="chooser-q">I run a…</span>
+      <a class="chip" href="/pulsehmis/">🏥 Hospital or clinic</a>
+      <a class="chip" href="/pulselmis/">🧪 Laboratory</a>
+      <a class="chip" href="/edupulse/">🎓 School or college</a>
+      <a class="chip" href="/pulseremit-pro/">🏦 Bank, SACCO or money transfer</a>
+      <a class="chip" href="/pulsestock/">💊 Pharmacy or shop</a>
+      <a class="chip" href="/pulseproperty/">🏢 Rental property</a>
     </div>
     <div class="products six">
       <article class="product hmis reveal">
@@ -290,7 +296,7 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
 <section class="section tight section-alt" aria-label="At a glance">
   <div class="wrap">
     <div class="stats">
-      <div class="stat reveal"><strong data-count="6">6</strong><span>apps, free to download</span></div>
+      <div class="stat reveal"><strong data-count="7">7</strong><span>apps, free to download</span></div>
       <div class="stat reveal" style="--d:.06s"><strong data-count="6">6</strong><span>hospital stations kept in sync</span></div>
       <div class="stat reveal" style="--d:.12s"><strong data-count="100" data-suffix="%">100%</strong><span>of daily work runs offline</span></div>
       <div class="stat reveal" style="--d:.18s"><strong data-count="0">0</strong><span>patient records sent to the cloud</span></div>
@@ -344,6 +350,17 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMER STORIES + NUMBERS (content.json; hidden until real ones exist) ============ -->
+<section class="section" hidden aria-labelledby="stories-title" data-stories-section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><span class="dot" style="color:var(--green)"></span>Customer stories</span>
+      <h2 class="title-1" id="stories-title">Trusted where it matters.</h2></div>
+    <div class="stats" data-stats hidden></div>
+    <div class="story-grid" data-stories=""></div>
+    <p class="center mt-24"><a class="btn btn-gray" href="/customers/">More customer stories<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-5-5 5 5-5 5"/></svg></a></p>
   </div>
 </section>
 
@@ -549,17 +566,18 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
           <li><a href="/pulsestock/">PulseStock</a></li>
           <li><a href="/pulselmis/">PulseLMIS</a></li>
           <li><a href="/lwasa-ludo/">Lwasa Ludo</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/#downloads">All downloads</a></li>
-          <li><a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">Release notes</a></li>
+          <li><a href="/changelog/">What’s new (changelog)</a></li>
         </ul>
       </div>
       <div>
         <h4>Learn</h4>
         <ul>
+          <li><a href="/help/">Help Center</a></li>
           <li><a href="/#tutorials">Video tutorials</a></li>
           <li><a href="/tutorial.html">PulseHMIS interactive guide</a></li>
-          <li><a href="/#faq">Help &amp; FAQ</a></li>
-          <li><a href="/#about">About us</a></li>
+          <li><a href="/#faq">FAQ</a></li>
           <li><a href="/edupulse/privacy-policy.html">EduPulse privacy</a></li>
           <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS privacy</a></li>
           <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro privacy</a></li>
@@ -572,7 +590,14 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/company/">About us</a></li>
+          <li><a href="/customers/" data-needs="stories" hidden>Customer stories</a></li>
+          <li><a href="/security/">Security &amp; your data</a></li>
+          <li><a href="/demo/">Book a demo</a></li>
+        </ul>
+        <h4 class="mt-24">Contact</h4>
         <ul>
           <li><a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="tel:+256700677555">+256 700 677 555</a></li>
@@ -591,13 +616,13 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Pulse Generation UG. All rights reserved.</span>
       <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
-      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a></span>
+      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a> · <button type="button" class="linklike" data-cookie-settings>Cookie settings</button></span>
     </div>
   </div>
 </footer>
 <nav class="tabbar" aria-label="Quick navigation"><ul><li><a href="/" class="active" data-keep-active><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.3 3.3a1 1 0 0 1 1.4 0l8 7.6A1 1 0 0 1 20 12.6h-1V20a1 1 0 0 1-1 1h-4v-5.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V21H6a1 1 0 0 1-1-1v-7.4H4a1 1 0 0 1-.7-1.7z"/></svg><span>Home</span></a></li><li><a href="/#products"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4"/><rect x="3" y="13" width="8" height="8" rx="2.4"/><rect x="13" y="13" width="8" height="8" rx="2.4"/></svg><span>Apps</span></a></li><li><a href="/#downloads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.2 10.7-3.5 3.5a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l1.8 1.8V7.5a1 1 0 1 1 2 0v5.6l1.8-1.8a1 1 0 0 1 1.4 1.4z"/></svg><span>Downloads</span></a></li><li><a href="/#tutorials"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3zm6.3 2.6v6.8a.6.6 0 0 0 .9.5l5.4-3.4a.6.6 0 0 0 0-1l-5.4-3.4a.6.6 0 0 0-.9.5z"/></svg><span>Videos</span></a></li><li><a href="/#contact"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.9 2 11.7c0 2.6 1.3 4.9 3.4 6.5L4.6 21a.6.6 0 0 0 .8.7l3.6-1.6c1 .3 2 .4 3 .4 5.5 0 10-3.9 10-8.8S17.5 3 12 3z"/></svg><span>Contact</span></a></li></ul></nav>
 <a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2c.2.2 2.2 3.4 5.4 4.7 2 .9 2.8.9 3.8.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a>
 <div class="toast-region" aria-live="polite"></div>
-<script src="/site/site.js?v=9" defer></script>
+<script src="/site/site.js?v=10" defer></script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<section class="section" style="padding-top:110px">
+  <div class="wrap">
+    <div class="demo-grid">
+      <div>
+        <span class="eyebrow"><span class="dot" style="color:var(--blue)"></span>Free demo</span>
+        <h1 class="title-1 mt-16">See it working with your own routine.</h1>
+        <p class="lead mt-16">Tell us a little about your organisation and we'll show you the app the way you'd use it, online or at your premises in Uganda.</p>
+        <ul class="demo-points mt-32">
+          <li>{{icon:check}}<span><b>About 30 minutes</b> on WhatsApp video, Google Meet or in person</span></li>
+          <li>{{icon:check}}<span><b>Your questions answered</b> by the people who build the app</span></li>
+          <li>{{icon:check}}<span><b>A setup plan</b>: which computers, which network, how long it takes</span></li>
+          <li>{{icon:check}}<span><b>No obligation.</b> Every app is free for 30 days anyway</span></li>
+        </ul>
+        <p class="caption mt-24">Prefer to talk now? <a href="https://wa.me/256700677555?text=Hello%2C%20I%27d%20like%20a%20demo" target="_blank" rel="noopener">WhatsApp +256 700 677 555</a> or <a href="tel:+256700677555">call us</a>.</p>
+      </div>
+
+      <form class="form-card" data-contact-form data-kind-default="demo" novalidate>
+        <h2 class="title-3" style="margin-bottom:16px">Book your demo</h2>
+        <div class="form-grid">
+          <div class="field"><label for="d-name">Your name</label><input id="d-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="d-email">Email</label><input id="d-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="d-phone">Phone or WhatsApp</label><input id="d-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="d-product">App</label>
+            <select id="d-product" name="product"><option>PulseHMIS</option><option>PulseLMIS</option><option>EduPulse</option><option>PulseRemit Pro</option><option>PulseStock</option><option>PulseProperty Pro</option><option value="">Not sure yet</option></select></div>
+          <div class="field"><label for="d-org">Organisation</label><input id="d-org" name="organization" autocomplete="organization" placeholder="Hospital, school, SACCO…"></div>
+          <div class="field"><label for="d-country">Country / town</label><input id="d-country" name="country" autocomplete="country-name" placeholder="Kampala, Uganda"></div>
+          <div class="field"><label for="d-size">How many computers or phones?</label>
+            <select id="d-size" name="deployment_size"><option>1 device</option><option>2–5 devices</option><option>6–12 devices</option><option>More than 12</option><option>Several branches</option></select></div>
+          <div class="field"><label for="d-how">Demo by</label>
+            <select id="d-how" name="demo_format"><option>WhatsApp video</option><option>Google Meet / Zoom</option><option>In person (Uganda)</option><option>Phone call</option></select></div>
+          <div class="field"><label for="d-date">Preferred day</label><input id="d-date" name="preferred_date" type="date"></div>
+          <div class="field"><label for="d-time">Preferred time</label>
+            <select id="d-time" name="preferred_time"><option>Morning (9–12)</option><option>Afternoon (12–4)</option><option>Evening (4–7)</option></select></div>
+          <div class="field full"><label for="d-msg">What would you like to see?</label><textarea id="d-msg" name="message" required placeholder="For example: patient registration to billing, and how two branches share records."></textarea></div>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="full flex" style="flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+            <p class="caption" style="max-width:340px">We use your details only to arrange the demo. See our <a href="/privacy/">privacy notice</a>.</p>
+            <button class="btn" type="submit">Request demo{{icon:arrow}}</button>
+          </div>
+          <p class="form-status full" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

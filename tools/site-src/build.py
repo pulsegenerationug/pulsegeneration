@@ -54,33 +54,22 @@ def head(title, desc, path, image="/og-image.png", force_dark=False, extra=""):
     return f'''<!doctype html>
 <html lang="en" class="no-js">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8TWBX69GCB');
-</script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)}};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1334570271975920');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <meta charset="utf-8">
+<!-- Google Analytics + Meta Pixel load only after the visitor accepts cookies (site.js shows the banner) -->
+<script>
+window.pgLoadTracking = function () {{
+  if (window.pgTrackingOn) return; window.pgTrackingOn = 1;
+  var s = document.createElement('script'); s.async = 1; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TWBX69GCB'; document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () {{ dataLayer.push(arguments); }};
+  gtag('js', new Date()); gtag('config', 'G-8TWBX69GCB');
+  !function(f,b,e,v,n,t,s){{if(f.fbq)return;n=f.fbq=function(){{n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1334570271975920'); fbq('track', 'PageView');
+}};
+try {{ if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking(); }} catch (e) {{}}
+</script>
 <meta name="facebook-domain-verification" content="qp306huf4f7utiey0cvfrvxd8tr2wj" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
@@ -103,15 +92,29 @@ src="https://www.facebook.com/tr?id=1334570271975920&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=8">
+<link rel="stylesheet" href="/site/site.css?v=10">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
 
+# (nav name, page, icon, who it is for) – feeds the Products menu, the Pricing page and the app chooser
+APPS = [
+    ("PulseHMIS", "/pulsehmis/", "/site/img/pulsehmis-icon-96.webp", "Hospitals & clinics"),
+    ("PulseLMIS", "/pulselmis/", "/site/img/pulselmis-icon-96.webp", "Medical laboratories"),
+    ("EduPulse", "/edupulse/", "/site/img/edupulse-icon-96.webp", "Schools, colleges & universities"),
+    ("PulseRemit Pro", "/pulseremit-pro/", "/site/img/pulseremit-icon-96.webp", "Banks, SACCOs & money transfer"),
+    ("PulseStock", "/pulsestock/", "/site/img/pulsestock-icon-96.webp", "Pharmacies, supermarkets & shops"),
+    ("PulseProperty Pro", "/pulseproperty/", "/site/img/pulseproperty-icon-96.webp", "Landlords & property managers"),
+    ("Lwasa Ludo", "/lwasa-ludo/", "/site/img/ludo-icon-96.webp", "Free 3D Ludo game in Luganda"),
+]
+
 def nav(active=""):
-    links = [("PulseHMIS", "/pulsehmis/"), ("EduPulse", "/edupulse/"), ("PulseRemit Pro", "/pulseremit-pro/"), ("PulseProperty", "/pulseproperty/"), ("PulseStock", "/pulsestock/"), ("PulseLMIS", "/pulselmis/"), ("Lwasa Ludo", "/lwasa-ludo/"),
-             ("Downloads", "/#downloads"), ("Tutorials", "/#tutorials"), ("Contact", "/#contact")]
-    li = "".join(f'<a href="{u}"{" aria-current=\"page\" data-keep-active" if n == active else ""}>{n}</a>' for n, u in links)
+    apps = "".join(
+        f'<a class="pm-item" href="{u}"{" aria-current=\"page\"" if n == active else ""}><img src="{i}" alt="" width="40" height="40" loading="lazy"><span><b>{n}</b><small>{w}</small></span></a>'
+        for n, u, i, w in APPS)
+    on = active in [a[0] for a in APPS]
+    links = [("Pricing", "/pricing/"), ("Customers", "/customers/"), ("Security", "/security/"), ("Help", "/help/"), ("Company", "/company/")]
+    li = "".join(f'<a href="{u}"{" data-needs=\"stories\" hidden" if n == "Customers" else ""}{" aria-current=\"page\" data-keep-active" if n == active else ""}>{n}</a>' for n, u in links)
     return f'''<a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="top">
   <div class="wrap">
@@ -119,12 +122,20 @@ def nav(active=""):
       <img src="/brand/pulse-logo-64.png" srcset="/brand/pulse-logo-128.png 2x" alt="" width="34" height="34">
       <span>Pulse Generation<small>Uganda</small></span>
     </a>
-    <nav class="nav-links" aria-label="Main">{li}</nav>
+    <nav class="nav-links" aria-label="Main">
+      <div class="prodmenu" data-products-menu>
+        <button class="pm-btn{" active" if on else ""}" type="button" aria-expanded="false" aria-controls="pm-panel">Products<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pm-panel" id="pm-panel" hidden>
+          <div class="pm-grid">{apps}</div>
+          <div class="pm-foot"><a href="/pricing/">Compare prices{ICON["arrow"]}</a><a href="/#downloads">All downloads{ICON["arrow"]}</a><a href="/changelog/">What’s new{ICON["arrow"]}</a></div>
+        </div>
+      </div>{li}</nav>
     <div class="nav-actions">
       <button class="search-pill" type="button" data-search-open aria-label="Search">{ICON["search"]}<span>Search</span><kbd data-kbd>Ctrl K</kbd></button>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">{ICON["moon"]}{ICON["sun"]}</button>
       <a class="icon-btn acct-btn" href="/account/" data-account-link aria-label="My account" title="My account">{ICON["person"]}</a>
-      <a class="btn btn-sm nav-cta" href="/#downloads">{ICON["download"]}Download</a>
+      <a class="btn btn-sm btn-gray nav-cta nav-dl" href="/#downloads">{ICON["download"]}<span>Download</span></a>
+      <a class="btn btn-sm nav-cta" href="/demo/">Book a demo</a>
     </div>
   </div>
 </header>
@@ -159,17 +170,18 @@ def footer():
           <li><a href="/pulsestock/">PulseStock</a></li>
           <li><a href="/pulselmis/">PulseLMIS</a></li>
           <li><a href="/lwasa-ludo/">Lwasa Ludo</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/#downloads">All downloads</a></li>
-          <li><a href="https://github.com/pulsegenerationug/pulsegeneration/releases" target="_blank" rel="noopener">Release notes</a></li>
+          <li><a href="/changelog/">What’s new (changelog)</a></li>
         </ul>
       </div>
       <div>
         <h4>Learn</h4>
         <ul>
+          <li><a href="/help/">Help Center</a></li>
           <li><a href="/#tutorials">Video tutorials</a></li>
           <li><a href="/tutorial.html">PulseHMIS interactive guide</a></li>
-          <li><a href="/#faq">Help &amp; FAQ</a></li>
-          <li><a href="/#about">About us</a></li>
+          <li><a href="/#faq">FAQ</a></li>
           <li><a href="/edupulse/privacy-policy.html">EduPulse privacy</a></li>
           <li><a href="/pulsehmis/privacy-policy.html">PulseHMIS privacy</a></li>
           <li><a href="/pulseremit-pro/privacy-policy.html">PulseRemit Pro privacy</a></li>
@@ -182,7 +194,14 @@ def footer():
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/company/">About us</a></li>
+          <li><a href="/customers/" data-needs="stories" hidden>Customer stories</a></li>
+          <li><a href="/security/">Security &amp; your data</a></li>
+          <li><a href="/demo/">Book a demo</a></li>
+        </ul>
+        <h4 class="mt-24">Contact</h4>
         <ul>
           <li><a href="https://wa.me/256700677555" target="_blank" rel="noopener">WhatsApp</a></li>
           <li><a href="tel:+256700677555">+256 700 677 555</a></li>
@@ -201,17 +220,45 @@ def footer():
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> Pulse Generation UG. All rights reserved.</span>
       <span class="motto">INNOVATE. BUILD. TRANSFORM.</span>
-      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a></span>
+      <span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/refund-policy/">Refunds</a> · <a href="/account/">My account</a> · <a href="/delete-account/">Delete account</a> · <a href="/support/">Support</a> · <button type="button" class="linklike" data-cookie-settings>Cookie settings</button></span>
     </div>
   </div>
 </footer>
 '''
 
-PRICES = {  # UGX, as shipped in each app (lib/.../license*.dart)
-    "edupulse": ("EduPulse", "one school (all its campuses)", [50000, 200000, 400000, 1500000]),
+PRICES = {  # UGX, as shipped in each app (lib/.../licen[cs]e*.dart, app_info.dart): 1 month, 6 months, 1 year, lifetime
     "pulsehmis": ("PulseHMIS", "one facility (all its branches)", [50000, 200000, 400000, 1500000]),
+    "pulselmis": ("PulseLMIS", "one laboratory (all its branches)", [60000, 300000, 550000, 2000000]),
+    "edupulse": ("EduPulse", "one school (all its campuses)", [50000, 200000, 400000, 1500000]),
     "pulseremit": ("PulseRemit Pro", "one institution (all its branches)", [150000, 750000, 1300000, 5000000]),
+    "pulsestock": ("PulseStock", "one business (all its branches)", [80000, 400000, 750000, 3000000]),
+    "pulseproperty": ("PulseProperty Pro", "one landlord or agency (all its properties)", [100000, 500000, 900000, 3500000]),
 }
+
+def price_table():
+    """The Pricing page: one row per app, so buyers compare everything at a glance."""
+    rows = "".join(
+        f'<tr><th scope="row"><a href="{next(a[1] for a in APPS if a[0] == n)}">{n}</a><small>{scope}</small></th>'
+        + "".join(f'<td data-label="{lab}"{" class=\"best\"" if i == 2 else ""}>UGX {v:,}</td>' for i, (lab, v) in enumerate(zip(("1 month", "6 months", "1 year", "Lifetime"), p)))
+        + f'<td><a class="btn btn-sm btn-gray" href="/demo/?product={n.replace(" ", "+")}">Demo</a></td></tr>'
+        for n, scope, p in PRICES.values())
+    return f'''<div class="table-scroll"><table class="price-table">
+  <thead><tr><th scope="col">App</th><th scope="col">1 month</th><th scope="col">6 months</th><th scope="col" class="best">1 year <span class="price-tag-inline">Best value</span></th><th scope="col">Lifetime</th><th scope="col"><span class="sr-only">Demo</span></th></tr></thead>
+  <tbody>{rows}
+  <tr><th scope="row"><a href="/lwasa-ludo/">Lwasa Ludo</a><small>the game</small></th><td colspan="4" data-label="Price">Free, no ads</td><td></td></tr></tbody>
+</table></div>'''
+
+def stories_section(product=""):
+    """Customer stories from content.json; the section stays hidden until real stories exist."""
+    return f'''<section class="section" hidden aria-labelledby="stories-title{product.replace(" ", "")}" data-stories-section>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow"><span class="dot" style="color:var(--green)"></span>Customer stories</span>
+      <h2 class="title-1" id="stories-title{product.replace(" ", "")}">Trusted where it matters.</h2></div>
+    {"" if product else '<div class="stats" data-stats hidden></div>'}
+    <div class="story-grid" data-stories="{product}"></div>
+    <p class="center mt-24"><a class="btn btn-gray" href="/customers/">More customer stories{ICON["arrow"]}</a></p>
+  </div>
+</section>'''
 
 def pricing(key):
     name, scope, p = PRICES[key]
@@ -226,7 +273,63 @@ def pricing(key):
       <p class="lead">One licence covers {scope}. Every computer and phone on your network is included. Pay by MTN or Airtel Mobile Money; the key activates by itself.</p></div>
     <div class="price-grid">{cards}</div>
     <div class="hero-cta center mt-24"><a class="btn btn-lg" href="/#downloads">{ICON["download"]}Start the free trial</a>
-      <a class="btn btn-lg btn-glass" href="/?product={name.replace(" ", "+")}#contact">{ICON["chat-fill"]}Book a free demo</a></div>
+      <a class="btn btn-lg btn-glass" href="/demo/?product={name.replace(" ", "+")}">{ICON["chat-fill"]}Book a free demo</a></div>
+  </div>
+</section>'''
+
+def faq_block(home):
+    """The FAQ list from the home page, so the Help Center and home never disagree."""
+    start = home.index('<div class="faq">')
+    end = home.index("</section>", start)
+    return home[start:home.rindex("</div>", start, end)].replace('href="#contact"', 'href="/#contact"')
+
+def md(text):
+    """Just enough Markdown for our release notes: headings, lists, bold, code and links."""
+    import html as h
+    def inline(t):
+        t = h.escape(t, quote=False)
+        t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
+        t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t)
+        return re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" target="_blank" rel="noopener">\1</a>', t)
+    out, lists = [], []  # lists: stack of open list tags
+    def close(to=0):
+        while len(lists) > to: out.append(f"</{lists.pop()}>")
+    for line in text.replace("\r", "").split("\n"):
+        m = re.match(r"^(\s*)([-*]|\d+\.)\s+(.*)", line)
+        if m:
+            depth = len(m.group(1)) // 2 + 1
+            tag = "ol" if m.group(2)[0].isdigit() else "ul"
+            close(depth) if len(lists) > depth else None
+            while len(lists) < depth: out.append(f"<{tag}>"); lists.append(tag)
+            out.append(f"<li>{inline(m.group(3))}</li>")
+            continue
+        close()
+        if not line.strip(): continue
+        hm = re.match(r"^(#{1,4})\s+(.*)", line)
+        if hm: out.append(f"<h{min(len(hm.group(1)) + 2, 5)}>{inline(hm.group(2))}</h{min(len(hm.group(1)) + 2, 5)}>")
+        else: out.append(f"<p>{inline(line)}</p>")
+    close()
+    return "\n".join(out)
+
+def changelog_page():
+    """Release notes from changelog.json (refresh it with: gh api repos/pulsegenerationug/pulsegeneration/releases)."""
+    import json, datetime
+    rels = json.loads((HERE / "changelog.json").read_text(encoding="utf-8"))
+    items = []
+    for r in rels:
+        d = datetime.date.fromisoformat(r["date"])
+        body = re.sub(r"^# .*\n+", "", (r["body"] or "").replace("\r", ""))  # the title is shown already
+        items.append(f'''<article class="cl-item" id="{r["tag"]}">
+      <div class="cl-date"><time datetime="{r["date"]}">{d.day} {d:%b %Y}</time><a href="{r["url"]}" target="_blank" rel="noopener">{r["tag"]}</a></div>
+      <div class="cl-body tile"><h2 class="title-3">{r["name"].strip()}</h2>{md(body)}
+        <p class="mt-16"><a class="btn btn-sm btn-gray" href="{r["url"]}" target="_blank" rel="noopener">Files for this release{ICON["arrow"]}</a></p></div>
+    </article>''')
+    return f'''<section class="section" style="padding-top:110px">
+  <div class="wrap" style="max-width:980px">
+    <p class="eyebrow">Changelog</p>
+    <h1 class="title-1">What’s new</h1>
+    <p class="lead">Every release of every Pulse app, newest first. To update, download the new version from <a href="/#downloads">Downloads</a>.</p>
+    <div class="cl-list mt-32">{"".join(items)}</div>
   </div>
 </section>'''
 
@@ -234,11 +337,15 @@ def page(out, title, desc, path, body, active="", tab="home", body_class="", for
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
             f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=8" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=10" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
     html = re.sub(r"\{\{pricing:([\w-]+)\}\}", lambda m: pricing(m.group(1)), html)
+    html = html.replace("{{price-table}}", price_table())
+    html = html.replace("{{apps-grid}}", "".join(
+        f'<a class="pm-item tile" href="{u}"><img src="{i}" alt="" width="40" height="40" loading="lazy"><span><b>{n}</b><small>{w}</small></span></a>' for n, u, i, w in APPS))
+    html = re.sub(r"\{\{stories(?::([^}]*))?\}\}", lambda m: stories_section(m.group(1) or ""), html)
     target = SITE / out
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(html, encoding="utf-8", newline="\n")
@@ -251,45 +358,48 @@ if __name__ == "__main__":
         "url": BASE, "logo": BASE + "/brand/pulse-logo-512.png", "founder": {"@type": "Person", "name": "Lwasa George"},
         "email": "pulsegenerationug@gmail.com", "telephone": "+256700677555",
         "sameAs": [v[1] for v in SOCIAL.values()]}) + "</script>\n"
-    def app_ld(name, cat, desc, path):
+    def app_ld(name, cat, desc, path, os="Android, Windows, macOS"):
+        p = next((v[2] for v in PRICES.values() if v[0] == name), None)
+        offers = ({"@type": "AggregateOffer", "lowPrice": p[0], "highPrice": p[3], "priceCurrency": "UGX", "offerCount": 4} if p
+                  else {"@type": "Offer", "price": "0", "priceCurrency": "UGX"})
         return '<script type="application/ld+json">' + json.dumps({
-            "@context": "https://schema.org", "@type": "SoftwareApplication", "name": name, "operatingSystem": "Android, Windows",
-            "applicationCategory": cat, "description": desc, "url": BASE + path,
-            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "UGX"},
+            "@context": "https://schema.org", "@type": "SoftwareApplication", "name": name, "operatingSystem": os,
+            "applicationCategory": cat, "description": desc, "url": BASE + path, "image": BASE + "/images/og/" + path.strip("/") + ".png",
+            "offers": offers,
             "publisher": {"@type": "Organization", "name": "Pulse Generation UG"}}) + "</script>\n"
 
     P = HERE / "pages"
     page("index.html", "Pulse Generation UG · Offline-first apps for hospitals, schools, banks and play",
-         "PulseHMIS, EduPulse, PulseRemit Pro and Lwasa Ludo: offline-first apps for Android, Windows and Mac, built in Uganda for East Africa. Download free.",
+         "Offline-first apps for hospitals, laboratories, schools, money transfer, property and stock: PulseHMIS, PulseLMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock and Lwasa Ludo. Built in Uganda for Android, Windows and Mac.",
          "/", (P / "home.html").read_text(encoding="utf-8"), tab="home", jsonld=org)
     page("pulsehmis/index.html", "PulseHMIS · Hospital management that works with no internet",
          "PulseHMIS runs your whole clinic, from reception to the injection room, over your own local network. Offline-first, for Android, Windows and Mac.",
-         "/pulsehmis/", (P / "pulsehmis.html").read_text(encoding="utf-8"), active="PulseHMIS", tab="apps",
+         "/pulsehmis/", (P / "pulsehmis.html").read_text(encoding="utf-8") + "{{stories:PulseHMIS}}", active="PulseHMIS", tab="apps", image="/images/og/pulsehmis.png",
          jsonld=app_ld("PulseHMIS", "MedicalApplication", "Offline-first hospital management information system.", "/pulsehmis/"))
     page("edupulse/index.html", "EduPulse · School administration that works offline",
          "EduPulse manages students, attendance, fees, payroll, exams and automatic report cards for schools, colleges and universities. Offline-first, for Android, Windows and Mac.",
-         "/edupulse/", (P / "edupulse.html").read_text(encoding="utf-8"), active="EduPulse", tab="apps",
+         "/edupulse/", (P / "edupulse.html").read_text(encoding="utf-8") + "{{stories:EduPulse}}", active="EduPulse", tab="apps", image="/images/og/edupulse.png",
          jsonld=app_ld("EduPulse", "EducationalApplication", "Offline-first school, college and university administration system.", "/edupulse/"))
     page("pulseremit-pro/index.html", "PulseRemit Pro · Branch banking, SACCO & money transfer",
          "Savings accounts, deposits, withdrawals, balance enquiries, loans, money transfers and cash control for banks, MFIs and SACCOs. Works on the branch network without internet. Android, Windows and Mac.",
-         "/pulseremit-pro/", (P / "pulseremit.html").read_text(encoding="utf-8"), active="PulseRemit Pro", tab="apps",
+         "/pulseremit-pro/", (P / "pulseremit.html").read_text(encoding="utf-8") + "{{stories:PulseRemit Pro}}", active="PulseRemit Pro", tab="apps", image="/images/og/pulseremit-pro.png",
          jsonld=app_ld("PulseRemit Pro", "FinanceApplication", "Branch banking, SACCO and money-transfer system for financial institutions.", "/pulseremit-pro/"))
     page("lwasa-ludo/index.html", "Lwasa Ludo · The classic board game in 3D, in Luganda",
          "Play Ludo in 3D against the computer, with friends on one device or online with players anywhere. Blitz mode, trophies, unlockable dice and boards and Luganda commentary. Android, Windows and Mac.",
-         "/lwasa-ludo/", (P / "ludo.html").read_text(encoding="utf-8"), active="Lwasa Ludo", tab="apps", body_class="ludo-page", force_dark=True,
+         "/lwasa-ludo/", (P / "ludo.html").read_text(encoding="utf-8"), active="Lwasa Ludo", tab="apps", image="/images/og/lwasa-ludo.png", body_class="ludo-page", force_dark=True,
          jsonld=app_ld("Lwasa Ludo", "GameApplication", "3D Ludo board game with Luganda commentary.", "/lwasa-ludo/"))
     page("pulseproperty/index.html", "PulseProperty Pro · Property & rent management that works offline",
          "PulseProperty Pro manages units, tenants, leases, automatic invoices, rent receipts, deposits, meters, repairs and landlord statements. Offline-first, for Android, Windows and Mac.",
-         "/pulseproperty/", (P / "pulseproperty.html").read_text(encoding="utf-8"), active="PulseProperty", tab="apps",
+         "/pulseproperty/", (P / "pulseproperty.html").read_text(encoding="utf-8") + "{{stories:PulseProperty Pro}}", active="PulseProperty", tab="apps", image="/images/og/pulseproperty.png",
          jsonld=app_ld("PulseProperty Pro", "BusinessApplication", "Offline-first property, rent and estate management.", "/pulseproperty/"))
     page("pulsestock/index.html", "PulseStock · Pharmacy, supermarket & inventory software that works offline",
          "PulseStock runs pharmacies, supermarkets and shops: offline barcode tills, batches and expiry, prescriptions with dose checks, purchasing and branch transfers. For Android, Windows and Mac.",
-         "/pulsestock/", (P / "pulsestock.html").read_text(encoding="utf-8"), active="PulseStock", tab="apps",
+         "/pulsestock/", (P / "pulsestock.html").read_text(encoding="utf-8") + "{{stories:PulseStock}}", active="PulseStock", tab="apps", image="/images/og/pulsestock.png",
          jsonld=app_ld("PulseStock", "BusinessApplication", "Offline-first point of sale, pharmacy and inventory management.", "/pulsestock/"))
     page("pulselmis/index.html", "PulseLMIS · Laboratory information system that works offline",
          "PulseLMIS runs medical and reference laboratories: reception, barcoded specimens, result entry with critical alerts, validation, branded reports, QC, analyser interfaces, billing and branches. For Android and Windows.",
-         "/pulselmis/", (P / "pulselmis.html").read_text(encoding="utf-8"), active="PulseLMIS", tab="apps",
-         jsonld=app_ld("PulseLMIS", "MedicalApplication", "Offline-first laboratory information system.", "/pulselmis/"))
+         "/pulselmis/", (P / "pulselmis.html").read_text(encoding="utf-8") + "{{stories:PulseLMIS}}", active="PulseLMIS", tab="apps", image="/images/og/pulselmis.png",
+         jsonld=app_ld("PulseLMIS", "MedicalApplication", "Offline-first laboratory information system.", "/pulselmis/", os="Android, Windows"))
     page("support/index.html", "Support · Pulse Generation UG", "Read our reply to your message and answer back.", "/support/",
          (P / "support.html").read_text(encoding="utf-8"), tab="home")
     page("account/index.html", "My account · Pulse Generation UG", "Your Pulse account: conversations with us, your details and release news.", "/account/",
@@ -300,5 +410,26 @@ if __name__ == "__main__":
     page("refund-policy/index.html", "Refund & return policy · Pulse Generation UG",
          "Free 30-day trials, full refunds within 7 days if a licence doesn't work, exchanges between plans and apps, and how to ask for a refund.",
          "/refund-policy/", (P / "refund-policy.html").read_text(encoding="utf-8"), tab="home")
+    page("pricing/index.html", "Pricing · Pulse Generation UG",
+         "Prices for PulseHMIS, PulseLMIS, EduPulse, PulseRemit Pro, PulseStock and PulseProperty Pro: 30 days free, then monthly, 6-month, yearly or lifetime licences paid by Mobile Money.",
+         "/pricing/", (P / "pricing.html").read_text(encoding="utf-8"), active="Pricing", tab="apps")
+    page("demo/index.html", "Book a free demo · Pulse Generation UG",
+         "Book a free demo of PulseHMIS, PulseLMIS, EduPulse, PulseRemit Pro, PulseStock or PulseProperty Pro, online or at your premises.",
+         "/demo/", (P / "demo.html").read_text(encoding="utf-8"), tab="contact")
+    page("customers/index.html", "Customer stories · Pulse Generation UG",
+         "How hospitals, laboratories, schools, SACCOs, shops and landlords run on Pulse apps.",
+         "/customers/", (P / "customers.html").read_text(encoding="utf-8"), active="Customers", tab="apps")
+    page("security/index.html", "Security & your data · Pulse Generation UG",
+         "Where your data lives, how passwords and network traffic are protected, who can see what, backups, and how to report a security problem.",
+         "/security/", (P / "security.html").read_text(encoding="utf-8"), active="Security")
+    page("company/index.html", "About Pulse Generation UG · Offline-first software from Uganda",
+         "Who we are, what we build, how we work and how to reach Pulse Generation UG, the Ugandan software company behind PulseHMIS, EduPulse and more.",
+         "/company/", (P / "company.html").read_text(encoding="utf-8"), active="Company", jsonld=org)
+    page("help/index.html", "Help Center · Pulse Generation UG",
+         "Guides, videos, answers and support for every Pulse app: getting started, licences, backups, networks and updates.",
+         "/help/", (P / "help.html").read_text(encoding="utf-8").replace("{{faq}}", faq_block((P / "home.html").read_text(encoding="utf-8"))), active="Help")
+    page("changelog/index.html", "What’s new · Pulse Generation UG changelog",
+         "Every Pulse app release, newest first: new features, fixes and how to update.",
+         "/changelog/", changelog_page(), tab="downloads")
     page("404.html", "Page not found · Pulse Generation UG", "This page doesn't exist.", "/404",
          (P / "404.html").read_text(encoding="utf-8"), tab="home")

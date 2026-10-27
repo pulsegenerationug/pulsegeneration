@@ -135,7 +135,15 @@
       if (!x || !x.title) return null;
       return { title: String(x.title), date: String(x.date || ""), body: String(x.body || ""), product: String(x.product || ""), link: safeUrl(x.link), linkText: String(x.linkText || "Read more") };
     }).filter(Boolean);
-    return { tutorials: tutorials, downloads: downloads, notice: n, news: news };
+    var stories = (Array.isArray(data.stories) ? data.stories : []).map(function (x) {
+      if (!x || !x.quote || !x.org) return null;
+      return { org: String(x.org), place: String(x.place || ""), product: String(x.product || ""), quote: String(x.quote), person: String(x.person || ""),
+        role: String(x.role || ""), result: String(x.result || ""), photo: safeUrl(x.photo), link: safeUrl(x.link) };
+    }).filter(Boolean);
+    var stats = (Array.isArray(data.stats) ? data.stats : []).map(function (x) {
+      return x && x.value != null && x.label ? { value: String(x.value), label: String(x.label) } : null;
+    }).filter(Boolean).slice(0, 4);
+    return { tutorials: tutorials, downloads: downloads, notice: n, news: news, stories: stories, stats: stats };
   }
   var CONTENT = normalise(FALLBACK);
   var contentListeners = [];
@@ -149,6 +157,8 @@
       if (n.tutorials.length) CONTENT.tutorials = n.tutorials;
       CONTENT.notice = n.notice;
       CONTENT.news = n.news;
+      CONTENT.stories = n.stories;
+      CONTENT.stats = n.stats;
       contentListeners.forEach(function (fn) { fn(CONTENT); });
     })
     .catch(function () {});
@@ -193,7 +203,43 @@
       });
     });
   }
-  function startOwnerContent() { onContent(function (c) { renderNotice(c); renderNews(c); }); }
+  /* Customer stories + usage numbers: real ones only, so everything stays hidden until content.json has them */
+  function renderStories(c) {
+    var stories = c.stories || [], stats = c.stats || [];
+    $$("[data-needs='stories']").forEach(function (a) { a.hidden = !stories.length; });
+    $$("[data-stats]").forEach(function (box) {
+      box.textContent = "";
+      stats.forEach(function (x) { var d = el("div", "stat"); d.appendChild(el("strong", "", x.value)); d.appendChild(el("span", "", x.label)); box.appendChild(d); });
+      box.hidden = !stats.length;
+    });
+    $$("[data-stories]").forEach(function (box) {
+      var want = box.getAttribute("data-stories");
+      var list = stories.filter(function (x) { return !want || x.product === want; });
+      if (!box.hasAttribute("data-stories-all")) list = list.slice(0, 3);
+      box.textContent = "";
+      list.forEach(function (x) {
+        var card = el("figure", "story-card");
+        card.setAttribute("data-product", x.product);
+        if (x.result) card.appendChild(el("p", "story-result", x.result));
+        var q = el("blockquote", "story-quote"); q.appendChild(el("p", "", "\u201C" + x.quote.replace(/^[\u201C"]|[\u201D"]$/g, "") + "\u201D")); card.appendChild(q);
+        var cap = el("figcaption", "story-by");
+        if (x.photo) { var img = el("img"); img.src = x.photo; img.alt = ""; img.loading = "lazy"; img.width = 44; img.height = 44; cap.appendChild(img); }
+        var who = el("span");
+        who.appendChild(el("b", "", x.person || x.org));
+        who.appendChild(el("small", "", [x.role, x.person ? x.org : "", x.place].filter(Boolean).join(" \u00B7 ")));
+        cap.appendChild(who);
+        card.appendChild(cap);
+        if (x.product) card.appendChild(el("span", "story-tag", x.product));
+        if (x.link) { var a = el("a", "link-arrow", "Read the full story"); a.href = x.link; card.appendChild(a); }
+        box.appendChild(card);
+      });
+      var section = box.closest("[data-stories-section]");
+      if (section) section.hidden = !list.length && !(section.querySelector("[data-stats]") && stats.length);
+    });
+    $$("[data-stories-empty]").forEach(function (e) { e.hidden = !!stories.length; });
+    $$("[data-stories-filter-wrap]").forEach(function (e) { e.hidden = stories.length < 4; });
+  }
+  function startOwnerContent() { onContent(function (c) { renderNotice(c); renderNews(c); renderStories(c); }); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startOwnerContent); else startOwnerContent();
 
   /* ================= PLATFORM ================= */
@@ -598,7 +644,7 @@
   var PAGES = [
     { t: "Home", s: "Pulse Generation UG", u: "/", k: "home start company" },
     { t: "PulseHMIS", s: "Hospital management system", u: "/pulsehmis/", k: "hospital clinic hmis medical patient doctor lab pharmacy cashier reception injection", img: APPS.PulseHMIS.icon },
-    { t: "PulseHMIS pricing", s: "20,000 UGX / month · free trial", u: "/pulsehmis/#pricing", k: "price subscription trial cost license" },
+    { t: "PulseHMIS pricing", s: "From 50,000 UGX / month · 30 days free", u: "/pulsehmis/#pricing", k: "price subscription trial cost license" },
     { t: "PulseHMIS LAN sync", s: "Host and client, no internet", u: "/pulsehmis/#sync", k: "network wifi host client sync offline" },
     { t: "PulseHMIS interactive guide", s: "Getting started walkthrough", u: "/tutorial.html", k: "guide tutorial getting started" },
     { t: "EduPulse", s: "School administration system", u: "/edupulse/", k: "school college university students teachers fees report card attendance exams payroll education", img: APPS.EduPulse.icon },
@@ -617,6 +663,13 @@
     { t: "Help & FAQ", s: "Questions, answered", u: "/#faq", k: "help faq questions support" },
     { t: "Contact us", s: "WhatsApp, phone, email", u: "/#contact", k: "contact whatsapp phone email call message demo support" },
     { t: "WhatsApp", s: "+256 700 677 555", u: "https://wa.me/256700677555", k: "whatsapp chat message", ext: 1 },
+    { t: "Pricing", s: "Every app, every plan", u: "/pricing/", k: "price prices cost licence license subscription plan monthly yearly lifetime pay mobile money quote" },
+    { t: "Book a demo", s: "Free 30-minute demo", u: "/demo/", k: "demo demonstration presentation meeting trial sales quote" },
+    { t: "Security & your data", s: "Where your data lives", u: "/security/", k: "security data privacy backup encryption password cloud safe" },
+    { t: "Help Center", s: "Guides, videos and answers", u: "/help/", k: "help support guide how manual faq" },
+    { t: "What's new", s: "Changelog of every release", u: "/changelog/", k: "changelog release notes update version new" },
+    { t: "About the company", s: "Pulse Generation UG", u: "/company/", k: "company about team founder press partner reseller logo" },
+    { t: "Customer stories", s: "Organisations using Pulse", u: "/customers/", k: "customers stories testimonials case study reviews clients" },
     { t: "Privacy", s: "Website privacy notice", u: "/privacy/", k: "privacy data" },
     { t: "Terms", s: "Terms of use", u: "/terms/", k: "terms legal" }
   ];
@@ -846,7 +899,7 @@
 
   $$("[data-contact-form]").forEach(function (form) {
     var status = $(".form-status", form);
-    var kind = "message";
+    var kind = form.getAttribute("data-kind-default") || "message";
     var seg = $("[data-kind]", form);
     var demoOnly = $$("[data-demo-only]", form);
     function syncKind() { demoOnly.forEach(function (el) { el.style.display = kind === "demo" ? "" : "none"; }); }
@@ -881,7 +934,9 @@
         organization: (f.organization && f.organization.value.trim()) || null,
         country: (f.country && f.country.value.trim()) || null,
         product: product || null, kind: kind, consent: true,
-        details: kind === "demo" ? { preferred_contact: f.preferred_contact ? f.preferred_contact.value : null, deployment_size: f.deployment_size ? f.deployment_size.value : null } : {}
+        details: kind === "demo" ? ["preferred_contact", "deployment_size", "demo_format", "preferred_date", "preferred_time"].reduce(function (o, k) {
+          if (f[k] && f[k].value) o[k] = f[k].value; return o;
+        }, {}) : {}
       };
       row.page = location.pathname;
       row.lang = navigator.language || null;
@@ -1119,6 +1174,63 @@
       });
     });
   });
+
+  /* ================= CUSTOMERS PAGE FILTER ================= */
+  $$("[data-stories-filter]").forEach(function (seg) {
+    segmented(seg, function (v) {
+      $$("[data-stories-all] .story-card").forEach(function (c) { c.hidden = !!v && c.getAttribute("data-product") !== v; });
+    });
+  });
+
+  /* ================= PRODUCTS MENU ================= */
+  $$("[data-products-menu]").forEach(function (menu) {
+    var btn = $(".pm-btn", menu), panel = $(".pm-panel", menu), timer = null;
+    function set(open) {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      panel.hidden = !open;
+      menu.classList.toggle("open", open);
+    }
+    btn.addEventListener("click", function () { set(btn.getAttribute("aria-expanded") !== "true"); });
+    if (matchMedia("(hover: hover)").matches) {
+      menu.addEventListener("mouseenter", function () { clearTimeout(timer); set(true); });
+      menu.addEventListener("mouseleave", function () { timer = setTimeout(function () { set(false); }, 180); });
+    }
+    document.addEventListener("click", function (e) { if (!menu.contains(e.target)) set(false); });
+    menu.addEventListener("keydown", function (e) {
+      var items = $$("a", panel), i = items.indexOf(document.activeElement);
+      if (e.key === "Escape") { set(false); btn.focus(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); set(true); (items[i + 1] || items[0]).focus(); }
+      else if (e.key === "ArrowUp" && !panel.hidden) { e.preventDefault(); (items[i - 1] || items[items.length - 1]).focus(); }
+    });
+    menu.addEventListener("focusout", function (e) { if (!menu.contains(e.relatedTarget)) set(false); });
+  });
+
+  /* ================= COOKIE CONSENT (analytics + Meta Pixel load only after "Accept") ================= */
+  function consent() { try { return localStorage.getItem("pg_consent"); } catch (e) { return null; } }
+  function cookieBanner() {
+    if ($(".cookie-bar")) return;
+    var bar = el("div", "cookie-bar glass");
+    bar.setAttribute("role", "dialog");
+    bar.setAttribute("aria-label", "Cookie choices");
+    var p = el("p", "", "We'd like to use cookies to count visits and measure our adverts (Google Analytics and Meta). Nothing loads unless you accept. ");
+    var more = el("a", "", "Privacy notice"); more.href = "/privacy/"; p.appendChild(more);
+    bar.appendChild(p);
+    var row = el("div", "cookie-actions");
+    var no = el("button", "btn btn-sm btn-gray", "Decline"), yes = el("button", "btn btn-sm", "Accept");
+    no.type = yes.type = "button";
+    function choose(v) {
+      try { localStorage.setItem("pg_consent", v); } catch (e) {}
+      bar.remove();
+      if (v === "yes" && window.pgLoadTracking) window.pgLoadTracking();
+      if (v === "no" && window.pgTrackingOn) location.reload(); // unload trackers that were already running
+    }
+    no.onclick = function () { choose("no"); };
+    yes.onclick = function () { choose("yes"); };
+    row.appendChild(no); row.appendChild(yes); bar.appendChild(row);
+    document.body.appendChild(bar);
+  }
+  if (!consent()) cookieBanner();
+  $$("[data-cookie-settings]").forEach(function (b) { b.addEventListener("click", cookieBanner); });
 
   /* ================= MISC ================= */
   $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
