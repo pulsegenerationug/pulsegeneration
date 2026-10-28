@@ -16,6 +16,7 @@ APPS = [
     ("pulseremit-pro", "PulseRemit Pro", "Branch banking, SACCO & money transfer", "pulseremit-icon-384.webp", "#0A3A7A", "#007AFF"),
     ("pulsestock", "PulseStock", "Pharmacy, supermarket & inventory, offline", "pulsestock-icon-384.webp", "#7A2E00", "#FF7A00"),
     ("pulseproperty", "PulseProperty Pro", "Property & rent management that works offline", "pulseproperty-icon-384.webp", "#3B1F73", "#AF52DE"),
+    ("motopulse", "MotoPulse", "Car wash, parking & garage, offline", "motopulse-icon-384.webp", "#0B1B2B", "#0A84A8"),
     ("lwasa-ludo", "Lwasa Ludo", "The classic board game in 3D, in Luganda", "ludo-icon-384.webp", "#05070F", "#1B2A6B"),
 ]
 

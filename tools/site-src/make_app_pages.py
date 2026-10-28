@@ -1,4 +1,4 @@
-"""Writes pages/pulseproperty.html and pages/pulsestock.html (the bodies of the
+"""Writes pages/pulseproperty.html, pages/pulsestock.html, pages/motopulse.html (the bodies of the
 PulseProperty Pro and PulseStock pages). Run before build.py when editing them."""
 import pathlib
 
@@ -53,6 +53,31 @@ APPS = {
             ("What happens to expired medicines?", "They are locked the moment they enter the do-not-sell window and moved to an expired-stock location every day. Even an offline till cannot sell them. Write-off needs approval and records the destruction."),
             ("Does PulseStock know the right doses?", "It ships with no dosing data on purpose. Your pharmacist enters rules from your national formulary, with the source. Checks are advisory and every override is recorded."),
             ("Does it need internet?", "No. One computer is the Host and the tills connect over your own network. Internet is used, when available, for branch totals, recalls, catalog updates, licences and support."),
+        ],
+    ),
+    "motopulse": dict(
+        name="MotoPulse", tagline="Car wash, parking & garage", color="#0A84A8", grad="grad-moto",
+        headline='Every vehicle. Every payment.<br><span class="grad-moto">Every shift.</span>',
+        lead="MotoPulse runs car washes, boda wash points, parkings, detailing studios and garages: check a vehicle in in seconds, see who washed it, park and release with a ticket, keep daily customers on their own register, and never forget who said “I will pay you tomorrow”.",
+        video="BL5p3M6Q5lc", shot="motopulse-dashboard_light", shot2="motopulse-parking_light", phone="motopulse-phone_jobs",
+        strip=[("Version", "1.0.0", "New"), ("Platforms", "4", "Android · Windows · iPhone · Mac"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "50k", "UGX / month")],
+        features=[
+            ("Jobs & queue", "From the gate to the handover.", ["Check in by plate in seconds: the customer and balance appear", "Prices per vehicle type: boda, saloon, SUV, taxi, truck", "Waiting · working · ready · handed over, with timers"]),
+            ("Who did what", "Every job has a name on it.", ["Employee photo grid: tap who is washing", "Recorded-by on every job, ticket and payment", "Commission per worker, per job or per day"]),
+            ("Parking", "Tickets, rates and releases.", ["Per entry, hourly with free minutes, or daily rates", "Overnight charges and a daily maximum", "Keys and helmets kept are written on the ticket"]),
+            ("Daily customers", "Boda riders and regulars.", ["One tap when they report: parked and charged for the day", "Who came, who is parked, who has paid today", "Every visit kept on the customer’s profile"]),
+            ("Pay later", "“I will pay you tomorrow” — recorded.", ["Promise date, note and who allowed it", "Credit limits; walk-ins always pay in full", "Debtors list, late promises and WhatsApp reminders"]),
+            ("Customers & vehicles", "Faces and plates you recognise.", ["Profiles with photo, vehicles and full history", "Statements with a running balance", "Company and fleet accounts that pay monthly"]),
+            ("Money & shifts", "Every shilling traceable.", ["Cash, MTN MoMo, Airtel Money, bank and card", "Receipts show paid now and the balance left", "Cash shifts: expected vs counted, reason for any gap"]),
+            ("Staff", "Your team in one place.", ["Employee profiles with photos and ID cards", "Clock in and out at the gate", "Jobs, parking handled and earnings per person"]),
+            ("Reports & control", "Know your day from your phone.", ["Daily summary: received, billed, owed, expenses", "Branches, messages and the Pulse cloud", "Tamper-evident audit trail and approvals"]),
+        ],
+        prices=[("Monthly", "50,000"), ("6 months", "250,000"), ("1 year", "450,000"), ("Lifetime", "1,800,000")],
+        faqs=[
+            ("Is it for a car wash, a parking or a garage?", "All three, and boda wash points. At setup choose what you do; MotoPulse fills in starting services, prices per vehicle type and parking rates that you can change at any time."),
+            ("A customer says “I will pay you tomorrow”. What happens?", "Choose Pay later: MotoPulse records the amount, the promised date, a note and who allowed it. It shows on the customer’s profile and on the debtors list until it is paid, and a payment always clears the oldest bill first. Walk-ins without a profile always pay in full."),
+            ("How do daily customers work?", "Register them once with their daily amount. Each day one tap records their arrival, parks the vehicle if you want and charges the day once — paid now or left on the account. You see who came, who is parked and who has paid."),
+            ("Does it need internet?", "No. One computer is the Host; phones and tablets at the gate connect to it on the same WiFi. Internet is used, when available, for branch totals, licence delivery and support messages."),
         ],
     ),
     "pulselmis": dict(

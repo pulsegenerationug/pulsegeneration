@@ -21,7 +21,7 @@ RTL = {"ar"}
 # URL path → built file. Legal pages, privacy policies and the changelog stay in English.
 PAGES = {"/": "index.html", "/pulsehmis/": "pulsehmis/index.html", "/pulselmis/": "pulselmis/index.html",
          "/edupulse/": "edupulse/index.html", "/pulseremit-pro/": "pulseremit-pro/index.html", "/pulsestock/": "pulsestock/index.html",
-         "/pulseproperty/": "pulseproperty/index.html", "/lwasa-ludo/": "lwasa-ludo/index.html", "/pricing/": "pricing/index.html",
+         "/pulseproperty/": "pulseproperty/index.html", "/motopulse/": "motopulse/index.html", "/lwasa-ludo/": "lwasa-ludo/index.html", "/pricing/": "pricing/index.html",
          "/demo/": "demo/index.html", "/customers/": "customers/index.html", "/security/": "security/index.html",
          "/company/": "company/index.html", "/help/": "help/index.html", "/status/": "status/index.html",
          "/support/": "support/index.html", "/account/": "account/index.html"}

@@ -1179,6 +1179,8 @@ table.matrix { width: 100%; border-collapse: collapse; font-size: 14px; min-widt
 /* ===== PulseLMIS (2026-10-24) ===== */
 :root { --lab: #14B8C4; --lab-deep: #0E7C86; }
 .grad-lab { background: linear-gradient(100deg, #5eead4 0%, var(--lab-deep) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad-moto { background: linear-gradient(100deg, #30C4E8 0%, #0A84A8 55%, #FFB020 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.product.moto::before { background: radial-gradient(120% 80% at 100% 0%, #30C4E8 0%, transparent 55%), linear-gradient(160deg, #0A5F7A 0%, #0B1B2B 100%); }
 .product.lab::before { background: radial-gradient(120% 80% at 100% 0%, #5eead4 0%, transparent 55%), linear-gradient(160deg, #0b4f55 0%, #031c1f 100%); }
 
 

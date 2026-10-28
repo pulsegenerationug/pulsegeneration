@@ -92,7 +92,7 @@ try {{ if (localStorage.getItem('pg_consent') === 'yes') window.pgLoadTracking()
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
-<link rel="stylesheet" href="/site/site.css?v=14">
+<link rel="stylesheet" href="/site/site.css?v=15">
 <script>(function(){{{theme}}})();</script>
 {extra}</head>
 '''
@@ -105,6 +105,7 @@ APPS = [
     ("PulseRemit Pro", "/pulseremit-pro/", "/site/img/pulseremit-icon-96.webp", "Banks, SACCOs & money transfer"),
     ("PulseStock", "/pulsestock/", "/site/img/pulsestock-icon-96.webp", "Pharmacies, supermarkets & shops"),
     ("PulseProperty Pro", "/pulseproperty/", "/site/img/pulseproperty-icon-96.webp", "Landlords & property managers"),
+    ("MotoPulse", "/motopulse/", "/site/img/motopulse-icon-96.webp", "Car washes, parkings & garages"),
     ("Lwasa Ludo", "/lwasa-ludo/", "/site/img/ludo-icon-96.webp", "Free 3D Ludo game in Luganda"),
 ]
 
@@ -170,6 +171,7 @@ def footer():
           <li><a href="/pulseproperty/">PulseProperty Pro</a></li>
           <li><a href="/pulsestock/">PulseStock</a></li>
           <li><a href="/pulselmis/">PulseLMIS</a></li>
+          <li><a href="/motopulse/">MotoPulse</a></li>
           <li><a href="/lwasa-ludo/">Lwasa Ludo</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/#downloads">All downloads</a></li>
@@ -190,6 +192,7 @@ def footer():
           <li><a href="/pulseproperty/privacy-policy.html">PulseProperty Pro privacy</a></li>
           <li><a href="/pulsestock/privacy-policy.html">PulseStock privacy</a></li>
           <li><a href="/pulselmis/privacy-policy.html">PulseLMIS privacy</a></li>
+          <li><a href="/motopulse/privacy-policy.html">MotoPulse privacy</a></li>
           <li><a href="/delete-account/">Delete your account</a></li>
           <li><a href="/refund-policy/">Refund &amp; return policy</a></li>
         </ul>
@@ -236,6 +239,7 @@ PRICES = {  # UGX, as shipped in each app (lib/.../licen[cs]e*.dart, app_info.da
     "pulseremit": ("PulseRemit Pro", "one institution (all its branches)", [150000, 750000, 1300000, 5000000]),
     "pulsestock": ("PulseStock", "one business (all its branches)", [80000, 400000, 750000, 3000000]),
     "pulseproperty": ("PulseProperty Pro", "one landlord or agency (all its properties)", [100000, 500000, 900000, 3500000]),
+    "motopulse": ("MotoPulse", "one business (all its branches)", [50000, 250000, 450000, 1800000]),
 }
 
 def price_table():
@@ -340,7 +344,7 @@ def page(out, title, desc, path, body, active="", tab="home", body_class="", for
     html = (head(title, desc, path, image=image, force_dark=force_dark, extra=jsonld) +
             f'<body class="{body_class}">\n' + nav(active) + '<main id="main">\n' + body + '\n</main>\n' + footer() + tabbar(tab) +
             f'<a class="wa-float" href="https://wa.me/256700677555?text=Hello%20Pulse%20Generation%20UG" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">{ICON["wa"]}</a>\n'
-            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=14" defer></script>\n</body>\n</html>\n')
+            '<div class="toast-region" aria-live="polite"></div>\n<script src="/site/site.js?v=15" defer></script>\n</body>\n</html>\n')
     # tiny template helpers inside bodies: {{icon:name}} and {{social:name}}
     html = re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: ICON[m.group(1)], html)
     html = re.sub(r"\{\{socials\}\}", lambda m: socials(), html)
@@ -403,6 +407,10 @@ if __name__ == "__main__":
          "PulseLMIS runs medical and reference laboratories: reception, barcoded specimens, result entry with critical alerts, validation, branded reports, QC, analyser interfaces, billing and branches. For Android and Windows.",
          "/pulselmis/", (P / "pulselmis.html").read_text(encoding="utf-8") + "{{stories:PulseLMIS}}", active="PulseLMIS", tab="apps", image="/images/og/pulselmis.png",
          jsonld=app_ld("PulseLMIS", "MedicalApplication", "Offline-first laboratory information system.", "/pulselmis/", os="Android, Windows"))
+    page("motopulse/index.html", "MotoPulse · Car wash, parking & garage software that works offline",
+         "MotoPulse runs car washes, boda wash points, parkings and garages: jobs with the worker who did them, parking tickets and rates, daily customers, pay-later with promise dates, shifts and reports. For Android, Windows, iPhone and Mac.",
+         "/motopulse/", (P / "motopulse.html").read_text(encoding="utf-8") + "{{stories:MotoPulse}}", active="MotoPulse", tab="apps", image="/images/og/motopulse.png",
+         jsonld=app_ld("MotoPulse", "BusinessApplication", "Offline-first car wash, parking and garage management.", "/motopulse/"))
     page("support/index.html", "Support · Pulse Generation UG", "Read our reply to your message and answer back.", "/support/",
          (P / "support.html").read_text(encoding="utf-8"), tab="home")
     page("account/index.html", "My account · Pulse Generation UG", "Your Pulse account: conversations with us, your details and release news.", "/account/",
