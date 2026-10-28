@@ -60,7 +60,7 @@ APPS = {
         headline='Every vehicle. Every payment.<br><span class="grad-moto">Every shift.</span>',
         lead="MotoPulse runs car washes, boda wash points, parkings, detailing studios and garages: check a vehicle in in seconds, see who washed it, park and release with a ticket, keep daily customers on their own register, and never forget who said “I will pay you tomorrow”.",
         video="BL5p3M6Q5lc", shot="motopulse-dashboard_light", shot2="motopulse-parking_light", phone="motopulse-phone_jobs",
-        strip=[("Version", "1.0.0", "New"), ("Platforms", "4", "Android · Windows · iPhone · Mac"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on"), ("From", "50k", "UGX / month")],
+        strip=[("Version", "1.1.0", "Latest"), ("Countries", "245", "any currency & tax"), ("Platforms", "4", "Android · Windows · iPhone · Mac"), ("Internet", "None", "for daily work"), ("Free trial", "30 days", "everything on")],
         features=[
             ("Jobs & queue", "From the gate to the handover.", ["Check in by plate in seconds: the customer and balance appear", "Prices per vehicle type: boda, saloon, SUV, taxi, truck", "Waiting · working · ready · handed over, with timers"]),
             ("Who did what", "Every job has a name on it.", ["Employee photo grid: tap who is washing", "Recorded-by on every job, ticket and payment", "Commission per worker, per job or per day"]),
@@ -70,7 +70,11 @@ APPS = {
             ("Customers & vehicles", "Faces and plates you recognise.", ["Profiles with photo, vehicles and full history", "Statements with a running balance", "Company and fleet accounts that pay monthly"]),
             ("Money & shifts", "Every shilling traceable.", ["Cash, MTN MoMo, Airtel Money, bank and card", "Receipts show paid now and the balance left", "Cash shifts: expected vs counted, reason for any gap"]),
             ("Staff", "Your team in one place.", ["Employee profiles with photos and ID cards", "Clock in and out at the gate", "Jobs, parking handled and earnings per person"]),
-            ("Reports & control", "Know your day from your phone.", ["Daily summary: received, billed, owed, expenses", "Branches, messages and the Pulse cloud", "Tamper-evident audit trail and approvals"]),
+            ("Express lane & Bay Mode", "Walk-ins in seconds, bays that run themselves.", ["One tap per service: next free worker, pay, receipt", "Shared bay tablet: tap your photo, PIN, big Start / Done", "Plate scanning with the camera, Sun mode for bright bays"]),
+            ("Bookings, packages & clubs", "Customers who come back.", ["Bookings by bay and time, one tap to start the job", "Prepaid wash packs, unlimited wash clubs, parking passes", "Boda stages and fleets: one account pays for its members"]),
+            ("Photos & proof", "End damage disputes.", ["Photos at check-in and hand-over, before / after slider", "Customer signature at hand-over", "Ratings, complaints, incidents and warranties followed to the end"]),
+            ("Accounts & loss checks", "Books your accountant trusts.", ["Double-entry journal behind every bill, payment and refund", "Profit & loss, trial balance, margins, day close (Z report)", "Loss checks: voids, discounts, short cash-ups, refunds"]),
+            ("Any country, any currency", "Built for Uganda, ready for the world.", ["All 245 countries; every ISO currency with its decimals", "VAT / GST / sales tax, included or added", "Accept other currencies at your rate (USD in Juba)"]),
         ],
         prices=[("Monthly", "50,000"), ("6 months", "250,000"), ("1 year", "450,000"), ("Lifetime", "1,800,000")],
         faqs=[
@@ -116,7 +120,7 @@ def page(slug, a):
     ver = f' data-app-version="{a["name"]}"'
     strip = "\n".join(f'          <div><small>{k}</small><b{ver if k == "Version" else ""}>{v}</b><span>{s}</span></div>' for k, v, s in a["strip"])
     feats = "\n".join(
-        f'      <div class="feature reveal" style="--d:{(i % 3) * .05:.2f}s"><div class="t-ico {ICO[i]}">{{{{icon:check}}}}</div><h3>{t}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul></div>'
+        f'      <div class="feature reveal" style="--d:{(i % 3) * .05:.2f}s"><div class="t-ico {ICO[i % len(ICO)]}">{{{{icon:check}}}}</div><h3>{t}</h3><p>{p}</p><ul>{"".join(f"<li>{x}</li>" for x in li)}</ul></div>'
         for i, (t, p, li) in enumerate(a["features"]))
     plans = "\n".join(
         f'      <div class="plan{" pop" if n == "1 year" else ""} reveal">{"<span class=pop-tag>Best value</span>" if n == "1 year" else ""}<h3>{n}</h3><div class="price">{p} <small>UGX</small></div><p class="per">Per organisation · every computer & phone</p>'

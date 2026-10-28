@@ -175,23 +175,23 @@
   {
    "app": "MotoPulse",
    "platform": "Android",
-   "version": "1.0.0",
-   "size": "116 MB",
-   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/MotoPulse-1.0.0.apk"
+   "version": "1.1.0",
+   "size": "117 MB",
+   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28b/MotoPulse-1.1.0.apk"
   },
   {
    "app": "MotoPulse",
    "platform": "Windows",
-   "version": "1.0.0",
-   "size": "15 MB",
-   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/MotoPulse-Setup-1.0.0.exe"
+   "version": "1.1.0",
+   "size": "16 MB",
+   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28b/MotoPulse-Setup-1.1.0.exe"
   },
   {
    "app": "MotoPulse",
    "platform": "Mac",
-   "version": "1.0.0",
-   "size": "25 MB",
-   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/MotoPulse-1.0.0-Mac.zip"
+   "version": "1.1.0",
+   "size": "26 MB",
+   "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28b/MotoPulse-1.1.0-Mac.zip"
   }
  ],
  "notice": {
@@ -202,10 +202,10 @@
  },
  "news": [
   {
-   "title": "New: MotoPulse for car washes, parkings & garages",
+   "title": "MotoPulse 1.1: any country, accounts, bookings and Bay Mode",
    "date": "2026-10-28",
    "product": "MotoPulse",
-   "body": "Jobs with the worker who did them, parking tickets and rates, a daily register for boda riders and regulars, “pay later” with promise dates and a debtors list, staff ID cards, cash shifts and daily reports. 30 days free."
+   "body": "Every country and currency with tax, other currencies at your rate, photos at check-in and hand-over, express lane, Bay Mode for wash bays, bookings, wash clubs and parking passes, group accounts for boda stages, profit & loss and loss checks."
   },
   {
    "title": "PulseHMIS 2.4: safer pharmacy",
