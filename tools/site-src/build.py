@@ -377,7 +377,7 @@ if __name__ == "__main__":
 
     P = HERE / "pages"
     page("index.html", "Pulse Generation UG · Offline-first apps for hospitals, schools, banks and play",
-         "Offline-first apps for hospitals, laboratories, schools, money transfer, property and stock: PulseHMIS, PulseLMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock and Lwasa Ludo. Built in Uganda for Android, Windows and Mac.",
+         "Offline-first apps for hospitals, laboratories, schools, money transfer, property, stock and garages: PulseHMIS, PulseLMIS, EduPulse, PulseRemit Pro, PulseProperty Pro, PulseStock, MotoPulse and Lwasa Ludo. Built in Uganda for Android, Windows and Mac.",
          "/", (P / "home.html").read_text(encoding="utf-8"), tab="home", jsonld=org)
     page("pulsehmis/index.html", "PulseHMIS · Hospital management that works with no internet",
          "PulseHMIS runs your whole clinic, from reception to the injection room, over your own local network. Offline-first, for Android, Windows and Mac.",
