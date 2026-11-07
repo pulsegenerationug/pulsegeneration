@@ -1351,3 +1351,5 @@ table.matrix { width: 100%; border-collapse: collapse; font-size: 14px; min-widt
 .newsletter > * { min-width: 0; }
 @media (max-width: 480px) { .nl-row { flex-wrap: wrap; } .nl-row input { flex-basis: 100%; } .nl-row .btn { width: 100%; } }
 .seg-wrap { justify-content: safe center; }
+
+.product.connect::before { background: radial-gradient(120% 80% at 100% 0%, #2DD4BF 0%, transparent 55%), linear-gradient(160deg, #0F766E 0%, #06201D 100%); }
