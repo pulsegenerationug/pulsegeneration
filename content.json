@@ -66,6 +66,13 @@
       "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-Setup-1.4.1.exe"
     },
     {
+      "app": "PulseConnect",
+      "platform": "Mac",
+      "version": "1.4.1",
+      "size": "45 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-Mac.zip"
+    },
+    {
       "app": "PulseHMIS",
       "platform": "Android",
       "version": "2.4.0",
