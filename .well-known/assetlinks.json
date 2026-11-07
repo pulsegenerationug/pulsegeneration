@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ug.pulsegeneration.pulseconnect",
+      "sha256_cert_fingerprints": [
+        "FC:60:97:C2:49:7F:33:46:35:71:F7:3B:EB:7C:ED:A3:07:A4:0A:E2:65:1D:89:18:C9:66:EF:94:04:33:AC:5A"
+      ]
+    }
+  }
+]

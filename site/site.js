@@ -48,6 +48,11 @@
 
   /* ================= APP CATALOGUE ================= */
   var APPS = {
+    "PulseConnect": {
+      slug: "pulseconnect", icon: "/site/img/pulseconnect-icon-192.png",
+      subtitle: "Chat, groups, calls, services and market in one app",
+      category: "Communication", color: "ico-teal"
+    },
     "PulseHMIS": {
       slug: "pulsehmis", icon: "/site/img/pulsehmis-icon-192.webp",
       subtitle: "Hospital management that works with no internet",

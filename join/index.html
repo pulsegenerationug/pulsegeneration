@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join a group on PulseConnect</title>
+<meta name="description" content="You have been invited to a group on PulseConnect, the chat, calls and market app by Pulse Generation UG.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Join my group on PulseConnect">
+<meta property="og:description" content="Chat, calls, services and market in one app. Tap to join the group.">
+<meta property="og:image" content="https://pulsegenerationug.com/site/img/pulseconnect-icon-512.png">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="/site/img/pulseconnect-icon-96.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<style>
+  :root { --bg: #F2F5F4; --card: #FFFFFF; --text: #0B1F1C; --muted: #4B5D5A; --accent: #0F766E; --accent-2: #0E7490; --line: #DCE5E3; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #071311; --card: #0F201D; --text: #EAF4F2; --muted: #A9BDB9; --accent: #2DD4BF; --accent-2: #22D3EE; --line: #1E3632; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+  .card { width: 100%; max-width: 440px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 32px 24px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.08); }
+  .icon { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 6px 20px rgba(15,118,110,.3); }
+  h1 { font-size: 24px; line-height: 1.25; margin: 18px 0 6px; letter-spacing: -.02em; }
+  p { color: var(--muted); margin: 0 0 20px; }
+  .btn { display: block; width: 100%; padding: 14px 18px; border-radius: 14px; font: 700 16px Inter, system-ui, sans-serif; text-decoration: none; border: 0; cursor: pointer; margin-top: 10px; }
+  .primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+  @media (prefers-color-scheme: dark) { .primary { color: #04201C; } }
+  .ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--line); }
+  ol { text-align: left; color: var(--muted); padding-left: 20px; margin: 22px 0 0; font-size: 14.5px; }
+  .note { font-size: 13px; color: var(--muted); margin-top: 18px; }
+  .bad { display: none; }
+  .foot { margin-top: 22px; font-size: 13px; }
+  .foot a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="icon" src="/site/img/pulseconnect-icon-192.png" alt="PulseConnect">
+  <div id="ok">
+    <h1>You're invited to a group</h1>
+    <p>Open PulseConnect to see the group and join. If you don't have the app yet, download it first; it's free.</p>
+    <a class="btn primary" id="open" href="#">Open in PulseConnect</a>
+    <a class="btn ghost" href="/pulseconnect/#download">Download PulseConnect</a>
+    <button class="btn ghost" id="copy" type="button">Copy invite link</button>
+    <ol>
+      <li>Install PulseConnect and sign in.</li>
+      <li>Tap <b>Open in PulseConnect</b> above, or open the app, tap the pencil, choose <b>Join with a link</b> and paste the invite link.</li>
+      <li>Tap <b>Join</b>.</li>
+    </ol>
+  </div>
+  <div id="bad" class="bad">
+    <h1>This invite link is incomplete</h1>
+    <p>Ask the group admin to send the link again.</p>
+    <a class="btn primary" href="/pulseconnect/">About PulseConnect</a>
+  </div>
+  <p class="foot">PulseConnect by <a href="/">Pulse Generation UG</a>, Kampala</p>
+</main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var g = q.get('g') || (location.hash.match(/g=([^&]+)/) || [])[1] || '';
+  if (!/^[A-Za-z0-9_-]{6,64}$/.test(g)) {
+    document.getElementById('ok').style.display = 'none';
+    document.getElementById('bad').style.display = 'block';
+    return;
+  }
+  var link = 'https://pulsegenerationug.com/join/?g=' + g;
+  var scheme = 'pulseconnect://join?g=' + g;
+  var android = /android/i.test(navigator.userAgent);
+  var open = document.getElementById('open');
+  open.href = android
+    ? 'intent://join?g=' + g + '#Intent;scheme=pulseconnect;package=ug.pulsegeneration.pulseconnect;S.browser_fallback_url=' + encodeURIComponent('https://pulsegenerationug.com/pulseconnect/#download') + ';end'
+    : scheme;
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this;
+    function done() { b.textContent = 'Copied. Paste it in “Join with a link”'; }
+    if (navigator.clipboard) navigator.clipboard.writeText(link).then(done, function () { prompt('Copy this link:', link); });
+    else prompt('Copy this link:', link);
+  });
+})();
+</script>
+</body>
+</html>

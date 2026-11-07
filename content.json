@@ -45,6 +45,27 @@
   ],
   "downloads": [
     {
+      "app": "PulseConnect",
+      "platform": "Android",
+      "version": "1.4.1",
+      "size": "68 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-android-arm64.apk"
+    },
+    {
+      "app": "PulseConnect",
+      "platform": "Android (older phones)",
+      "version": "1.4.1",
+      "size": "55 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-android-older-phones.apk"
+    },
+    {
+      "app": "PulseConnect",
+      "platform": "Windows",
+      "version": "1.4.1",
+      "size": "22 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-Setup-1.4.1.exe"
+    },
+    {
       "app": "PulseHMIS",
       "platform": "Android",
       "version": "2.4.0",
@@ -213,6 +234,12 @@
     "text": "Android: this update needs a reinstall. Back up first and save the backup outside the app, then uninstall, install the new version and restore. Windows: just run the new Setup."
   },
   "news": [
+    {
+      "title": "PulseConnect 1.4: groups, invite links and faster photos",
+      "date": "2026-11-07",
+      "product": "PulseConnect",
+      "body": "Group chats for up to 250 people with admins and invite links that open the app, typing indicators, instant blurred previews for photos and videos, and social links on your profile. Android, Windows and soon Mac."
+    },
     {
       "title": "MotoPulse 1.1: any country, accounts, bookings and Bay Mode",
       "date": "2026-10-28",

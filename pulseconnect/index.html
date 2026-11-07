@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulseConnect · Chat, calls, services and market in one app</title>
+<meta name="description" content="PulseConnect by Pulse Generation UG: private chats and groups, voice and video calls, find trusted service providers, buy and sell, in 10 languages. Android, Windows and Mac.">
+<meta property="og:title" content="PulseConnect · Chat, calls, services and market">
+<meta property="og:description" content="Private chats and groups, voice and video calls, trusted providers and a local market. Made in Kampala.">
+<meta property="og:image" content="https://pulsegenerationug.com/site/img/pulseconnect-icon-512.png">
+<meta name="theme-color" content="#0F766E">
+<link rel="icon" href="/site/img/pulseconnect-icon-96.png">
+<link rel="canonical" href="https://pulsegenerationug.com/pulseconnect/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root { --bg: #F4F7F6; --card: #FFFFFF; --text: #0B1F1C; --muted: #4B5D5A; --accent: #0F766E; --accent-2: #0E7490; --line: #DCE5E3; --chip: #E6F2F0; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #071311; --card: #0F201D; --text: #EAF4F2; --muted: #A9BDB9; --accent: #2DD4BF; --accent-2: #22D3EE; --line: #1E3632; --chip: #12302B; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+  header.top a.home { display: flex; gap: 10px; align-items: center; font-weight: 700; color: var(--text); text-decoration: none; }
+  .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; padding: 40px 0 24px; }
+  @media (max-width: 760px) { .hero { grid-template-columns: 1fr; text-align: center; padding-top: 16px; } .hero .art { order: -1; } }
+  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); margin: 0 0 24px; }
+  .art { display: flex; justify-content: center; }
+  .art img { width: min(260px, 60vw); border-radius: 56px; box-shadow: 0 24px 60px rgba(15,118,110,.35); }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  @media (max-width: 760px) { .btns { justify-content: center; } }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 14px; font-weight: 700; text-decoration: none; border: 1.5px solid var(--line); color: var(--text); background: var(--card); }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: 0; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #04201C; } }
+  .btn small { font-weight: 500; opacity: .8; }
+  section { padding: 32px 0; }
+  h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 18px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .f { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+  .f b { display: block; margin-bottom: 4px; font-size: 16.5px; }
+  .f span { color: var(--muted); font-size: 14.5px; }
+  .dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .dl a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; text-decoration: none; color: var(--text); }
+  .dl a b { display: block; }
+  .dl a span { color: var(--muted); font-size: 14px; }
+  .dl a.best { border: 2px solid var(--accent); }
+  .muted { color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .chip { background: var(--chip); padding: 5px 12px; border-radius: 999px; font-size: 13.5px; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); margin-top: 24px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; margin-bottom: 10px; }
+  summary { font-weight: 600; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="home" href="/"><img src="/site/img/pulseconnect-icon-96.png" width="32" height="32" alt="" style="border-radius:8px">Pulse Generation UG</a>
+    <a href="#download">Download</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>PulseConnect</h1>
+      <p class="lead">Chat and groups, voice and video calls, trusted service providers and a local market, in one app that keeps working on slow networks.</p>
+      <div class="btns" id="smart"></div>
+      <div class="chips"><span class="chip">Android</span><span class="chip">Windows</span><span class="chip">Mac</span><span class="chip">10 languages</span><span class="chip">Encrypted backups</span></div>
+    </div>
+    <div class="art"><img src="/site/img/pulseconnect-icon-512.png" alt="PulseConnect app icon"></div>
+  </div>
+
+  <section>
+    <h2>Everything people need, in one place</h2>
+    <div class="grid">
+      <div class="f"><b>Chats and groups</b><span>Groups of up to 250 people with admins and invite links. Reply, react, edit, forward, pin and search.</span></div>
+      <div class="f"><b>Voice and video calls</b><span>Clear calls over Wi-Fi or mobile data, with call history.</span></div>
+      <div class="f"><b>Fast photos and videos</b><span>Photos are made smaller before sending, and a preview shows at once while the full file arrives.</span></div>
+      <div class="f"><b>Discover services</b><span>Find plumbers, salons, tutors and more near you, with real reviews and verified identities.</span></div>
+      <div class="f"><b>Market</b><span>Sell products and services, share your pages from YouTube, TikTok, Instagram, Facebook, X and LinkedIn.</span></div>
+      <div class="f"><b>Private by design</b><span>Messages live on your phone in an encrypted database. Backups are encrypted with your own passphrase.</span></div>
+    </div>
+  </section>
+
+  <section id="download">
+    <h2>Download</h2>
+    <div class="dl" id="dl"><p class="muted">Loading downloads…</p></div>
+    <p class="muted" style="margin-top:14px">Android: allow "Install unknown apps" for your browser when asked. Windows: run the Setup. Mac: unzip, then right-click PulseConnect and choose Open the first time.</p>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details><summary>Someone sent me a group invite link</summary><p class="muted">Install PulseConnect, sign in, then tap the link again. You can also open the app, tap the pencil, choose "Join with a link" and paste it.</p></details>
+    <details><summary>Updating Android from 1.4.0 or older</summary><p class="muted">From 1.4.1 PulseConnect is signed with the Pulse Generation UG release key. Back up in Me › Backup first, uninstall the old app, install the new one and restore.</p></details>
+    <details><summary>Deleting my account</summary><p class="muted">In the app: Me › Account › Delete account. Or see <a href="/delete-account/">how to delete your account</a>.</p></details>
+  </section>
+
+  <footer>
+    PulseConnect is made by <a href="/">Pulse Generation UG</a>, Kampala, Uganda. Owner and founder: Lwasa George.
+    · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/support/">Support</a>
+  </footer>
+</div>
+<script>
+(function () {
+  var APP = 'PulseConnect';
+  var ua = navigator.userAgent;
+  var mine = /android/i.test(ua) ? 'Android' : /mac os x/i.test(ua) && !/iphone|ipad/i.test(ua) ? 'Mac' : /windows/i.test(ua) ? 'Windows' : '';
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  fetch('/content.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (c) {
+    var list = (c.downloads || []).filter(function (d) { return d.app === APP && /^https:\/\//.test(d.url || ''); });
+    var box = document.getElementById('dl');
+    if (!list.length) { box.innerHTML = '<p class="muted">Downloads are being prepared.</p>'; return; }
+    box.innerHTML = list.map(function (d) {
+      var best = mine && d.platform.indexOf(mine) === 0 && !/older/i.test(d.platform);
+      return '<a class="' + (best ? 'best' : '') + '" href="' + esc(d.url) + '"><b>' + esc(d.platform) + '</b><span>Version ' + esc(d.version || '') + (d.size ? ' · ' + esc(d.size) : '') + (d.note ? ' · ' + esc(d.note) : '') + '</span></a>';
+    }).join('');
+    var pick = list.filter(function (d) { return mine && d.platform.indexOf(mine) === 0 && !/older/i.test(d.platform); })[0];
+    var smart = document.getElementById('smart');
+    smart.innerHTML = (pick ? '<a class="btn primary" href="' + esc(pick.url) + '">Download for ' + esc(mine) + ' <small>v' + esc(pick.version) + '</small></a>' : '') +
+      '<a class="btn' + (pick ? '' : ' primary') + '" href="#download">All downloads</a>';
+  }).catch(function () {
+    document.getElementById('dl').innerHTML = '<p class="muted">See the <a href="https://github.com/pulsegenerationug/pulsegeneration/releases">downloads on GitHub</a>.</p>';
+  });
+})();
+</script>
+</body>
+</html>
