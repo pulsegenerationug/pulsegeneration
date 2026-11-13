@@ -53,23 +53,23 @@
     {
       "app": "PulseConnect",
       "platform": "Android",
-      "version": "1.4.1",
-      "size": "68 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-android-arm64.apk"
+      "version": "1.5.0",
+      "size": "70 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.5.0-android-arm64.apk"
     },
     {
       "app": "PulseConnect",
       "platform": "Android (older phones)",
-      "version": "1.4.1",
-      "size": "55 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-android-older-phones.apk"
+      "version": "1.5.0",
+      "size": "56 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.5.0-android-older-phones.apk"
     },
     {
       "app": "PulseConnect",
       "platform": "Windows",
-      "version": "1.4.1",
+      "version": "1.5.0",
       "size": "22 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-Setup-1.4.1.exe"
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-Setup-1.5.0.exe"
     },
     {
       "app": "PulseConnect",
@@ -247,6 +247,12 @@
     "text": "Android: this update needs a reinstall. Back up first and save the backup outside the app, then uninstall, install the new version and restore. Windows: just run the new Setup."
   },
   "news": [
+    {
+      "title": "PulseConnect 1.5: built for the desktop",
+      "date": "2026-11-13",
+      "product": "PulseConnect",
+      "body": "A centred reading column, the chat list and conversation side by side, a collapsible sidebar, keyboard shortcuts, hover and focus everywhere, clearer dark mode, a window that remembers its size, and one PulseConnect at a time on Windows."
+    },
     {
       "title": "PulseConnect 1.4: groups, invite links and faster photos",
       "date": "2026-11-07",
