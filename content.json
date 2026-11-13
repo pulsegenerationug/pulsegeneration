@@ -74,9 +74,9 @@
     {
       "app": "PulseConnect",
       "platform": "Mac",
-      "version": "1.4.1",
-      "size": "45 MB",
-      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.4.1-Mac.zip"
+      "version": "1.5.0",
+      "size": "46 MB",
+      "url": "https://github.com/pulsegenerationug/pulsegeneration/releases/download/v2026.10.28/PulseConnect-1.5.0-Mac.zip"
     },
     {
       "app": "PulseHMIS",
